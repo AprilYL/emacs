@@ -1,0 +1,7 @@
+# -*- mode: snippet -*-
+# name: org python basic
+# key: codepyb
+# --
+#+BEGIN_SRC ipython :session
+  $0
+#+END_SRC

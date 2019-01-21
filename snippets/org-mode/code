@@ -1,0 +1,8 @@
+# -*- mode: snippet -*-
+# name: orgmode code block
+# key: code
+# --
+#+BEGIN_SRC $1
+$2
+#+END_SRC
+$0

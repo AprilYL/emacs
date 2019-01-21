@@ -15,7 +15,7 @@
  '(custom-enabled-themes (quote (monokai)))
  '(custom-safe-themes
    (quote
-    ("bd7b7c5df1174796deefce5debc2d976b264585d51852c962362be83932873d9" "a24c5b3c12d147da6cef80938dca1223b7c7f70f2f382b26308eba014dc4833a" default)))
+    ("8aebf25556399b58091e533e455dd50a6a9cba958cc4ebb0aab175863c25b9a4" "bd7b7c5df1174796deefce5debc2d976b264585d51852c962362be83932873d9" "a24c5b3c12d147da6cef80938dca1223b7c7f70f2f382b26308eba014dc4833a" default)))
  '(elpy-get-info-from-shell t)
  '(elpy-mode-hook (quote (python-mode)))
  '(elpy-modules
@@ -29,10 +29,16 @@
  '(hl-sexp-background-color "#1c1f26")
  '(initial-scratch-message "
 ")
+ '(markdown-command "pandoc" t)
  '(markdown-enable-math t)
+ '(monokai-background "#272822")
+ '(monokai-gray "#565656")
+ '(monokai-highlight-line "#3E3D32")
  '(package-selected-packages
    (quote
-    (dockerfile-mode docker meghanada python-docstring color-moccur ace-window helm-projectile helm-descbinds dumb-jump 0blayout emacs-material-theme material-theme ein py-autopep8 projectile git-timemachine gitconfig-mode gitignore-mode git-blamed magit pipenv pyenv pyvenv pandoc-mode gh-md whitespace-cleanup-mode markdown-mode default-text-scale origami ensime dash-at-point csv-mode company-quickhelp typescript-mode ob-coffeescript coffee-mode json-mode company-tern skewer-less auto-complete-nxml mmm-mode sass-mode rainbow-mode pip-requirements company-anaconda use-package goto-chg helm-core multiple-cursors pkg-info popup pythonic s shut-up undo-tree company monokai-theme hungry-delete swiper counsel smartparens js2-mode nodejs-repl exec-path-from-shell popwin reveal-in-osx-finder anaconda-mode web-mode js2-refactor expand-region iedit org-pomodoro helm-ag flycheck auto-yasnippet evil evil-leader window-numbering powerline evil-surround evil-nerd-commenter pallet which-key)))
+    (neotree avy simple-httpd monokai-theme evil-surroud async f ghub git-commit helm ivy page-break-lines ox-gfm ob-ipython dockerfile-mode docker meghanada python-docstring color-moccur ace-window helm-projectile helm-descbinds dumb-jump 0blayout emacs-material-theme material-theme ein py-autopep8 projectile git-timemachine gitconfig-mode gitignore-mode git-blamed magit pipenv pyenv pyvenv pandoc-mode gh-md whitespace-cleanup-mode markdown-mode default-text-scale origami ensime dash-at-point csv-mode company-quickhelp typescript-mode ob-coffeescript coffee-mode json-mode company-tern skewer-less auto-complete-nxml mmm-mode sass-mode rainbow-mode pip-requirements company-anaconda use-package goto-chg helm-core multiple-cursors pkg-info popup pythonic s shut-up undo-tree company hungry-delete swiper counsel smartparens js2-mode nodejs-repl exec-path-from-shell popwin reveal-in-osx-finder anaconda-mode web-mode js2-refactor expand-region iedit org-pomodoro helm-ag flycheck auto-yasnippet evil evil-leader window-numbering powerline evil-surround evil-nerd-commenter pallet which-key)))
+ '(pandoc-use-async nil)
+ '(projectile-find-dir-includes-top-level t)
  '(python-skeleton-autoinsert t)
  '(vc-annotate-background nil)
  '(vc-annotate-color-map
@@ -61,6 +67,6 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- )
+ '(default ((((class color) (min-colors 257)) (:foreground "#F8F8F2" :background "#272822")) (((class color) (min-colors 89)) (:foreground "#F5F5F5" :background "#1B1E1C")))))
 
 (provide 'custom)

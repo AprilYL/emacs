@@ -1,0 +1,11 @@
+# -*- mode: snippet -*-
+# name: python define function comment
+# key: pyc
+# --
+\"\"\"
+Args:
+	$1:$2
+Return:
+	$5
+\"\"\"
+	$0

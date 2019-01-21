@@ -1,0 +1,6 @@
+# -*- mode: snippet -*-
+# name: python define funciton
+# key: def
+# --
+def ${1:func}(${2:*args,*kwargs}):
+    $0

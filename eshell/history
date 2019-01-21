@@ -1,0 +1,20 @@
+cd
+cd Documents/algorithm/
+ls
+cd OdAlgorithm/
+ls
+cd OdAlgorithm/
+ls
+cd GetData/
+ls
+cd ..
+ls
+cd Computer/
+ls
+cp pool.py ~/Documents/algorithm/Wz_Index/wz_index/utils/
+ipython
+clear
+cleanr
+clear
+cd ..
+python manage.py runserver

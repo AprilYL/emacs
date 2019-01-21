@@ -1,0 +1,7 @@
+# -*- mode: snippet -*-
+# name: org python plot
+# key: codepyp
+# --
+#+BEGIN_SRC ipython :session :results raw drawer
+$0
+#+END_SRC

@@ -8,15 +8,18 @@
     (:map evil-normal-state-map
 	  ("C-e" . move-end-of-line)
 	  ("C-y" . yank)
-	  ;; ("C-w" . evil-delete)
+	  ("C-a" . move-beginning-of-line)
+	  ("C-w" . evil-delete)
 	  :map evil-insert-state-map 
 	  ("C-e" . move-end-of-line)
 	  ("C-y" . yank)
-	  ;; ("C-w" . evil-delete)
+	  ("C-a" . move-beginning-of-line)
+	  ("C-w" . evil-delete)
 	  :map evil-visual-state-map
 	  ("C-e" . move-end-if-line)
 	  ("C-y" . yank)
-	  ;; ("C-w" . evil-delete)		
+	  ("C-a" . move-beginning-of-line)
+	  ("C-w" . evil-delete)		
 	  )
     :config
     (evil-leader/set-key
@@ -36,11 +39,37 @@
     "3"  'select-window-3
     "4"  'select-window-4
     "5"  'select-window-5
+    ;;origami
+    "ono" 'origami-open-node
+    "ons" 'origami-show-node
+    "onc" 'origami-close-node
+    "ont" 'origami-toggle-node
+    
+    "oro" 'origami-open-node-recursively
+    "orc" 'origami-close-node-recursively
+    "orf" 'origami-forward-toggle-node
+
+    "oao" 'origami-open-all-nodes
+    "oac" 'origami-close-all-nodes
+    "oat" 'origami-toggle-all-nodes
+
+    "ofn" 'origami-next-fold
+    "ofp" 'origami-previous-fold
+    "off" 'origami-forward-fold
+
+    ;;neotree
+    "tt" 'neotree-toggle
+    "tp" 'neotree-projectile-action
+    
     )
     (global-evil-leader-mode)
     )
+  (use-package evil-surround
+    :ensure t
+    :config
+    (global-evil-surround-mode t))
   (setq evil-want-C-u-scroll t)
-  (setq evil-want-C-w-delete t)
+  ;; (setq evil-want-C-w-delete t)
   (global-evil-leader-mode))
 
 (add-hook 'occur-mode-hook
