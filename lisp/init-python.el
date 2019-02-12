@@ -8,10 +8,11 @@
   (use-package py-autopep8
     :ensure t
     :hook (python-mode . py-autopep8-enable-on-save)
-    :bind ("C-c b" . py-autopep8-buffer)))
+    :bind ("C-c b" . py-autopep8-buffer))
+  )
 
 
-
+;;configure anaconda
 (use-package anaconda-mode
   :config
   (add-hook 'python-mode-hook 'anaconda-mode)
@@ -39,4 +40,7 @@
   :init
   (setq pipenv-projectile-after-switch-function #'pipenv-projectile-after-switch-extended))
 
+(use-package ein
+ )
+  
 (provide 'init-python)

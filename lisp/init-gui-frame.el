@@ -42,7 +42,7 @@
 
 
 
-
+;; configure gui size
 (if (display-graphic-p)
     (progn
       (setq initial-frame-alist

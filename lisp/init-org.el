@@ -24,8 +24,8 @@
       (R .t)
   ))
    (setq org-confirm-babel-evaluate nil)
-   (setq org-agenda-files (list "~/Documents/Org/work.org"
-				"~/Documents/Org/person.org"
+   (setq org-agenda-files (list "~/Documents/Org/work/work.org"
+				"~/Documents/Org/person/person.org"
 				))
   )
  

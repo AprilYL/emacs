@@ -10,25 +10,38 @@
 	  ("C-y" . yank)
 	  ("C-a" . move-beginning-of-line)
 	  ("C-w" . evil-delete)
+	  ("C-k" . evil-delete-line)
 	  :map evil-insert-state-map 
 	  ("C-e" . move-end-of-line)
 	  ("C-y" . yank)
 	  ("C-a" . move-beginning-of-line)
 	  ("C-w" . evil-delete)
+	  ("C-k" . evil-delete-line)
 	  :map evil-visual-state-map
 	  ("C-e" . move-end-if-line)
 	  ("C-y" . yank)
 	  ("C-a" . move-beginning-of-line)
 	  ("C-w" . evil-delete)		
+	  ("C-k" . evil-delete-line)
 	  )
     :config
     (evil-leader/set-key
+    ;;file shortcut
     "ff" 'find-file
     "fd" 'delete-file
     "fr" 'recentf-open-files
+
+    ;;buffer shortcut
     "bs" 'save-buffer
     "bc" 'switch-to-buffer
     "bk" 'kill-buffer
+    "be" 'eval-buffer
+    "bd" 'evil-scroll-page-down
+    "bu" 'evil-scroll-page-up
+    "bm" 'recenter-top-bottom
+
+    ;;windown
+    "ws" 'ace-swap-window
     "wv" 'split-window-vertically
     "wh" 'split-window-horizontally
     "wc" 'kill-buffer-and-window
@@ -39,6 +52,7 @@
     "3"  'select-window-3
     "4"  'select-window-4
     "5"  'select-window-5
+
     ;;origami
     "ono" 'origami-open-node
     "ons" 'origami-show-node

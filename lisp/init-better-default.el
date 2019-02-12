@@ -6,20 +6,26 @@
 ;;file always refresh automatically,
 (global-auto-revert-mode t)
 
+;;show line number
 (global-linum-mode t)
 
+;;close  auto generate backup
 (setq make-backup-files nil)
 
+;;close auto save buffer
 (setq auto-save-default nil)
 
+;;limit recentf file number
 (setq recentf-max-menu-item 25)
 
+;;show paren
 (add-hook 'emacs-lisp-mode-hook 'show-paren-mode)
 
 (defun indent-buffer ()
   (interactive)
   (indent-region (point-min) (point-max)))
 
+;; show the paren
 (defun indent-region-or-buffer ()
   (interactive)
   (save-excursion
@@ -31,7 +37,7 @@
 	(indent-buffer)
 	(message "Indented buffer.")))))
 
-
+;; enable delete select 
 (delete-selection-mode t)
 
 (setq hippie-expand-try-function-list '(try-expand-debbrev
@@ -56,6 +62,7 @@
 	     (ignore-errors (backward-up-list))
 	     (funcall fn)))))
 
+;; dos file configure
 (defun hidden-dos-eol()
   (interactive)
   (setq buffer-display-table) (make-display-table)
@@ -67,6 +74,7 @@
   (while (search-forward "\r" nil t)
     (replace-match "")))
 
+;;configure encode
 (set-language-environment "UTF-8")
 (set-default-coding-systems 'utf-8)
 
