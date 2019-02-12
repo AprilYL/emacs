@@ -103,6 +103,7 @@
 (depends-on "python-docstring")
 (depends-on "pythonic")
 (depends-on "pyvenv")
+(depends-on "rainbow-delimiters")
 (depends-on "rainbow-mode")
 (depends-on "realgud")
 (depends-on "request")
