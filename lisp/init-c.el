@@ -17,7 +17,7 @@
   (use-package modern-cpp-font-lock
     :diminish
     :init
-    (modern-c++-font-locak-global-mode-mode t))
+    (modern-c++-font-lock-global-mode t))
    
   (use-package irony
     :defines (irony-mode-map irony-server-w32-pipe-buffer-size)

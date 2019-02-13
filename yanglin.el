@@ -9,13 +9,20 @@
 (require 'init-use-package)
 
 ;;-----------------------------------------------------------------------------------;;
-;; config basic
+;; basic configurations
 ;;-----------------------------------------------------------------------------------;;
-(require 'init-gui-frame)
+(require 'init-ui)
 (require 'init-better-default)
-(require 'init-theme)
-(require 'init-recentf)
+;; (require 'init-theme)
 (require 'init-window-number)
+;; (require 'init-dashboard)
+
+;;-----------------------------------------------------------------------------------;;
+;; file configurations  
+;;-----------------------------------------------------------------------------------;;
+(require 'init-recentf)
+(require 'init-dired)
+(require 'init-treemacs)
 
 
 ;;-----------------------------------------------------------------------------------;;
@@ -27,10 +34,8 @@
 ;;-----------------------------------------------------------------------------------;;
 ;; config edit
 ;;-----------------------------------------------------------------------------------;;
-(require 'init-iedit)
 (require 'init-auto-yasnippet)
-(require 'init-smartparens)
-(require 'init-expand-mode)
+(require 'init-edit)
 
 
 
@@ -40,17 +45,17 @@
 (require 'init-dumb-jump)
 (require 'init-python)
 (require 'init-csv)
-(require 'init-js)
+(require 'init-web)
 (require 'init-nodejs)
 (require 'init-java)
 (require 'init-markdown)
 (require 'init-org)
-(require 'init-html)
 (require 'init-flycheck)
 (require 'init-dash)
 (require 'init-git)
 (require 'init-projectile)
 (require 'init-docker)
+(require 'init-c)
 
 ;;-----------------------------------------------------------------------------------;;
 ;; key config
@@ -58,16 +63,18 @@
 (require 'init-keybindings)
 (require 'init-evil)
 ;; show what shortcut you define 
-(require 'init-whichkey)
 
+;;-----------------------------------------------------------------------------------;;
+;; some utils 
+;;-----------------------------------------------------------------------------------;;
+(require 'init-utils)
 
 ;;-----------------------------------------------------------------------------------;;
 ;; config window
 ;;-----------------------------------------------------------------------------------;;
-(require 'init-ace-window)
 (require 'init-neotree)
-(require 'init-powerline)
 (require 'init-doom-themes)
+(require 'init-ido)
 
 ;;-----------------------------------------------------------------------------------;;
 ;; config complete
@@ -83,5 +90,7 @@
 (require 'init-popwin)
 (require 'init-helm)	
 (require 'init-origami)  ;;code toggle
+(require 'init-treemacs)
+(require 'init-highlight)
 (setq custom-file (expand-file-name "lisp/custom.el" user-emacs-directory))
 (load-file custom-file)

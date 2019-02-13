@@ -6,9 +6,6 @@
 ;;file always refresh automatically,
 (global-auto-revert-mode t)
 
-;;show line number
-(global-linum-mode t)
-
 ;;close  auto generate backup
 (setq make-backup-files nil)
 
@@ -50,17 +47,16 @@
 					try-expand-line
 					try-complete-lisp-symbol-partially
 					try-complete-lisp-symbol))
-(fset 'yes-or-no-p 'y-or-n-p)
 
 
 
 
-(define-advice show-paren-function (:around (fn) fix-show-paren-function)
-  "Highlight enclosing parens"
-  (cond ((looking-at-p "\\s(") (funcall fn))
-	(t (save-excursion
-	     (ignore-errors (backward-up-list))
-	     (funcall fn)))))
+;; (define-advice show-paren-function (:around (fn) fix-show-paren-function)
+;;   "Highlight enclosing parens"
+;;   (cond ((looking-at-p "\\s(") (funcall fn))
+;; 	(t (save-excursion
+;; 	     (ignore-errors (backward-up-list))
+;; 	     (funcall fn)))))
 
 ;; dos file configure
 (defun hidden-dos-eol()
