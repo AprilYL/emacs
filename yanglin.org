@@ -16,7 +16,6 @@
   ;;-----------------------------------------------------------------------------------;;
   ;; config basic
   ;;-----------------------------------------------------------------------------------;;
-  (require 'init-ui)
   (require 'init-gui-frame)
   (require 'init-better-default)
   (require 'init-theme)
@@ -73,6 +72,8 @@
   (require 'init-ace-window)
   (require 'init-neotree)
   (require 'init-powerline)
+  (require 'init-doom-themes)
+  (require 'init-ido)
   
   ;;-----------------------------------------------------------------------------------;;
   ;; config complete
@@ -86,7 +87,7 @@
   ;;-----------------------------------------------------------------------------------;;
   (require 'init-dired)
   (require 'init-popwin)
-;;  (require 'init-helm)	
+  (require 'init-helm)	
   (require 'init-origami)  ;;code toggle
   (setq custom-file (expand-file-name "lisp/custom.el" user-emacs-directory))
   (load-file custom-file)

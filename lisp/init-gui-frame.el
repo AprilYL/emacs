@@ -20,7 +20,7 @@
 (when (and (eq system-type 'darwin) (fboundp 'toggle-frame-fullscreen))
   ;; Command-Option-f to toggle fullscreen mode
   ;; Hint: Customize `ns-use-native-fullscreen'
-  (global-set-key (kbd "M-ƒ") 'toggle-frame-fullscreen))
+  (global-set-key (kbd "C-M-f") 'toggle-frame-fullscreen))
 
 
 (setq frame-title-format
@@ -60,5 +60,13 @@
 	      (internal-border-width . 0)
 	      ))
       ))
+
+
+(setq-default cursor-type 'bar)
+
+;; (setq  initial-frame-alist (quote ((fullscreen . maximized)))) 
+
+(global-hl-line-mode t)
+
 
 (provide 'init-gui-frame)

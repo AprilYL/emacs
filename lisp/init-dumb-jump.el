@@ -4,8 +4,10 @@
          ("M-g i" . dumb-jump-go-prompt)
          ("M-g x" . dumb-jump-go-prefer-external)
          ("M-g z" . dumb-jump-go-prefer-external-other-window))
-  :config (setq dumb-jump-selector 'ivy) ;; (setq dumb-jump-selector 'helm)
-  :ensure)
+  :config
+  ;; (setq dumb-jump-selector 'ivy)
+  (setq dumb-jump-selector 'helm)
+  :ensure t)
 
 (provide 'init-dumb-jump)
  

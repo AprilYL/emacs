@@ -1,8 +1,7 @@
-;;config helm
 (use-package helm
-  :demand t
-  :bind
-  (("M-x" . helm-M-x)
+:demand t
+:bind
+ (("M-x" . helm-M-x)
    ("M-s o" . helm-occur)
    ("C-x C-f" . helm-find-files)
    ("C-x b" . helm-mini)
@@ -12,10 +11,14 @@
   )
   :config
   (helm-mode 1)
-  (setq helm-split-window-in-side-p nil)
+  ;; (setq helm-split-window-in-side-p nil)
+  ;; (setq helm-split-window-in-side-p nil)
   
   (use-package helm-descbinds
-    :config(helm-descbinds-mode)))
+    :config
+    (helm-descbinds-mode)
+    )
+  )
 (use-package helm-ag)
 
 (use-package helm-projectile
