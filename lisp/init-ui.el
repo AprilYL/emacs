@@ -54,10 +54,10 @@
                 (set-frame-parameter nil 'ns-appearance bg)
                 (setcdr (assq 'ns-appearance default-frame-alist) bg)))))
 
-(unless emacs/>=27p
-  (unless sys/mac-x-p (menu-bar-mode -1))
-  (and (bound-and-true-p tool-bar-mode) (tool-bar-mode -1))
-  (and (fboundp 'scroll-all-mode) (scroll-bar-mode -1)))
+(unless sys/mac-x-p (menu-bar-mode -1))
+(and (bound-and-true-p tool-bar-mode) (tool-bar-mode -1))
+(and (fboundp 'scroll-all-mode) (scroll-bar-mode -1))
+
 
 ;; Mode-line
 (defun mode-line-height ()
@@ -72,6 +72,7 @@
 ;;            treemacs-mode)
 ;;           . hide-mode-line-mode)))
 
+
 ;; Icons
 ;; NOTE: Must run `M-x all-the-icons-install-fonts' manually on Windows
 (use-package all-the-icons
@@ -84,27 +85,19 @@
 (setq-default fill-column 80)
 (setq column-number-mode t)
 (setq line-number-mode t)
-;; Show native line numbers if possible, otherwise use linum
-(if (fboundp 'display-line-numbers-mode)
-    (use-package display-line-numbers
-      :ensure nil
-      :hook (prog-mode . display-line-numbers-mode))
-  (use-package linum-off
-    :demand
-    :defines linum-format
-    :hook (after-init . global-linum-mode)
-    :config
-    (setq linum-format "%4d ")
 
-    ;; Highlight current line number
-    (use-package hlinum
-      :defines linum-highlight-in-all-buffersp
-      :hook (global-linum-mode . hlinum-activate)
-      :init
-      (setq linum-highlight-in-all-buffersp t)
-      (custom-set-faces
-       `(linum-highlight-face
-         ((t (:inherit 'default :background ,(face-background 'default) :foreground ,(face-foreground 'default)))))))))
+
+;; Show line number
+;; Highlight current line number
+(use-package hlinum
+  :defines linum-highlight-in-all-buffersp
+  :hook (global-linum-mode . hlinum-activate)
+  :init
+  (add-hook 'after-init-hook 'global-linum-mode)
+  (setq linum-highlight-in-all-buffersp t)
+  (custom-set-faces
+   `(linum-highlight-face
+     ((t (:inherit 'default :background ,(face-background 'default) :foreground ,(face-foreground 'default)))))))
 
 ;; Mouse & Smooth Scroll
 ;; Scroll one line at a time (less "jumpy" than defaults)
@@ -114,6 +107,7 @@
       scroll-margin 0
       scroll-conservatively 100000)
 
+
 ;; Display Time
 (use-package time
   :ensure nil
@@ -122,6 +116,7 @@
   :init
   (setq display-time-24hr-format t)
   (setq display-time-day-and-date t))
+
 
 ;; Misc
 (fset 'yes-or-no-p 'y-or-n-p)
@@ -142,7 +137,9 @@
   (setq x-gtk-use-system-tooltips nil))
 
 ;; Toggle fullscreen
-(bind-keys
- ("C-s-f" . toggle-frame-fullscreen) ; Compatible with macOS
- )
+;; (bind-keys
+;;  ("M-RET" . toggle-frame-fullscreen) ; Compatible with macOS
+;;  )
 (provide 'init-ui)
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;; init-ui.el ends here

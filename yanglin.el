@@ -14,7 +14,6 @@
 (require 'init-ui)
 (require 'init-better-default)
 ;; (require 'init-theme)
-(require 'init-window-number)
 ;; (require 'init-dashboard)
 
 ;;-----------------------------------------------------------------------------------;;
@@ -52,7 +51,7 @@
 (require 'init-org)
 (require 'init-flycheck)
 (require 'init-dash)
-(require 'init-git)
+(require 'init-vcs)
 (require 'init-projectile)
 (require 'init-docker)
 (require 'init-c)
@@ -65,7 +64,7 @@
 ;; show what shortcut you define 
 
 ;;-----------------------------------------------------------------------------------;;
-;; some utils 
+;; some utils ,include which key,ace-window,window-numberring
 ;;-----------------------------------------------------------------------------------;;
 (require 'init-utils)
 
@@ -88,7 +87,7 @@
 ;;-----------------------------------------------------------------------------------;;
 (require 'init-dired)
 (require 'init-popwin)
-(require 'init-helm)	
+;; (require 'init-helm)	
 (require 'init-origami)  ;;code toggle
 (require 'init-treemacs)
 (require 'init-highlight)

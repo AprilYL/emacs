@@ -1,4 +1,10 @@
-;;;Commentary: this file is configure some basic function
+;; init-better-default.el --- Initialize emacs basic configurations.
+;;; Commentary:
+;;
+;; Python configurations.
+;;
+
+;;; Code:
 
 ;;close ring bell  when is scroll to the end
 (setq ring-bell-function 'ignore)

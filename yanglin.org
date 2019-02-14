@@ -56,7 +56,7 @@
   (require 'init-org)
   (require 'init-flycheck)
   (require 'init-dash)
-  (require 'init-git)
+  (require 'init-vcs)
   (require 'init-projectile)
   (require 'init-docker)
   (require 'init-c)
@@ -92,7 +92,7 @@
   ;;-----------------------------------------------------------------------------------;;
   (require 'init-dired)
   (require 'init-popwin)
-  (require 'init-helm)	
+  ;; (require 'init-helm)	
   (require 'init-origami)  ;;code toggle
   (require 'init-treemacs)
   (require 'init-highlight)

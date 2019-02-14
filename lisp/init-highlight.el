@@ -83,7 +83,12 @@
 ;; Highlight some operations
 (use-package volatile-highlights
   :diminish
-  :hook (after-init . volatile-highlights-mode))
+  :hook (after-init . volatile-highlights-mode)
+  :config
+  (vhl/define-extension 'evil 'evil-paste-after 'evil-paste-before
+			'evil-paste-pop 'evil-move)
+  (vhl/install-extension 'evil)
+  )
 
 (provide 'init-highlight)
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
