@@ -73,10 +73,6 @@ Display *Messages* buffer in a popup window.
 
 ;;;***
 
-;;;### (autoloads nil nil ("popwin-pkg.el") (0 0 0 0))
-
-;;;***
-
 ;; Local Variables:
 ;; version-control: never
 ;; no-byte-compile: t

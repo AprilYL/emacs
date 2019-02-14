@@ -20,11 +20,6 @@ In a dired buffer, it will open the current directory.
 
 ;;;***
 
-;;;### (autoloads nil nil ("reveal-in-osx-finder-pkg.el") (0 0 0
-;;;;;;  0))
-
-;;;***
-
 ;; Local Variables:
 ;; version-control: never
 ;; no-byte-compile: t

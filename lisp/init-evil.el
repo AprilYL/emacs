@@ -95,5 +95,4 @@
 	      (kbd "N") 'evil-search-previous
 	      (kbd "C-d") 'evil-scroll-down
 	      (kbd "C-u") 'evil-scroll-up)))
-
 (provide 'init-evil)

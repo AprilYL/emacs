@@ -2,4 +2,7 @@
 (eval-when-compile
   ;; Following line is not needed if use-package.el is in ~/.emacs.d
   (add-to-list 'load-path "~/.emacs.d/lisp")
-  (provide 'init-use-package)) 
+  (require 'use-package)
+  (require 'diminish)
+  (require 'bind-key))
+  (provide 'init-use-package)

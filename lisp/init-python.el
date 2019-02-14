@@ -77,7 +77,8 @@
   :init
   (setq pipenv-projectile-after-switch-function #'pipenv-projectile-after-switch-extended))
 
-;; (use-package ein
-;;  )
+(use-package ein
+  )
 
 (provide 'init-python)
+;;; init-python.el ends here
