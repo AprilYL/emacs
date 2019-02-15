@@ -37,6 +37,7 @@
       "bk" 'kill-buffer
       "be" 'eval-buffer
       "bd" 'evil-scroll-page-down
+      "bl" 'recenter-top-bottom
       "bu" 'evil-scroll-page-up
       "bm" 'recenter-top-bottom
 
@@ -47,13 +48,14 @@
       "wc" 'kill-buffer-and-window
       "wd" 'delete-window
       "wb" 'balance-windows
-      "wm" 'toggle-frame-fullscreen
+      "wm" 'toggle-frame-maximized
       "1"  'select-window-1
       "2"  'select-window-2
       "3"  'select-window-3
       "4"  'select-window-4
       "5"  'select-window-5
 
+      
       ;;origami
       "ono" 'origami-open-node
       "ons" 'origami-show-node

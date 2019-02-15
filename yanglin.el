@@ -13,6 +13,7 @@
 ;;-----------------------------------------------------------------------------------;;
 (require 'init-ui)
 (require 'init-better-default)
+(require 'init-doom-themes)
 ;; (require 'init-theme)
 ;; (require 'init-dashboard)
 
@@ -72,7 +73,6 @@
 ;; config window
 ;;-----------------------------------------------------------------------------------;;
 (require 'init-neotree)
-(require 'init-doom-themes)
 (require 'init-ido)
 
 ;;-----------------------------------------------------------------------------------;;

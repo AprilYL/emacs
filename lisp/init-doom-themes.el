@@ -1,10 +1,22 @@
-;;configure doom themes
-;;this package is used to configure theme
+;; init-doom-themes.el --Initialize theme configurations.
+;;; Commentary:
+;;
+;; Visual (UI) configurations.
+;;
+
+;;; Code:
 (use-package doom-themes
   :config
   (setq doom-themes-enable-bold t)
   (setq doom-themes-enable-italic t)
+  (load-theme 'atom-one-dark t)
+  (doom-themes-visual-bell-config)
+  (doom-themes-neotree-config)
+  (doom-themes-treemacs-config)
+  (doom-themes-org-config)
   )
+
+;; change theme
 
 (use-package doom-modeline
   :ensure t
@@ -53,3 +65,5 @@
   (setq doom-modeline-mu4e t)
   )
 (provide 'init-doom-themes)
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;; init-doom-themes.el ends here

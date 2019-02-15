@@ -9,6 +9,7 @@
 (depends-on "anaconda-mode")
 (depends-on "ansi")
 (depends-on "async")
+(depends-on "atom-one-dark-theme")
 (depends-on "auto-complete")
 (depends-on "auto-complete-nxml")
 (depends-on "auto-yasnippet")

@@ -18,3 +18,8 @@ cleanr
 clear
 cd ..
 python manage.py runserver
+cd ..
+cd ..
+cd ..
+ipython
+exit

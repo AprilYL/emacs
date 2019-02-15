@@ -48,7 +48,7 @@
 (when sys/mac-x-p
   (add-to-list 'default-frame-alist '(ns-appearance . dark))
   (add-to-list 'default-frame-alist '(ns-transparent-titlebar . t))
-  (add-hook 'after-load-theme-hook
+  (add-hook 'after-load-theme-hootome
             (lambda ()
               (let ((bg (frame-parameter nil 'background-mode)))
                 (set-frame-parameter nil 'ns-appearance bg)
@@ -119,7 +119,7 @@
 
 
 ;; Misc
-(fset 'yes-or-no-p 'y-or-n-p)
+(defalias 'yes-or-no-p 'y-or-n-p)
 (setq inhibit-startup-screen t)
 (setq visible-bell t)
 (size-indication-mode 1)
@@ -135,6 +135,13 @@
 ;; Don't use GTK+ tooltip
 (when (boundp 'x-gtk-use-system-tooltips)
   (setq x-gtk-use-system-tooltips nil))
+
+;;Font and line space
+;; (set-face-attribute 'default nil :height 150)
+(set-default-font "Monaco 14")
+(setq-default line-spacing 0.15)
+;; (add-text-properties (point-min) (point-max)
+;; 		     '(line-spacing 0.15 line-height 1.25))
 
 ;; Toggle fullscreen
 ;; (bind-keys
