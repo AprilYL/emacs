@@ -1,7 +1,5 @@
 ;;config docker 
-(use-package docker
-  :ensure t
-  :bind ("C-c d" . docker))
+(use-package docker)
 
 (use-package dockerfile-mode
   :mode
