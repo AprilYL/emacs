@@ -17,13 +17,7 @@
  '(custom-safe-themes
    (quote
     ("bf5bdab33a008333648512df0d2b9d9710bdfba12f6a768c7d2c438e1092b633" "f0dc4ddca147f3c7b1c7397141b888562a48d9888f1595d69572db73be99a024" "100e7c5956d7bb3fd0eebff57fde6de8f3b9fafa056a2519f169f85199cc1c96" "6b2636879127bf6124ce541b1b2824800afc49c6ccd65439d6eb987dbf200c36" "8aebf25556399b58091e533e455dd50a6a9cba958cc4ebb0aab175863c25b9a4" "bd7b7c5df1174796deefce5debc2d976b264585d51852c962362be83932873d9" "a24c5b3c12d147da6cef80938dca1223b7c7f70f2f382b26308eba014dc4833a" default)))
- '(ein:shr-env
-   (quote
-    (setq ein:shr-env
-	  (quote
-	   ((shr-table-horizontal-line 45)
-	    (shr-table-vertical-line 124)
-	    (shr-table-corner 43))))))
+ '(doom-treemacs-line-spacing 0.1)
  '(elpy-get-info-from-shell t)
  '(elpy-mode-hook (quote (python-mode)))
  '(elpy-modules
@@ -57,7 +51,7 @@
  '(markdown-enable-math t)
  '(package-selected-packages
    (quote
-    (atom-one-dark-theme diminish ein hlinum dash hydra load-relative loc-changes tablist test-simple virtualenvwrapper gitconfig gitattributes-mode browse-at-remote git-messenger magit-todos magit-svn magit-gitflow forge volatile-highlights diff-hl highlight-indent-guides symbol-overlay treemacs-icons-dired treemacs-magit treemacs-evil treemacs-projectile treemacs live-py-mode yapfify mocha-snippets php-mode web-beautify mocha css-eldoc scss-mode smart-region aggressive-indent dashboard company-box company-c-headers modern-cpp-font-lock doom-modeline doom-themes rainbow-delimiters python-mode realgud google-c-style autodisass-java-bytecode tide xref-js2 tern-auto-complete yaml-mode js-comint prettier-js company-web emmet-mode neotree avy simple-httpd monokai-theme evil-surroud async f ghub git-commit helm ivy page-break-lines ox-gfm ob-ipython dockerfile-mode docker meghanada python-docstring color-moccur ace-window helm-projectile helm-descbinds dumb-jump 0blayout emacs-material-theme material-theme py-autopep8 projectile git-timemachine gitconfig-mode gitignore-mode git-blamed magit pipenv pyenv pyvenv pandoc-mode gh-md whitespace-cleanup-mode markdown-mode default-text-scale origami ensime dash-at-point csv-mode company-quickhelp typescript-mode ob-coffeescript coffee-mode json-mode company-tern skewer-less auto-complete-nxml mmm-mode sass-mode rainbow-mode pip-requirements company-anaconda use-package goto-chg helm-core multiple-cursors pkg-info popup pythonic s shut-up undo-tree company hungry-delete swiper counsel smartparens js2-mode nodejs-repl exec-path-from-shell popwin reveal-in-osx-finder anaconda-mode web-mode js2-refactor expand-region iedit org-pomodoro helm-ag flycheck auto-yasnippet evil evil-leader window-numbering powerline evil-surround evil-nerd-commenter pallet which-key)))
+    (all-the-icons find-file-in-project atom-one-dark-theme diminish ein hlinum dash hydra load-relative loc-changes tablist test-simple virtualenvwrapper gitconfig gitattributes-mode browse-at-remote git-messenger magit-todos magit-svn magit-gitflow forge volatile-highlights diff-hl highlight-indent-guides symbol-overlay treemacs-icons-dired treemacs-magit treemacs-evil treemacs-projectile treemacs live-py-mode yapfify mocha-snippets php-mode web-beautify mocha css-eldoc scss-mode smart-region aggressive-indent dashboard company-box company-c-headers modern-cpp-font-lock doom-modeline doom-themes rainbow-delimiters python-mode realgud google-c-style autodisass-java-bytecode tide xref-js2 tern-auto-complete yaml-mode js-comint prettier-js company-web emmet-mode neotree avy simple-httpd monokai-theme evil-surroud async f ghub git-commit helm ivy page-break-lines ox-gfm ob-ipython dockerfile-mode docker meghanada python-docstring color-moccur ace-window helm-projectile helm-descbinds dumb-jump 0blayout emacs-material-theme material-theme py-autopep8 projectile git-timemachine gitconfig-mode gitignore-mode git-blamed magit pipenv pyenv pyvenv pandoc-mode gh-md whitespace-cleanup-mode markdown-mode default-text-scale origami ensime dash-at-point csv-mode company-quickhelp typescript-mode ob-coffeescript coffee-mode json-mode company-tern skewer-less auto-complete-nxml mmm-mode sass-mode rainbow-mode pip-requirements company-anaconda use-package goto-chg helm-core multiple-cursors pkg-info popup pythonic s shut-up undo-tree company hungry-delete swiper counsel smartparens js2-mode nodejs-repl exec-path-from-shell popwin reveal-in-osx-finder anaconda-mode web-mode js2-refactor expand-region iedit org-pomodoro helm-ag flycheck auto-yasnippet evil evil-leader window-numbering powerline evil-surround evil-nerd-commenter pallet which-key)))
  '(pandoc-use-async nil)
  '(pos-tip-background-color "#FFFACE")
  '(pos-tip-foreground-color "#272822")
@@ -100,7 +94,9 @@
  '(diff-hl-change ((t (:background "#46D9FF"))))
  '(diff-hl-delete ((t (:background "#ff6c6b"))))
  '(diff-hl-insert ((t (:background "#98be65"))))
- '(hl-line ((t (:background "#2C323C" :height 1.25))))
- '(linum-highlight-face ((t (:inherit (quote default) :background "White" :foreground "Black")))))
+ '(hl-line ((t (:height 1.1))))
+ '(linum-highlight-face ((t (:inherit (quote default) :background "White" :foreground "Black"))))
+ '(minibuffer-prompt ((t (:foreground "#9DA5B4" :height 1.25))))
+ '(region ((t (:background "#989795")))))
 
 (provide 'custom)

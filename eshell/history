@@ -23,3 +23,19 @@ cd ..
 cd ..
 ipython
 exit
+ls
+cd Documents/Code/python/
+ls
+cd Wz_Index/
+ls
+ipython notebook
+pip install jupyter_contrib_nbextensions
+pip install jupyter-emacskeys
+jupyter contrib nbextension install --user
+jupyter nbextension enable codefolding/main
+ipython notebook
+cd ..
+cd ..
+cd..
+cd ..
+ipython notebook

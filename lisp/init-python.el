@@ -78,6 +78,9 @@
   (setq pipenv-projectile-after-switch-function #'pipenv-projectile-after-switch-extended))
 
 (use-package ein
+  :bind
+  (:map ein:notebook-mode-map
+	("C-c M-d" . ein:worksheet-delete-cell))
   )
 
 (provide 'init-python)

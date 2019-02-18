@@ -138,7 +138,7 @@
 
 ;;Font and line space
 ;; (set-face-attribute 'default nil :height 150)
-(set-default-font "Monaco 14")
+(set-default-font "Monaco 13")
 (setq-default line-spacing 0.15)
 ;; (add-text-properties (point-min) (point-max)
 ;; 		     '(line-spacing 0.15 line-height 1.25))
