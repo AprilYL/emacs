@@ -12,6 +12,11 @@
   :mode ("\\.py\\'" . python-mode)
   :interpreter ("python" . python-mode)
   :config
+  (setq python-shell-interpreter "ipython"
+	python-shell-prompt-regexp ""
+	python-shell-prompt-block-regexp "\\.\\.\\.\\.:"
+	python-shell-prompt-output-regexp ""
+	python-shell-interpreter-args "-i --pylab --simple-prompt --no-color-info")
   ;;Disable readline based native completion
   (setq python-shell-completion-native-enable nil)
   (add-hook 'inferior-python-mode-hook
@@ -24,14 +29,10 @@
     :bind ("C-c b" . py-autopep8-buffer))
   )
 
-
-;;configure anaconda
 ;; (use-package anaconda-mode
-;;   ;; :diminish anaconda-mode
-;;   :hook
-;;   ((python-mode . anaconda-mode)
-;;    (python-mode . anaconda-eldoc-mode))
 ;;   :config
+;;   (add-hook 'python-mode-hook 'anaconda-mode)
+;;   (add-hook 'python-mode-hook 'anaconda-eldoc-mode)
 ;;   (use-package company-anaconda
 ;;     :ensure t
 ;;     :after (company)
@@ -41,19 +42,21 @@
 ;; 		(set (make-local-variable 'company-backends) '(company-anaconda company-files company-dabbrev company-dabbrev-code company-yasnippet)))))
 ;;   )
 
+
 (use-package anaconda-mode
-  :defines anaconda-mode-localhost-address
-  :diminish anaconda-mode
+  :delight
   :hook ((python-mode . anaconda-mode)
          (python-mode . anaconda-eldoc-mode))
   :config
   ;; WORKAROUND: https://github.com/proofit404/anaconda-mode#faq
-  (when sys/macp
-    (setq anaconda-mode-localhost-address "localhost"))
+  (setq url-proxy-service
+	'(("no_proxy" . "^\\(127.0.0.1\\|localhost\\|10.*\\)")
+          ("http" . "127.0.0.1:6152")
+          ("https" . "127.0.0.1:6152")))
   (use-package company-anaconda
-    :after company
-    :defines company-backends
-    :init (cl-pushnew 'company-anaconda company-backends)))
+    :after (anaconda-mode company)
+    :config (add-to-list 'company-backends '(company-anaconda :with company-capf))
+    ))
 
 ;; Live Coding in Python
 (use-package live-py-mode)
@@ -77,13 +80,42 @@
   :init
   (setq pipenv-projectile-after-switch-function #'pipenv-projectile-after-switch-extended))
 
-(use-package ein
-  ;; :bind
-  ;; (:map ein:notebook-mode-map
-  ;; 	("\C-c\M-d" . ein:worksheet-delete-cell))
+(use-package ein)
+
+(use-package ob-ipython
+  :after company
+  ;; :defines company-backends
+  ;; :init (cl-pushnew 'company-ob-ipython company-backends)
   :config
-  (define-key ein:notebook-mode-map "\C-c\C-d"
-    'ein:worksheet-delete-cell)
+  ;; for now I am disabling elpy only ob-ipython minor mode
+  ;; what we should actually do, is just to ensure that
+  ;; ob-ipython's company backend comes before elpy's (TODO)
+  (add-hook 'ob-ipython-mode-hookp
+            (lambda ()
+              (elpy-mode 0)
+              (company-mode 1)))
+  (add-to-list 'company-backends '(company-ob-ipython company-anaconda))
+  )
+
+;; elpy
+(use-package elpy
+  :ensure t
+  :init
+  (setq elpy-rpc-backend "jedi")
+  (elpy-enable)
+  :config
+  (add-hook 'python-mode-hook 'elpy-mode)
+  ;; (with-eval-after-load 'elpy
+  ;;   (add-hook 'elpy-mode-hook 'elpy-use-ipython))
+  :bind (("M-*" . pop-tag-mark))
+  )
+
+;;company-jedi
+(use-package company-jedi
+  :config
+  (setq jedi:complete-on-dot t)
+  (setq jedi:use-shortcuts t)
+  (add-to-list 'company-backends 'company-jedi)
   )
 
 (provide 'init-python)

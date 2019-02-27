@@ -1,3 +1,10 @@
+;; (use-package ivy
+;;   :commands ivy-mode
+;;   :config
+;;   (setq ivy-use-virtual-buffers t)
+;;   (setq enable-recursive-minibuffers t)
+
+;;   )
 (require 'ivy)
 (add-hook 'after-init-hook 'ivy-mode)
 
@@ -10,11 +17,10 @@
 					  ivy-initial-inputs-alist
 					  '((Man-completion-table . "^")
 					    (woman . "^"))))
+
 (require 'counsel)
 (add-hook 'after-init-hook 'counsel-mode)
 (require 'swiper)
-
-
 (global-set-key "\C-s" 'swiper)
 (global-set-key (kbd "C-c C-r") 'ivy-resume)
 (global-set-key (kbd "M-x") 'counsel-M-x)

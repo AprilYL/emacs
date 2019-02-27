@@ -14,12 +14,11 @@
 (require 'init-ui)
 (require 'init-better-default)
 (require 'init-doom-themes)
-;; (require 'init-theme)
-;; (require 'init-dashboard)
 
-;;-----------------------------------------------------------------------------------;;
+
+;; -----------------------------------------------------------------------------------;;
 ;; file configurations  
-;;-----------------------------------------------------------------------------------;;
+;; -----------------------------------------------------------------------------------;;
 (require 'init-recentf)
 (require 'init-dired)
 (require 'init-treemacs)
@@ -38,10 +37,17 @@
 (require 'init-edit)
 
 
+;;-----------------------------------------------------------------------------------;;
+;; config complete
+;;-----------------------------------------------------------------------------------;;
+(require 'init-company)
+(require 'init-auto-yasnippet)
+(require 'init-complete-minibuffer)
 
 ;;-----------------------------------------------------------------------------------;;
 ;; developer language config
 ;;-----------------------------------------------------------------------------------;;
+(require 'init-org)
 (require 'init-dumb-jump)
 (require 'init-python)
 (require 'init-csv)
@@ -49,7 +55,6 @@
 (require 'init-nodejs)
 (require 'init-java)
 (require 'init-markdown)
-(require 'init-org)
 (require 'init-flycheck)
 (require 'init-dash)
 (require 'init-vcs)
@@ -75,12 +80,6 @@
 (require 'init-neotree)
 (require 'init-ido)
 
-;;-----------------------------------------------------------------------------------;;
-;; config complete
-;;-----------------------------------------------------------------------------------;;
-(require 'init-company)
-(require 'init-auto-yasnippet)
-(require 'init-complete-minibuffer)
 
 ;;-----------------------------------------------------------------------------------;;
 ;; other config

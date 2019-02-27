@@ -3,7 +3,7 @@
 ;;; nevertheless, you probably don't want to edit it.
 ;;; -*- End Of Bookmark File Format Version Stamp -*-
 (("password"
- (filename . "~/Documents/.password.org")
+ (filename . "~/Documents/Note/.password.org")
  (front-context-string . "* 部门服务器：\nhost: 1")
  (rear-context-string)
  (position . 1))

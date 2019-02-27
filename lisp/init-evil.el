@@ -27,13 +27,13 @@
     :config
     (evil-leader/set-key
       ;;file shortcut
-      "ff" 'find-file
+      "ff" 'counsel-find-file
       "fd" 'delete-file
       "fr" 'recentf-open-files
 
       ;;buffer shortcut
       "bs" 'save-buffer
-      "bc" 'switch-to-buffer
+      "bc" 'ivy-switch-buffer
       "bk" 'kill-buffer
       "be" 'eval-buffer
       "bd" 'evil-scroll-page-down

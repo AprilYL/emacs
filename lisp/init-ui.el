@@ -7,8 +7,7 @@
 ;;; Code:
 
 (eval-when-compile
-  (require 'init-const)
-  (require 'init-custom))
+  (require 'init-const))
 
 ;;Suppress GUI features
 (setq use-file-dialog nil)
@@ -35,7 +34,7 @@
       ))
 
 ;; logo
-(setq fancy-splash-image april-logo)
+;;(setq fancy-splash-image april-logo)
 
 ;;Title
 (setq frame-title-format
@@ -50,7 +49,7 @@
   (add-to-list 'default-frame-alist '(ns-transparent-titlebar . t))
   (add-hook 'after-load-theme-hootome
             (lambda ()
-              (let ((bg (frame-parameter nil 'background-mode)))
+              (let ((bget(frame-parameter nil 'background-mode)))
                 (set-frame-parameter nil 'ns-appearance bg)
                 (setcdr (assq 'ns-appearance default-frame-alist) bg)))))
 
@@ -64,13 +63,6 @@
   "Get current height of mode-line."
   (- (elt (window-pixel-edges) 3)
      (elt (window-inside-pixel-edges) 3)))
-
-;; (use-package hide-mode-line
-;;   :hook (((completion-list-mode
-;;            completion-in-region-mode
-;;            neotree-mode
-;;            treemacs-mode)
-;;           . hide-mode-line-mode)))
 
 
 ;; Icons
@@ -139,7 +131,8 @@
 ;;Font and line space
 ;; (set-face-attribute 'default nil :height 150)
 (set-default-font "Monaco 13")
-(setq-default line-spacing 0.15)
+
+(setq-default line-spacing 0.35)
 ;; (add-text-properties (point-min) (point-max)
 ;; 		     '(line-spacing 0.15 line-height 1.25))
 

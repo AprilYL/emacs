@@ -43,6 +43,8 @@
 ;; enable delete select 
 (delete-selection-mode t)
 
+(electric-pair-mode 1)
+
 (setq hippie-expand-try-function-list '(try-expand-debbrev
 					try-expand-debbrev-all-buffers
 					try-expand-debbrev-from-kill

@@ -1,1 +1,2 @@
-nil
+((magit-am
+  ("--3way")))

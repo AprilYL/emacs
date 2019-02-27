@@ -24,8 +24,8 @@
   (after-init . doom-modeline-mode)
   :config
   (setq find-file-visit-truename t)
-  (setq doom-modeline-height 25)
-  (setq doom-modeline-bar-width 3)
+  (setq doom-modeline-height 20)
+  (setq doom-modeline-bar-width 1)
   (setq doom-modeline-buffer-file-name-style 'truncate-upto-project)
 
   ;; What executable of Python will be used (if nil nothing will be showed).
@@ -56,7 +56,7 @@
   (setq doom-modeline-github nil)
 
   ;; The interval of checking github.
-  (setq doom-modeline-github-interval (* 30 60))
+  ;; (setq doom-modeline-github-interval (* 30 60))
 
   ;; Whether display environment version or not.
   (setq doom-modeline-version t)
