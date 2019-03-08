@@ -84,3 +84,11 @@ ls
 ls
 mkdir Note
 mv .password.org  Note/
+python ftp_test.py 
+python ftp_test.py 
+python ftp_test.py 
+python ftp_test.py 
+clear
+ipyton 
+ipython
+exit

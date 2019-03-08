@@ -19,16 +19,18 @@
     (progn
       (setq initial-frame-alist
 	    '(
-	      (width . 135) ;;chars
-	      (height . 93) ;;lines
-	      (left . 193)
+	      (width . 118) ;;chars
+	      (height . 94) ;;lines
+	      (left . 960)
+	      (top . 0)
 	      (internal-border-width . 0)
 	      ))
       (setq default-frame-alist
 	    '(
-	      (width . 135)
-	      (height . 193)
-	      (left . 93)
+	      (width . 118)
+	      (height . 94)
+	      (left . 960)
+	      (top . 0)
 	      (internal-border-width . 0)
 	      ))
       ))

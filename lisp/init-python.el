@@ -55,8 +55,12 @@
           ("https" . "127.0.0.1:6152")))
   (use-package company-anaconda
     :after (anaconda-mode company)
-    :config (add-to-list 'company-backends '(company-anaconda :with company-capf))
-    ))
+    :config
+    ;; (add-to-list 'company-backends '(company-anaconda :with company-capf))
+    (add-hook 'python-mode-hook
+    	      (lambda ()
+    		(set (make-local-variable 'company-backends) '(company-anaconda company-files company-dabbrev company-dabbrev-code company-yasnippet)))
+	      )))
 
 ;; Live Coding in Python
 (use-package live-py-mode)
