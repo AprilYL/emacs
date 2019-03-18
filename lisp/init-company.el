@@ -34,7 +34,7 @@
   :config
   (setq company-tooltip-align-annotations t ; aligns annotation to the right
         company-tooltip-limit 12            ; bigger popup window
-        company-idle-delay 0               ; decrease delay before autocompletion popup shows
+        company-idle-delay 0.1               ; decrease delay before autocompletion popup shows
         company-echo-delay 0                ; remove annoying blinking
         company-minimum-prefix-length 2
         company-require-match nil
@@ -102,7 +102,7 @@
     :bind (:map company-active-map
                 ("C-c h" . company-quickhelp-manual-begin))
     :hook (global-company-mode . company-quickhelp-mode)
-    :init (setq company-quickhelp-delay 0))
+    :init (setq company-quickhelp-delay 0.1))
   )
 
 

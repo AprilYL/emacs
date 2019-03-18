@@ -2,7 +2,8 @@
   :if (eq system-type 'darwin)
   :config
   (exec-path-from-shell-initialize)
-) 
+  (setq exec-path-from-shell-arguments '("-l"))
+  ) 
 
 (use-package reveal-in-osx-finder
     :bind

@@ -92,9 +92,20 @@
 (add-hook 'occur-mode-hook
 	  (lambda ()
 	    (evil-add-hjkl-bindings occur-mode-map 'emacs
-	      (kbd "/") 'evil-search-forward
-	      (kbd "n") 'evil-search-next
-	      (kbd "N") 'evil-search-previous
+	      (kbd "/")   'evil-search-forward
+	      (kbd "n")   'evil-search-next
+	      (kbd "N")   'evil-search-previous
 	      (kbd "C-d") 'evil-scroll-down
 	      (kbd "C-u") 'evil-scroll-up)))
+(use-package evil-lion
+  :ensure t
+  :bind (:map evil-normal-state-map
+	      ("g l " . evil-lion-left)
+	      ("g L " . evil-lion-right)
+              :map evil-visual-state-map
+	      ("g l " . evil-lion-left)
+	      ("g L " . evil-lion-right))
+  :config
+  (evil-lion-mode)
+  )
 (provide 'init-evil)

@@ -83,6 +83,7 @@
 (set-language-environment "UTF-8")
 (set-default-coding-systems 'utf-8)
 
+(setq exec-path-from-shell-arguments '("-l"))
 (provide 'init-better-default)
     
 
