@@ -1,7 +1,0 @@
-# -*- mode: snippet -*-
-# name: org python
-# key: py
-# --
-#+begin_src python :session
-$0
-#+end_src

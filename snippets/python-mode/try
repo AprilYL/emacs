@@ -1,9 +1,0 @@
-# -*- mode: snippet -*-
-# name: python try catch
-# key: try
-# --
-try:
-    $1
-except ${2: Exception}:
-    $0
-
