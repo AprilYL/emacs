@@ -1,12 +1,14 @@
+;; package --- init-java.el.
+;;; Commentary:
+;;
+;; java configurations.
+;;
+
+;;; Code:
 (use-package autodisass-java-bytecode
   :ensure t
   :defer t)
 
-(use-package google-c-style
-  :defer t
-  :ensure t
-  :commands
-  (google-set-c-style))
 
 (use-package meghanada
   :defer t
@@ -26,7 +28,6 @@
     :ensure t)
   (setq indent-tabs-mode nil)
   (setq tab-width 4)
-  (setq c-basic-offset 4)
   (setq meghanada-server-remote-debug t)
   (setq meghanada-javac-xlint "-Xlint:all,-processing")
   :bind
@@ -41,7 +42,7 @@
   (meghanada-mode))
 
 (defhydra hydra-meghanada (:hint nil :exit t)
-"
+  "
 ^Edit^                           ^Tast or Task^
 ^^^^^^-------------------------------------------------------
 _f_: meghanada-compile-file      _m_: meghanada-restart
@@ -76,3 +77,4 @@ _q_: exit
   ("q" exit)
   ("z" nil "leave"))
 (provide 'init-java)
+;;; init-java ends here

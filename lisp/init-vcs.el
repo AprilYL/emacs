@@ -1,4 +1,4 @@
-;; init-vcs.el --- Initialize version control system configurations.
+;;; package --- init-vcs.el
 ;;; Commentary:
 ;;
 ;; Version control systems.
@@ -134,5 +134,4 @@ _p_rev       _u_pper              _=_: upper/lower       _r_esolve
 (use-package gitignore-mode)
 
 (provide 'init-vcs)
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;; init-vcs.el ends here

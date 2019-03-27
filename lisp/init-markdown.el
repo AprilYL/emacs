@@ -1,5 +1,7 @@
-;;; init-makrdown.el --- Major mode fo Markdown-formatted text
+;;; package --- init-markdown.el.
+
 ;;; Commentary:
+;; markdown configurations
 ;;; Code:
 (use-package markdown-mode
   :ensure t

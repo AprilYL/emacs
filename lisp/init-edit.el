@@ -6,9 +6,6 @@
 
 ;;; Code:
 
-;; Explicitly set the prefered coding systems to avoid annoying prompt
-;; from emacs (especially on Microsoft Windows)
-(prefer-coding-system 'utf-8)
 
 ;; Minor mode to aggressively keep your code always indented
 (use-package aggressive-indent
@@ -54,12 +51,8 @@
 (use-package expand-region
   :bind ("C-=" . er/expand-region))
 
-;; Smartly select region, rectangle, multi cursors
-(use-package smart-region
-  :hook (after-init . smart-region-on))
-
 ;; Smartly input parens
-(use-package smart-parens
+(use-package smartparens
   :hook
   (after-init . smartparens-global-mode)
   :config
@@ -79,10 +72,6 @@
   :hook (after-init . global-undo-tree-mode))
 
 
-;; Framework for mode-specific buffer indexes
-(use-package imenu
-  :ensure nil
-  :bind (("C-." . imenu)))
 
 ;; On-the-fly spell checker
 (use-package flyspell
@@ -98,5 +87,7 @@
   (setq flyspell-issue-message-flag nil)
   (setq ispell-program-name "aspell")
   (setq ispell-extra-args '("--sug-mode=ultra" "--lang=en_US" "--run-together")))
-
+;; enable delete select
+(delete-selection-mode t)
 (provide 'init-edit)
+;;; init-edit ends here

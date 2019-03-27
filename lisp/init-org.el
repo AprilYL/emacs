@@ -1,3 +1,8 @@
+;;; package  --- init-org;
+
+;;; Commentary:
+;; org config
+;;; Code:
 (use-package org
   :mode
   ("\\.org\\'" . org-mode)
@@ -33,4 +38,4 @@
   )
  
 (provide 'init-org)
-
+;;; init-org ends here

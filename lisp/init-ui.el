@@ -1,147 +1,219 @@
-;; init-ui.el --Initialize ui configurations.
+;;; package --- init-ui.el
+
 ;;; Commentary:
-;;
-;; Visual (UI) configurations.
-;;
+
+;; ui cofigure
 
 ;;; Code:
 
 (eval-when-compile
   (require 'init-const))
-
-;;Suppress GUI features
-(setq use-file-dialog nil)
-(setq use-dialog-box nil)
+;;show paren
+(add-hook 'emacs-lisp-mode-hook 'show-paren-mode)
 
 
-;; configure gui size
+
+;;-------------------------------------------------------;;
+;; gui size
+;;-------------------------------------------------------;;
+
 (if (display-graphic-p)
     (progn
       (setq initial-frame-alist
 	    '(
-	      (width . 118) ;;chars
-	      (height . 94) ;;lines
-	      (left . 960)
+	      (width . 118);;chars
+	      (height . 94);;lines
+	      (left . 960);;
 	      (top . 0)
 	      (internal-border-width . 0)
 	      ))
       (setq default-frame-alist
 	    '(
-	      (width . 118)
-	      (height . 94)
-	      (left . 960)
+	      (width . 118);;chars
+	      (height . 94);;lines
+	      (left . 960);;
 	      (top . 0)
 	      (internal-border-width . 0)
 	      ))
       ))
 
-;; logo
-;;(setq fancy-splash-image april-logo)
+;;-------------------------------------------------------;;
+;; Title
+;;-------------------------------------------------------;;
 
-;;Title
 (setq frame-title-format
       '("April Emacs -"
-	(:eval (if (buffer-file-name)
+	(:eval (if(buffer-file-name)
 		   (abbreviate-file-name (buffer-file-name))
 		 "%b"))))
 (setq icon-title-format frame-title-format)
+(add-to-list 'default-frame-alist '(ns-appearance . dark))
 
-(when sys/mac-x-p
-  (add-to-list 'default-frame-alist '(ns-appearance . dark))
-  (add-to-list 'default-frame-alist '(ns-transparent-titlebar . t))
-  (add-hook 'after-load-theme-hootome
-            (lambda ()
-              (let ((bget(frame-parameter nil 'background-mode)))
-                (set-frame-parameter nil 'ns-appearance bg)
-                (setcdr (assq 'ns-appearance default-frame-alist) bg)))))
-
-(unless sys/mac-x-p (menu-bar-mode -1))
-(and (bound-and-true-p tool-bar-mode) (tool-bar-mode -1))
-(and (fboundp 'scroll-all-mode) (scroll-bar-mode -1))
-
-
-;; Mode-line
-(defun mode-line-height ()
-  "Get current height of mode-line."
-  (- (elt (window-pixel-edges) 3)
-     (elt (window-inside-pixel-edges) 3)))
-
-
+;;------------------------------------------------------;;
 ;; Icons
-;; NOTE: Must run `M-x all-the-icons-install-fonts' manually on Windows
-(use-package all-the-icons
-  :if (display-graphic-p)
-  :config
-  (unless (or sys/win32p (member "all-the-icons" (font-family-list)))
-    (all-the-icons-install-fonts t)))
+;;------------------------------------------------------;;
+(use-package all-the-icons)
 
+
+;;-----------------------------------------------------;;
 ;; Line and Column
+;;-----------------------------------------------------;;
+
 (setq-default fill-column 80)
 (setq column-number-mode t)
 (setq line-number-mode t)
 
+;;show line number
+(global-linum-mode t)
 
-;; Show line number
-;; Highlight current line number
-(use-package hlinum
-  :defines linum-highlight-in-all-buffersp
-  :hook (global-linum-mode . hlinum-activate)
-  :init
-  (add-hook 'after-init-hook 'global-linum-mode)
-  (setq linum-highlight-in-all-buffersp t)
-  (custom-set-faces
-   `(linum-highlight-face
-     ((t (:inherit 'default :background ,(face-background 'default) :foreground ,(face-foreground 'default)))))))
+(setq-default left-fringe-width  10)
+(setq-default right-fringe-width  10)
+;; (set-face-attribute 'fringe nil :background "#1E2127")
+(set-face-attribute 'fringe nil :background nil)
 
-;; Mouse & Smooth Scroll
-;; Scroll one line at a time (less "jumpy" than defaults)
-(setq mouse-wheel-scroll-amount '(1 ((shift) . 1)))
-(setq mouse-wheel-progressive-speed nil)
-(setq scroll-step 1
-      scroll-margin 0
-      scroll-conservatively 100000)
-
-
-;; Display Time
+;;-----------------------------------------------------;;
+;; show time 
+;;-----------------------------------------------------;;
 (use-package time
-  :ensure nil
-  :unless (display-graphic-p)
+  ;; :ensure nil
+  ;; :unless (display-graphic-p)
   :hook (after-init . display-time-mode)
   :init
   (setq display-time-24hr-format t)
   (setq display-time-day-and-date t))
 
 
-;; Misc
-(defalias 'yes-or-no-p 'y-or-n-p)
-(setq inhibit-startup-screen t)
-(setq visible-bell t)
-(size-indication-mode 1)
-;; (blink-cursor-mode -1)
-(setq track-eol t)                      ; Keep cursor at end of lines. Require line-move-visual is nil.
-(setq line-move-visual nil)
-(setq inhibit-compacting-font-caches t) ; Don’t compact font caches during GC.
 
-;; Don't open a file in a new frame
-(when (boundp 'ns-pop-up-frames)
-  (setq ns-pop-up-frames nil))
 
-;; Don't use GTK+ tooltip
-(when (boundp 'x-gtk-use-system-tooltips)
-  (setq x-gtk-use-system-tooltips nil))
-
-;;Font and line space
-;; (set-face-attribute 'default nil :height 150)
-(set-default-font "Monaco 13")
-
+;;-----------------------------------------------------;;
+;; font
+;;-----------------------------------------------------;;
+(set-default-font "Monaco 13") 
 (setq-default line-spacing 0.35)
-;; (add-text-properties (point-min) (point-max)
-;; 		     '(line-spacing 0.15 line-height 1.25))
 
-;; Toggle fullscreen
-;; (bind-keys
-;;  ("M-RET" . toggle-frame-fullscreen) ; Compatible with macOS
-;;  )
+
+;;-----------------------------------------------------;;
+;; theme
+;;-----------------------------------------------------;;
+(use-package atom-one-dark-theme)
+(use-package doom-themes
+  :after treemacs
+  :config
+  (setq doom-themes-enable-bold t)
+  (setq doom-themes-enable-italic t)
+  (load-theme 'atom-one-dark t)
+  (doom-themes-visual-bell-config)
+  (doom-themes-treemacs-config)
+  (doom-themes-org-config)
+  )
+
+(unless sys/mac-x-p (menu-bar-mode -1))
+;;-----------------------------------------------------;;
+;; modeline
+;;-----------------------------------------------------;;
+(use-package doom-modeline
+  :ensure t
+  :hook
+  (after-init . doom-modeline-mode)
+  :config
+  (setq find-file-visit-truename t)
+  ;; How tall the mode-line should be (only respected in GUI Emacs).
+  (setq doom-modeline-height 25)
+
+  ;; How wide the mode-line bar should be (only respected in GUI Emacs).
+  (setq doom-modeline-bar-width 3)
+
+  ;; Determines the style used by `doom-modeline-buffer-file-name'.
+  ;;
+  ;; Given ~/Projects/FOSS/emacs/lisp/comint.el
+  ;;   truncate-upto-project => ~/P/F/emacs/lisp/comint.el
+  ;;   truncate-from-project => ~/Projects/FOSS/emacs/l/comint.el
+  ;;   truncate-with-project => emacs/l/comint.el
+  ;;   truncate-except-project => ~/P/F/emacs/l/comint.el
+  ;;   truncate-upto-root => ~/P/F/e/lisp/comint.el
+  ;;   truncate-all => ~/P/F/e/l/comint.el
+  ;;   relative-from-project => emacs/lisp/comint.el
+  ;;   relative-to-project => lisp/comint.el
+  ;;   file-name => comint.el
+  ;;   buffer-name => comint.el<2> (uniquify buffer name)
+  ;;
+  ;; If you are expereicing the laggy issue, especially while editing remote files
+  ;; with tramp, please try `file-name' style.
+  ;; Please refer to https://github.com/bbatsov/projectile/issues/657.
+  (setq doom-modeline-buffer-file-name-style 'truncate-upto-project)
+
+  ;; Whether show `all-the-icons' or not (if nil nothing will be showed).
+  (setq doom-modeline-icon t)
+
+  ;; Whether show the icon for major mode. It respects `doom-modeline-icon'.
+  (setq doom-modeline-major-mode-icon t)
+
+  ;; Display color icons for `major-mode'. It respects `all-the-icons-color-icons'.
+  (setq doom-modeline-major-mode-color-icon nil)
+
+  ;; Whether display minor modes or not. Non-nil to display in mode-line.
+  (setq doom-modeline-minor-modes nil)
+
+  ;; If non-nil, a word count will be added to the selection-info modeline segment.
+  (setq doom-modeline-enable-word-count nil)
+
+  ;; If non-nil, only display one number for checker information if applicable.
+  (setq doom-modeline-checker-simple-format t)
+  
+  ;; Whether display perspective name or not. Non-nil to display in mode-line.
+  (setq doom-modeline-persp-name t)
+
+  ;; Whether display `lsp' state or not. Non-nil to display in mode-line.
+  (setq doom-modeline-lsp t)
+
+  ;; Whether display github notifications or not. Requires `ghub` package.
+  (setq doom-modeline-github nil)
+
+  ;; The interval of checking github.
+  (setq doom-modeline-github-interval (* 30 60))
+
+  ;; Whether display environment version or not
+  (setq doom-modeline-env-version t)
+  ;; Or for individual languages
+  (setq doom-modeline-env-enable-python t)
+  (setq doom-modeline-env-enable-ruby t)
+  (setq doom-modeline-env-enable-perl t)
+  (setq doom-modeline-env-enable-go t)
+  (setq doom-modeline-env-enable-elixir t)
+  (setq doom-modeline-env-enable-rust t)
+
+  ;; Change the executables to use for the language version string
+  (setq doom-modeline-env-python-executable "python")
+  (setq doom-modeline-env-ruby-executable "ruby")
+  (setq doom-modeline-env-perl-executable "perl")
+  (setq doom-modeline-env-go-executable "go")
+  (setq doom-modeline-env-elixir-executable "iex")
+  (setq doom-modeline-env-rust-executable "rustc")
+
+  ;; Whether display mu4e notifications or not. Requires `mu4e-alert' package.
+  ;; (setq doom-modeline-mu4e t)
+
+  ;; Whether display irc notifications or not. Requires `circe' package.
+  ;; (setq doom-modeline-irc t)
+
+  ;; Function to stylize the irc buffer names.
+  (setq doom-modeline-irc-stylize 'identity)
+  )
+
+;;-----------------------------------------------------;;
+;; tool-bar and scroll-bar
+;;-----------------------------------------------------;;
+(tool-bar-mode -1) 
+(scroll-bar-mode -1)
+
+;;-----------------------------------------------------;;
+;; window numbering
+;;-----------------------------------------------------;;
+(use-package window-numbering
+  :demand window-numbering
+  :ensure t
+  :hook
+  (after-init . window-numbering-mode))
+
 (provide 'init-ui)
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;;; init-ui.el ends here
+;;; init-ui ends here

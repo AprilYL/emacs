@@ -1,13 +1,36 @@
-;;; package --- init-treemacs
+;;; package --- init-file.el
+
 ;;; Commentary:
-;;--- Initialize treemacs.
-;; Treemacs: A tree layout file explorer.
-;;
+
+;; the sets of file
 
 ;;; Code:
-(eval-when-compile
-  (require 'init-const))
 
+;; file always refresh automatically
+(global-auto-revert-mode t)
+
+;; close auto generate backup
+(setq make-backup-files nil)
+
+;; close auto save buffer
+(setq auto-save-default nil)
+
+
+;; -----------------------------------------------------------------------------------;;
+;; treemacs configurations,which is a file tree
+;; -----------------------------------------------------------------------------------;;
+(use-package recentf
+  :demand recentf
+  :hook
+  (after-init . recentf-mode)
+  :config
+  (setq recentf-max-menu-items 10)
+  (setq recentf-max-saved-items 100)
+  )
+
+;; -----------------------------------------------------------------------------------;;
+;; treemacs configurations,which is a file tree
+;; -----------------------------------------------------------------------------------;;
 (use-package treemacs
   :ensure t
   :defer t
@@ -70,16 +93,32 @@
         ("C-x t M-t" . treemacs-find-tag)))
 
 (use-package treemacs-evil
+  :after treemacs evil
   :ensure t)
 
 (use-package treemacs-projectile
+  :after treemacs projectile
   :ensure t)
 
 (use-package treemacs-icons-dired
+  :after treemacs dired
   :ensure t
   :config (treemacs-icons-dired-mode))
 
 (use-package treemacs-magit
+  :after treemacs magit
   :ensure t)
-(provide 'init-treemacs)
-;;; init-treemacs ends here
+
+;; -----------------------------------------------------------------------------------;;
+;; dried configurations
+;; -----------------------------------------------------------------------------------;;
+(use-package dired-x
+  :ensure nil
+  :bind
+  (:map dired-mode-map ("RET" . dired-find-alternate-file))
+  :config
+  (progn (setq dired-recursive-copies 'always)
+	 (setq dired-recursive-deletes 'always)
+	 (setq dired-copy-preserve-time 'always)))
+(provide 'init-file)
+;;; init-file ends here

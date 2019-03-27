@@ -1,4 +1,4 @@
-;; init-highlight.el --- Initialize highlighting configurations.
+;;; package  --- init-highlight;
 ;;; Commentary:
 ;;
 ;; Highlighting configurations.
@@ -9,7 +9,12 @@
 ;; Highlight the current line
 (use-package hl-line
   :ensure nil
-  :hook (after-init . global-hl-line-mode))
+  :hook (after-init . global-hl-line-mode)
+  :config
+  (set-face-background 'hl-line "#444444")
+  (set-face-foreground 'hl-line nil)
+  )
+
 
 ;;Highlight matching paren
 (use-package paren
@@ -89,6 +94,21 @@
 			'evil-paste-pop 'evil-move)
   (vhl/install-extension 'evil)
   )
+
+;;----------------------------------------------------------------------------;;
+;; highlight current line
+;;----------------------------------------------------------------------------;;
+(use-package hlinum
+  :defines linum-highlight-in-all-buffersp
+  :hook (global-linum-mode . hlinum-activate)
+  :custom-face (linum-highlight-face
+                ((t `(
+                      :inherit default
+                      :background nil
+                      :foreground nil
+                      ))))
+  :init
+  (setq linum-highlight-in-all-buffersp t))
 
 (provide 'init-highlight)
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;

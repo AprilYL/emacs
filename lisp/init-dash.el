@@ -1,3 +1,8 @@
+;;; package  --- init-dash;
+
+;;; Commentary:
+;; dash config
+;;; Code:
 (defun april/dash-installed-p ()
   "Retrun t if Dash is installed on this machine , or nil otherwise."
   (let ((lsregister "/System/Library/Frameworks/CoreServices.framework/Versions/A/Frameworks/LaunchServices.framework/Versions/A/Support/lsregister"))
@@ -18,3 +23,4 @@
       :config
       (dash-enable-font-lock)))) 
 (provide 'init-dash)
+;; init-dash ends here

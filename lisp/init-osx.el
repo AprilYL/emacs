@@ -1,6 +1,13 @@
+;;; package  --- init-osx.el;
+
+;;; Commentary:
+;; some configure for mac
+
+;;; Code:
 (use-package exec-path-from-shell
   :if (eq system-type 'darwin)
   :config
+  (setq exec-path-from-shell-check-startup-files nil)
   (exec-path-from-shell-initialize)
   (setq exec-path-from-shell-arguments '("-l"))
   ) 

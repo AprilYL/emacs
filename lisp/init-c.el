@@ -1,4 +1,4 @@
-;;; init-c.el ---Initialize c configuration.
+;; package --- init-c.el.
 ;;; Commentary:
 ;;;
 ;;; C/C++ configuration.
@@ -56,6 +56,10 @@
       :defines company-backends
       :init (cl-pushnew 'company-c-headers company-backends))))
 
+(use-package google-c-style
+  :defer t
+  :ensure t
+  :commands
+  (google-set-c-style))
 (provide 'init-c)
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;; init-c.el ends here

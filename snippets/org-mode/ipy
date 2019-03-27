@@ -1,0 +1,7 @@
+# -*- mode: snippet -*-
+# name: org mode ipython
+# key: ipy
+# --
+#+BEGIN_SRC ipython :session
+$0
+#+END_SRC
