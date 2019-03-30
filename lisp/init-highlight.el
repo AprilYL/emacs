@@ -11,7 +11,7 @@
   :ensure nil
   :hook (after-init . global-hl-line-mode)
   :config
-  (set-face-background 'hl-line "#444444")
+  (set-face-background 'hl-line "black")
   (set-face-foreground 'hl-line nil)
   )
 

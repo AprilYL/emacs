@@ -127,6 +127,5 @@
 ;;   (setq jedi:use-shortcuts t)
 ;;   (add-to-list 'company-backends 'company-jedi)
 ;;   )
-
 (provide 'init-python)
 ;;; init-python.el ends here

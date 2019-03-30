@@ -127,10 +127,14 @@
     "pb" 'helm-projectile-switch-to-buffer
     "pr" 'helm-projectile-run-project
     "ps" 'helm-projectile-ag
-
+    ;; anaconda
     "ad" 'anaconda-mode-find-definitions-other-window
     "aa" 'anaconda-mode-find-assignments-other-window
     "ar" 'anaconda-mode-find-references-other-window
+
+    ;;eshell
+    "so" 'eshell
+    "sc" 'eshell/clear-scrollback
     )
   )
 
