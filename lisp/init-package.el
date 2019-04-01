@@ -17,10 +17,10 @@
 ;;-----------------------------------------------------------------------------------;;
 ;; use-package
 ;;-----------------------------------------------------------------------------------;;
-(eval-when-compile
+
   ;; Following line is not needed if use-package.el is in ~/.emacs.d
-  (require 'use-package)
-  (require 'diminish)
-  (require 'bind-key))
+(require 'use-package)
+(require 'diminish)
+(require 'bind-key)
 (provide 'init-package)
 ;;; init-use-package ends here

@@ -28,7 +28,7 @@
           treemacs-indentation-string            " "
           treemacs-is-never-other-window         nil
           treemacs-max-git-entries               5000
-          treemacs-no-png-images                 nil
+          treemacs-no-png-images                 t
           treemacs-no-delete-other-windows       t
           treemacs-project-follow-cleanup        nil
           treemacs-persist-file                  (expand-file-name ".cache/treemacs-persist" user-emacs-directory)
@@ -62,12 +62,13 @@
        (treemacs-git-mode 'simple))))
   :bind
   (:map global-map
-        ("M-0"       . treemacs-select-window)
-        ("C-x t 1"   . treemacs-delete-other-windows)
         ("C-x t t"   . treemacs)
         ("C-x t B"   . treemacs-bookmark)
         ("C-x t C-t" . treemacs-find-file)
-        ("C-x t M-t" . treemacs-find-tag)))
+        ("C-x t M-t" . treemacs-find-tag)
+	:map treemacs-mode-map
+	([mouse-1] . treemacs-single-click-expand-action
+	 )
 
 (use-package treemacs-evil
   :ensure t)
@@ -75,9 +76,9 @@
 (use-package treemacs-projectile
   :ensure t)
 
-(use-package treemacs-icons-dired
-  :ensure t
-  :config (treemacs-icons-dired-mode))
+;; (use-package treemacs-icons-dired
+;;   :ensure t
+;;   :config (treemacs-icons-dired-mode))
 
 (use-package treemacs-magit
   :ensure t)

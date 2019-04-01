@@ -8,7 +8,6 @@
 
 ;; Highlight the current line
 (use-package hl-line
-  :ensure nil
   :hook (after-init . global-hl-line-mode)
   :config
   (set-face-background 'hl-line "black")
@@ -18,7 +17,6 @@
 
 ;;Highlight matching paren
 (use-package paren
-  :ensure nil
   :hook (after-init . show-paren-mode)
   :config
   (setq show-paren-when-point-inside-paren t)
@@ -54,36 +52,36 @@
   :hook (prog-mode . rainbow-delimiters-mode))
 
 ;; Highlight uncommitted changes
-;; (use-package diff-hl
-;;   :defines desktop-minor-mode-table
-;;   :commands diff-hl-magit-post-refresh
-;;   :custom-face
-;;   (diff-hl-change ((t (:background "#46D9FF"))))
-;;   (diff-hl-delete ((t (:background "#ff6c6b"))))
-;;   (diff-hl-insert ((t (:background "#98be65"))))
-;;   :bind (:map diff-hl-command-map
-;;               ("SPC" . diff-hl-mark-hunk))
-;;   :hook ((after-init . global-diff-hl-mode)
-;;          (dired-mode . diff-hl-dired-mode))
-;;   :config
-;;   ;; Highlight on-the-fly
-;;   (diff-hl-flydiff-mode 1)
+(use-package diff-hl
+  :defines desktop-minor-mode-table
+  :commands diff-hl-magit-post-refresh
+  :custom-face
+  (diff-hl-change ((t (:background "#46D9FF"))))
+  (diff-hl-delete ((t (:background "#ff6c6b"))))
+  (diff-hl-insert ((t (:background "#98be65"))))
+  :bind (:map diff-hl-command-map
+              ("SPC" . diff-hl-mark-hunk))
+  :hook ((after-init . global-diff-hl-mode)
+         (dired-mode . diff-hl-dired-mode))
+  :config
+  ;; Highlight on-the-fly
+  (diff-hl-flydiff-mode 1)
 
-;;   ;; Set fringe style
-;;   (setq diff-hl-draw-borders nil)
-;;   (setq fringes-outside-margins t)
-;;   (if sys/mac-x-p (set-fringe-mode '(4 . 8)))
+  ;; Set fringe style
+  (setq diff-hl-draw-borders nil)
+  (setq fringes-outside-margins t)
+  (if sys/mac-x-p (set-fringe-mode '(4 . 8)))
 
-;;   (unless (display-graphic-p)
-;;     ;; Fall back to the display margin since the fringe is unavailable in tty
-;;     (diff-hl-margin-mode 1)
-;;     ;; Avoid restoring `diff-hl-margin-mode'
-;;     (with-eval-after-load 'desktop
-;;       (add-to-list 'desktop-minor-mode-table
-;;                    '(diff-hl-margin-mode nil))))
-;;   ;; Integration with magit
-;;   (with-eval-after-load 'magit
-;;     (add-hook 'magit-post-refresh-hook #'diff-hl-magit-post-refresh)))
+  (unless (display-graphic-p)
+    ;; Fall back to the display margin since the fringe is unavailable in tty
+    (diff-hl-margin-mode 1)
+    ;; Avoid restoring `diff-hl-margin-mode'
+    (with-eval-after-load 'desktop
+      (add-to-list 'desktop-minor-mode-table
+                   '(diff-hl-margin-mode nil))))
+  ;; Integration with magit
+  (with-eval-after-load 'magit
+    (add-hook 'magit-post-refresh-hook #'diff-hl-magit-post-refresh)))
 
 ;; Highlight some operations
 (use-package volatile-highlights

@@ -1,3 +1,5 @@
+(source gnu)
+(source melpa)
 (source "gnu" "http://elpa.emacs-china.org/gnu/")
 (source "melpa" "http://elpa.emacs-china.org/melpa/")
 
@@ -7,6 +9,8 @@
 (depends-on "aggressive-indent")
 (depends-on "alert")
 (depends-on "all-the-icons")
+(depends-on "all-the-icons-dired")
+(depends-on "all-the-icons-ivy")
 (depends-on "anaconda-mode")
 (depends-on "ansi")
 (depends-on "async")

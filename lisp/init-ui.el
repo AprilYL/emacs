@@ -53,6 +53,12 @@
 ;; Icons
 ;;------------------------------------------------------;;
 (use-package all-the-icons)
+(use-package all-the-icons-ivy
+  :init (all-the-icons-ivy-setup))
+
+(use-package all-the-icons-dired
+  :hook
+  (dired-mode . all-the-icons-dired-mode))
 
 
 ;;-----------------------------------------------------;;
@@ -80,7 +86,8 @@
   :hook (after-init . display-time-mode)
   :init
   (setq display-time-24hr-format t)
-  (setq display-time-day-and-date t))
+  ;; (setq display-time-day-and-date t)
+  )
 
 
 
@@ -88,7 +95,9 @@
 ;;-----------------------------------------------------;;
 ;; font
 ;;-----------------------------------------------------;;
-(set-default-font "Monaco 13") 
+(unless sys/mac-x-p (set-default-font "Monaco 12")) 
+;;(set-default-font "Source Code Pro 12.5")
+;; (setq-default-font "Droid Sans Mono 12.5")
 (setq-default line-spacing 0.35)
 
 
@@ -103,7 +112,7 @@
   (setq doom-themes-enable-italic t)
   (load-theme 'atom-one-dark t)
   (doom-themes-visual-bell-config)
-  (doom-themes-treemacs-config)
+  ;; (doom-themes-treemacs-config)
   (doom-themes-org-config)
   )
 
@@ -118,10 +127,10 @@
   :config
   (setq find-file-visit-truename t)
   ;; How tall the mode-line should be (only respected in GUI Emacs).
-  (setq doom-modeline-height 25)
+  (setq doom-modeline-height 20)
 
   ;; How wide the mode-line bar should be (only respected in GUI Emacs).
-  (setq doom-modeline-bar-width 3)
+  (setq doom-modeline-bar-width 2)
 
   ;; Determines the style used by `doom-modeline-buffer-file-name'.
   ;;
@@ -140,7 +149,7 @@
   ;; If you are expereicing the laggy issue, especially while editing remote files
   ;; with tramp, please try `file-name' style.
   ;; Please refer to https://github.com/bbatsov/projectile/issues/657.
-  (setq doom-modeline-buffer-file-name-style 'truncate-upto-project)
+  (setq doom-modeline-buffer-file-name-style 'relative-from-project)
 
   ;; Whether show `all-the-icons' or not (if nil nothing will be showed).
   (setq doom-modeline-icon t)
@@ -149,7 +158,7 @@
   (setq doom-modeline-major-mode-icon t)
 
   ;; Display color icons for `major-mode'. It respects `all-the-icons-color-icons'.
-  (setq doom-modeline-major-mode-color-icon nil)
+  (setq doom-modeline-major-mode-color-icon t)
 
   ;; Whether display minor modes or not. Non-nil to display in mode-line.
   (setq doom-modeline-minor-modes nil)
@@ -158,10 +167,10 @@
   (setq doom-modeline-enable-word-count nil)
 
   ;; If non-nil, only display one number for checker information if applicable.
-  (setq doom-modeline-checker-simple-format t)
+  (setq doom-modeline-checker-simple-format nil)
   
   ;; Whether display perspective name or not. Non-nil to display in mode-line.
-  (setq doom-modeline-persp-name t)
+  (setq doom-modeline-persp-name nil)
 
   ;; Whether display `lsp' state or not. Non-nil to display in mode-line.
   (setq doom-modeline-lsp t)
@@ -170,10 +179,10 @@
   (setq doom-modeline-github nil)
 
   ;; The interval of checking github.
-  (setq doom-modeline-github-interval (* 30 60))
+  ;; (setq doom-modeline-github-interval (* 30 60))
 
   ;; Whether display environment version or not
-  (setq doom-modeline-env-version t)
+  (setq doom-modeline-env-version nil)
   ;; Or for individual languages
   (setq doom-modeline-env-enable-python t)
   (setq doom-modeline-env-enable-ruby t)
