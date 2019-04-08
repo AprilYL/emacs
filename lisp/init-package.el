@@ -23,4 +23,4 @@
 (require 'diminish)
 (require 'bind-key)
 (provide 'init-package)
-;;; init-use-package ends here
+;;; init-package.el ends here

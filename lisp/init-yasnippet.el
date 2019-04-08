@@ -16,5 +16,6 @@
   :hook
   (after-init . yas-global-mode)
   )
+(use-package yasnippet-snippets)
 (provide 'init-yasnippet)
 ;;; init-auto-yasnippet.el ends here

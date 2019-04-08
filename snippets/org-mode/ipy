@@ -3,5 +3,5 @@
 # key: ipy
 # --
 #+BEGIN_SRC ipython :session
-$0
+  $0
 #+END_SRC

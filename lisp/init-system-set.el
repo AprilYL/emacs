@@ -17,7 +17,6 @@
 (set-language-environment-coding-systems 'utf-8)
 (set-buffer-file-coding-system 'utf-8)
 (set-clipboard-coding-system 'utf-8)
-(set-display-table-and-terminal-coding-system 'utf-8)
 (set-file-name-coding-system 'utf-8)
 
 ;; close startup screen

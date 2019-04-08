@@ -1,5 +1,3 @@
-(source gnu)
-(source melpa)
 (source "gnu" "http://elpa.emacs-china.org/gnu/")
 (source "melpa" "http://elpa.emacs-china.org/melpa/")
 
@@ -47,6 +45,7 @@
 (depends-on "deferred")
 (depends-on "diff-hl")
 (depends-on "diminish")
+(depends-on "disable-mouse")
 (depends-on "docker")
 (depends-on "docker-tramp")
 (depends-on "dockerfile-mode")
@@ -207,4 +206,5 @@
 (depends-on "yaml-mode")
 (depends-on "yapfify")
 (depends-on "yasnippet")
+(depends-on "yasnippet-snippets")
 (depends-on "zoutline")

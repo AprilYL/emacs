@@ -1,10 +1,10 @@
-;; (use-package ivy
-;;   :commands ivy-mode
-;;   :config
-;;   (setq ivy-use-virtual-buffers t)
-;;   (setq enable-recursive-minibuffers t)
+;;; package --- init-complete-minibuffer.el
 
-;;   ))
+;;; Commentary:
+
+;; complete minibuffer cofigure
+
+;;; Code:
 (use-package counsel
   :demand counsel
   :hook
@@ -49,3 +49,4 @@
 ;; (global-set-key (kbd "C-S-o") 'counsel-rhythmbox)
 ;; (define-key minibuffer-local-map (kbd "C-r") 'counsel-minibuffer-history)
 (provide 'init-complete-minibuffer)
+;;; init-complete-minibuffer ends here

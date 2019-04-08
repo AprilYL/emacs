@@ -54,6 +54,16 @@
   (setq which-key-show-remaining-keys nil)
   )
 
+(use-package disable-mouse
+  :hook
+  (after-init . disable-mouse-mode)
+  :config
+  (mapc #'disable-mouse-in-keymap
+	(list evil-motion-state-map
+	      evil-normal-state-map
+	      evil-visual-state-map
+	      evil-insert-state-map)))
+;; (require 'init-better-default)
 (provide 'init-utils)
 ;;; init-utils ends here
 

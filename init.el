@@ -16,14 +16,13 @@
 (require 'init-system-set)
 (require 'init-ui)
 (require 'init-highlight)
-;; (require 'init-better-default)
 (require 'init-file)
 (require 'init-evil)
 (require 'init-helm)
 (require 'init-utils)
 
 ;;-----------------------------------------------------------------------------------;;
-;; some osx config 
+;; some osx config
 ;;-----------------------------------------------------------------------------------;;
 (require 'init-osx)
 
@@ -52,7 +51,7 @@
 
 
 ;;-----------------------------------------------------------------------------------;;
-;; language
+;; develope language
 ;;-----------------------------------------------------------------------------------;;
 (require 'init-python)
 (require 'init-org)
@@ -72,3 +71,4 @@
 ;; (require 'init-popwin)
 (setq custom-file (expand-file-name "lisp/custom.el" user-emacs-directory))
 (load-file custom-file)
+;;; init.el ends here
