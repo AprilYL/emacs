@@ -55,11 +55,22 @@
     (use-package company-c-headers
       :defines company-backends
       :init (cl-pushnew 'company-c-headers company-backends))))
-
+;;------------------------------------------------------------------------------
+;; code style config
+;;------------------------------------------------------------------------------
 (use-package google-c-style
   :defer t
   :ensure t
   :commands
   (google-set-c-style))
+
+
+;;------------------------------------------------------------------------------
+;; disaster
+;;------------------------------------------------------------------------------
+(use-package disaster
+  :bind
+  (:map c-mode-base-map
+	("C-c d" . disaster)))
 (provide 'init-c)
 ;;; init-c.el ends here

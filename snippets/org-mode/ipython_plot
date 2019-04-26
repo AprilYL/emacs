@@ -1,7 +1,7 @@
 # -*- mode: snippet -*-
-# name: org mode python plot
-# key: ipy_plot
+# name: python plot
+# key: pyp
 # --
-#+BEGIN_SRC ipython :session ${1::ipyfile ${2:$$(let ((temporary-file-directory "./img/")) (make-temp-file "py" nil ".png"))} }:exports ${3:both}
+#+BEGIN_SRC ipython :session :ipyfile  ${1:image.png} :exports ${3:both} :results raw drawer
 $0
 #+END_SRC

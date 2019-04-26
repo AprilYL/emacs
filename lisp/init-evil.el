@@ -65,12 +65,15 @@
   :config
   (setq evil-leader/leader "SPC")
   (evil-leader/set-key
+    ;;helm-x
+    "x" 'helm-M-x
     ;;file and frame
     "ff" 'counsel-find-file
     "fd" 'delete-file
     "fr" 'recentf-open-files
     "fm" 'make-frame
     "fo" 'other-frame
+    "fc" 'delete-frame
 
     ;;buffer shortcut
     "bs" 'save-buffer
@@ -82,6 +85,13 @@
     "bu" 'evil-scroll-page-up
     "bm" 'recenter-top-bottom
 
+    ;;scroll window
+    "k" 'scroll-down
+    "j" 'scroll-up
+    "l" 'recenter-top-bottom
+    "g" 'evil-goto-line
+    "v" 'evil-visual-line
+    ";" 'comment-dwim
     ;;windown
     "ws" 'ace-swap-window
     "wv" 'split-window-vertically
@@ -127,6 +137,7 @@
     "pb" 'helm-projectile-switch-to-buffer
     "pr" 'helm-projectile-run-project
     "ps" 'helm-projectile-ag
+
     ;; anaconda
     "ad" 'anaconda-mode-find-definitions-other-window
     "aa" 'anaconda-mode-find-assignments-other-window
@@ -134,7 +145,6 @@
 
     ;;eshell
     "so" 'eshell
-    "sc" 'eshell/clear-scrollback
     )
   )
 

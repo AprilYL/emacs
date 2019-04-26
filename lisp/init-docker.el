@@ -9,7 +9,9 @@
 
 (use-package dockerfile-mode
   :mode
-  ("Dockerfile\\'" . dockerfile-mode))
+  ("Dockerfile\\'" . dockerfile-mode)
+  :config
+  (setq indent-tabs-mode nil))
 
 (provide 'init-docker)
 ;;; init-docker ends here

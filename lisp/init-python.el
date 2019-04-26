@@ -120,12 +120,13 @@
   :bind (("M-*" . pop-tag-mark))
   )
 
-;; ;;company-jedi
+;;company-jedi
 ;; (use-package company-jedi
+;;   :hook(python-mode . jedi:setup)
 ;;   :config
 ;;   (setq jedi:complete-on-dot t)
 ;;   (setq jedi:use-shortcuts t)
 ;;   (add-to-list 'company-backends 'company-jedi)
-;;   )
+;;   ) 
 (provide 'init-python)
 ;;; init-python.el ends here

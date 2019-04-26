@@ -23,7 +23,7 @@
 	    '(
 	      (width . 118);;chars
 	      (height . 94);;lines
-	      (left . 960);;
+	      (left . 0);;
 	      (top . 0)
 	      (internal-border-width . 0)
 	      ))
@@ -31,7 +31,7 @@
 	    '(
 	      (width . 118);;chars
 	      (height . 94);;lines
-	      (left . 960);;
+	      (left . 0);;
 	      (top . 0)
 	      (internal-border-width . 0)
 	      ))
@@ -70,12 +70,14 @@
 (setq line-number-mode t)
 
 ;;show line number
-(global-linum-mode t)
+(use-package nlinum
+  :hook
+  (after-init . global-nlinum-mode)
+  :config
+  (setq-default left-fringe-width  10)
+  (setq-default right-fringe-width  10)
+  )
 
-(setq-default left-fringe-width  10)
-(setq-default right-fringe-width  10)
-;; (set-face-attribute 'fringe nil :background "#1E2127")
-(set-face-attribute 'fringe nil :background nil)
 
 ;;-----------------------------------------------------;;
 ;; show time 
@@ -106,14 +108,51 @@
 ;;-----------------------------------------------------;;
 (use-package atom-one-dark-theme)
 (use-package doom-themes
-  :after treemacs
+  :init(load-theme 'atom-one-dark t)
+  :after all-the-icons
   :config
   (setq doom-themes-enable-bold t)
   (setq doom-themes-enable-italic t)
-  (load-theme 'atom-one-dark t)
   (doom-themes-visual-bell-config)
-  ;; (doom-themes-treemacs-config)
+  (doom-themes-treemacs-config)
   (doom-themes-org-config)
+  (when doom-treemacs-use-generic-icons
+    (let ((all-the-icons-default-adjust 0))
+      (setq treemacs-icon-open-png
+            (concat
+             (all-the-icons-octicon "chevron-down"  :height 0.75 :v-adjust 0.15)
+             " "
+             (all-the-icons-octicon "file-directory" :v-adjust 0)
+             " ")
+            treemacs-icon-closed-png
+            (concat
+             (all-the-icons-octicon "chevron-right" :height 0.75 :v-adjust 0.15 :face 'font-lock-doc-face)
+             " "
+             (all-the-icons-octicon "file-directory" :v-adjust 0 :face 'font-lock-doc-face)
+             " "))
+
+      ;; File type icons
+      (setq treemacs-icons-hash (make-hash-table :size 200 :test #'equal)
+            treemacs-icon-fallback (concat
+                                    "  "
+                                    (all-the-icons-faicon "file-o"
+                                                          :face 'font-lock-doc-face
+                                                          :height 0.9
+                                                          :v-adjust -0.05)
+                                    " ")
+            treemacs-icon-text treemacs-icon-fallback)
+
+      (dolist (item all-the-icons-icon-alist)
+	(let* ((extension (car item))
+               (func (cadr item))
+               (args (append (list (caddr item))
+                             '(:height 0.9 :v-adjust -0.05)
+                             (cdddr item)))
+               (icon (apply func args))
+               (key (s-replace-all '(("^" . "") ("\\" . "") ("$" . "") ("." . "")) extension))
+               (value (concat "  " icon " ")))
+          (ht-set! treemacs-icons-hash (s-replace-regexp "\\?" "" key) value)
+          (ht-set! treemacs-icons-hash (s-replace-regexp ".\\?" "" key) value)))))
   )
 
 (unless sys/mac-x-p (menu-bar-mode -1))
@@ -179,7 +218,7 @@
   (setq doom-modeline-github nil)
 
   ;; The interval of checking github.
-  ;; (setq doom-modeline-github-interval (* 30 60))
+  (setq doom-modeline-github-interval (* 30 60))
 
   ;; Whether display environment version or not
   (setq doom-modeline-env-version nil)

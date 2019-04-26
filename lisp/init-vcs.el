@@ -31,8 +31,9 @@
   :config
   (when sys/win32p
     (setenv "GIT_ASKPASS" "git-gui--askpass"))
+
   (magit-define-popup-switch 'magit-fetch-popup
-			     ?t "Fetch all tags" "--tags"))
+    ?t "Fetch all tags" "--tags"))
 
 ;; Access Git forges from Magit
 (if (executable-find "cc")

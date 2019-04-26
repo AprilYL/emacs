@@ -10,10 +10,13 @@
 
 (use-package treemacs
   :ensure t
-  :defer t
-  :init
-  (with-eval-after-load 'winum
-    (define-key winum-keymap (kbd "M-0") #'treemacs-select-window))
+  ;; :init
+  ;; (with-eval-after-load 'winum
+  ;;   (define-key winum-keymap (kbd "M-0") #'treemacs-select-window))
+  :commands(treemacs-follow-mode
+	    treemacs-filewatch-mode
+	    treemacs-fringe-indicator-mode
+	    treemacs-git-mode)
   :config
   (progn
     (setq treemacs-collapse-dirs                 (if (executable-find "python") 3 0)
@@ -28,7 +31,7 @@
           treemacs-indentation-string            " "
           treemacs-is-never-other-window         nil
           treemacs-max-git-entries               5000
-          treemacs-no-png-images                 t
+          treemacs-no-png-images                 nil
           treemacs-no-delete-other-windows       t
           treemacs-project-follow-cleanup        nil
           treemacs-persist-file                  (expand-file-name ".cache/treemacs-persist" user-emacs-directory)
@@ -68,12 +71,13 @@
         ("C-x t M-t" . treemacs-find-tag)
 	:map treemacs-mode-map
 	([mouse-1] . treemacs-single-click-expand-action
-	 )
+	 )))
 
 (use-package treemacs-evil
   :ensure t)
 
 (use-package treemacs-projectile
+  :after treemacs projectile
   :ensure t)
 
 ;; (use-package treemacs-icons-dired
@@ -81,6 +85,13 @@
 ;;   :config (treemacs-icons-dired-mode))
 
 (use-package treemacs-magit
-  :ensure t)
+  :after treemacs magit
+  :commands treemacs-magit--schedule-update
+  :hook
+  ((git-commit-post-finish
+    magit-post-stage
+    magit-post-unstage
+    magit-post-commit) . treemacs-magit--schedule-update)
+  )
 (provide 'init-treemacs)
 ;;; init-treemacs ends here

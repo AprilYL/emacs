@@ -62,6 +62,7 @@
 (require 'init-markdown)
 (require 'init-docker)
 (require 'init-c)
+(require 'init-cuda)
 (require 'init-ido)
 
 
