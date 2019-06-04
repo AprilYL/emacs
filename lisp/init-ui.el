@@ -64,7 +64,6 @@
 ;;-----------------------------------------------------;;
 ;; Line and Column
 ;;-----------------------------------------------------;;
-
 (setq-default fill-column 80)
 (setq column-number-mode t)
 (setq line-number-mode t)
@@ -97,9 +96,9 @@
 ;;-----------------------------------------------------;;
 ;; font
 ;;-----------------------------------------------------;;
-(unless sys/mac-x-p (set-default-font "Monaco 12")) 
-;;(set-default-font "Source Code Pro 12.5")
-;; (setq-default-font "Droid Sans Mono 12.5")
+(when sys/mac-x-p (set-default-font "Monaco 15")) 
+;; (set-default-font "Source Code Pro 14")
+;; (set-default-font "Droid Sans Mono 12.5")
 (setq-default line-spacing 0.35)
 
 
@@ -116,46 +115,9 @@
   (doom-themes-visual-bell-config)
   (doom-themes-treemacs-config)
   (doom-themes-org-config)
-  (when doom-treemacs-use-generic-icons
-    (let ((all-the-icons-default-adjust 0))
-      (setq treemacs-icon-open-png
-            (concat
-             (all-the-icons-octicon "chevron-down"  :height 0.75 :v-adjust 0.15)
-             " "
-             (all-the-icons-octicon "file-directory" :v-adjust 0)
-             " ")
-            treemacs-icon-closed-png
-            (concat
-             (all-the-icons-octicon "chevron-right" :height 0.75 :v-adjust 0.15 :face 'font-lock-doc-face)
-             " "
-             (all-the-icons-octicon "file-directory" :v-adjust 0 :face 'font-lock-doc-face)
-             " "))
 
-      ;; File type icons
-      (setq treemacs-icons-hash (make-hash-table :size 200 :test #'equal)
-            treemacs-icon-fallback (concat
-                                    "  "
-                                    (all-the-icons-faicon "file-o"
-                                                          :face 'font-lock-doc-face
-                                                          :height 0.9
-                                                          :v-adjust -0.05)
-                                    " ")
-            treemacs-icon-text treemacs-icon-fallback)
-
-      (dolist (item all-the-icons-icon-alist)
-	(let* ((extension (car item))
-               (func (cadr item))
-               (args (append (list (caddr item))
-                             '(:height 0.9 :v-adjust -0.05)
-                             (cdddr item)))
-               (icon (apply func args))
-               (key (s-replace-all '(("^" . "") ("\\" . "") ("$" . "") ("." . "")) extension))
-               (value (concat "  " icon " ")))
-          (ht-set! treemacs-icons-hash (s-replace-regexp "\\?" "" key) value)
-          (ht-set! treemacs-icons-hash (s-replace-regexp ".\\?" "" key) value)))))
   )
 
-(unless sys/mac-x-p (menu-bar-mode -1))
 ;;-----------------------------------------------------;;
 ;; modeline
 ;;-----------------------------------------------------;;
@@ -251,9 +213,9 @@
 ;;-----------------------------------------------------;;
 ;; tool-bar and scroll-bar
 ;;-----------------------------------------------------;;
+(when sys/mac-x-p (menu-bar-mode -1))
 (tool-bar-mode -1) 
-(scroll-bar-mode -1)
-
+(when (or sys/mac-x-p sys/win32p) (scroll-bar-mode -1))
 ;;-----------------------------------------------------;;
 ;; window numbering
 ;;-----------------------------------------------------;;

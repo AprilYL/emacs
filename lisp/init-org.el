@@ -36,6 +36,17 @@
 			       "~/Documents/Org/person/person.org"
 			       ))
   )
- 
+
+(use-package org-bullets
+  :hook
+  (org-mode . org-bullets-mode))
+
+(use-package ox-pandoc
+  :config
+  (setq org-pandoc-options '((standalone . t)))
+  (setq org-pandoc-options-for-latex-pdf '((pdf-engine . "pdflatex")))
+  ;; special extensions for markdown_github output
+  (setq org-pandoc-format-extensions '(markdown_github+pipe_tables+raw_html))
+  )
 (provide 'init-org)
 ;;; init-org ends here

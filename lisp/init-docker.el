@@ -11,7 +11,10 @@
   :mode
   ("Dockerfile\\'" . dockerfile-mode)
   :config
-  (setq indent-tabs-mode nil))
+  (setq-default indent-tabs-mode)
+  ;; :config
+  ;; (put 'dockerfile-image-name 'safe-local-variable #'stringp)
+  )
 
 (provide 'init-docker)
 ;;; init-docker ends here

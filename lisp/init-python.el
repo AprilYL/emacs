@@ -27,7 +27,8 @@
         python-shell-completion-setup-code
         "from IPython.core.completerlib import module_completion"
         python-shell-completion-string-code
-        "';'.join(get_ipython().Completer.all_completions('''%s'''))\n")
+        "';'.join(get_ipython().Completer.all_completions('''%s'''))\n"
+	)
   ;;Disable readline based native completion
   (setq python-shell-completion-native-enable nil)
   (add-hook 'inferior-python-mode-hook
@@ -81,13 +82,11 @@
   :hook
   (pip-requirements-mode #'pip-requirements-auto-complete-setup))
 
-(use-package pyvenv
-  :ensure t)
 
-(use-package pipenv
-  :hook (python-mode . pipenv-mode)
-  :init
-  (setq pipenv-projectile-after-switch-function #'pipenv-projectile-after-switch-extended))
+;; (use-package pipenv
+;;   :hook (python-mode . pipenv-mode)
+;;   :init
+;;   (setq pipenv-projectile-after-switch-function #'pipenv-projectile-after-switch-extended))
 
 (use-package ein)
 

@@ -33,8 +33,6 @@
 	("C-a" . move-beginning-of-line)
 	("C-w" . evil-delete)		
 	("C-k" . evil-delete-line))
-  :config
-  (setq evil-want-C-u-scroll t)
   )
 
 
