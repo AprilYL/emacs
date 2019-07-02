@@ -1,6 +1,6 @@
 # -*- mode: snippet -*-
 # name: python plot
-# key: pyp
+# key: pycp
 # --
 #+BEGIN_SRC ipython :session :ipyfile  ${1:image.png} :exports ${3:both} :results raw drawer
 $0

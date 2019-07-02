@@ -40,8 +40,31 @@
 (use-package helm-ag)
 
 (use-package helm-projectile
+  :functions hydra-helm-projectile/body
   :config
-  (helm-projectile-on))
+  (helm-projectile-on)
+  (defhydra hydra-helm-projectile(:color blue :hint none)
+    "
+                       projectile
+───────────────────────────────────────────────
+_f_: projectile-find-file
+_p_: projectile-switch-project
+_b_: projectile-switch-buffer
+_r_: projectile-replace
+_s_: projectile-ag
+───────────────────────────────────────────────
+                       _q_: quit
+"
+    ("f" helm-projectile-find-file "projectile-find-file")
+    ("p" helm-projectile-switch-project "projectile-switch-project")
+    ("b" helm-projectile-switch-to-buffer "projectile-switch-buffer")
+    ("r" projectile-replace "projectile-replace")
+    ("s" helm-projectile-ag "projectile-ag")
+    ("q" nil "quit")
+    )
+
+  )
+(use-package helm-make)
 
 (provide 'init-helm) 
 ;;; init-helm ends here

@@ -6,6 +6,7 @@
 ;;; Code:
 (use-package cc-mode
   :ensure nil
+  :init
   :bind
   (:map c-mode-base-map
 	("C-c c" . compile))
@@ -32,12 +33,15 @@
   (setq irony-additional-clang-options (append '("-std=c++11") irony-additional-clang-options))
   (setq irony-additional-clang-options (append '("-I" "/usr/local/Cellar/llvm/8.0.0/include/c++/v1/") irony-additional-clang-options))
   (setq irony-additional-clang-options (append '("-I" "/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/") irony-additional-clang-options))
-  (use-package company-irony-c-headers
-    :ensure t)
+  ;; (use-package company-irony-c-headers
+  ;;   :ensure t)
   (use-package company-irony
     :ensure t
-    :config
-    (add-to-list (make-local-variable 'company-backends) '(company-irony-ignore-case company-irony-c-headers company-files company-capf company-dabbrev)))
+    ;; :config
+    :init
+    ;; (cl-pushnew 'company-irony company-backend)
+    ;; (cl-pushnew 'company-c-headers company-backend)
+    (add-to-list (make-local-variable 'company-backends) '(company-irony company-c-headers company-files company-capf company-dabbrev)))
   ;; (use-package flycheck-irony
   ;;   :ensure t
   ;;   :config
@@ -50,16 +54,18 @@
 ;;------------------------------------------------------------------------------
 ;; rtags
 ;;------------------------------------------------------------------------------
-;; (use-package rtags
-;;   :ensure t
-;;   :config
-;;   (setq rtags-verify-protocol-version nil)
-;;   (rtags-enable-standard-keybindings)
-;;   (setq rtags-autostart-diagnostics t)
-;;   (rtags-diagnostics)
-;;   (setq rtags-completions-enabled t)
-;;   (rtags-start-process-unless-running)
-;;   )
+(use-package rtags
+  :ensure t
+  :custom
+  (rtags-path "~/rtags-2.33/bin/")
+  :config
+  (setq rtags-verify-protocol-version nil)
+  (rtags-enable-standard-keybindings)
+  (setq rtags-autostart-diagnostics t)
+  (rtags-diagnostics)
+  (setq rtags-completions-enabled t)
+  (rtags-start-process-unless-running)
+  )
 ;;------------------------------------------------------------------------------
 ;; ccls
 ;;------------------------------------------------------------------------------
@@ -72,28 +78,11 @@
 (use-package ccls
   :hook
   ((c-mode c++mode objc-mode) . (lambda () (require 'ccls (lsp))))
-  :config
-  (add-to-list 'company-backends 'company-c-headers)
-  (setq ccls-executable "/usr/local/Cellar/ccls/0.20190314/bin/ccls")
+  :custom
+  (ccls-executable "/usr/local/Cellar/ccls/0.20190314/bin/ccls")
+  (ccls-sem-highlight-method 'font-lock)
   )
 
-;;------------------------------------------------------------------------------
-;; ycmd
-;;------------------------------------------------------------------------------
-;; (use-package ycmd
-;;   :init(add-hook 'c++-mode-hook #'ycmd-mode)
-;;   :config
-;;   (use-package company-ycmd
-;;     :init(company-ycmd-setup)
-;;     :config
-;;     (set-variable 'ycmd-server-command '("python" "~/.vim/plugged/YouCompleteMe/python/ycm/youcompleteme.py"))
-;;     (set-variable 'ycmd-global-config (expand-file-name "~/.vim/plugged/YouCompleteMe/.ycm_extra_conf.py"))
-;;     (add-hook 'ycmd-mode (lambda() (add-to-list (make-local-variable 'company-backends) 'company-ycmd)))
-;;     )
-;;   (use-package flycheck-ycmd
-;;     :commands(flycheck-ycmd-setup)
-;;     :init(add-hook 'ycmd-mode-hook 'flycheck-ycmd-setup))
-;;   )
 ;;------------------------------------------------------------------------------
 ;; cmake
 ;;------------------------------------------------------------------------------
@@ -116,8 +105,9 @@
 ;;------------------------------------------------------------------------------
 (use-package clang-format
   :ensure t
+  :custom
+  (clang-format-style-option "llvm")
   :config
-  (setq clang-format-style-option "llvm")
   (add-hook 'c-mode-hook (lambda() (add-hook 'before-save-hook 'clang-format)))
   (add-hook 'c++-mode-hook (lambda() (add-hook 'before-save-hook 'clang-format)))
   )
@@ -126,7 +116,7 @@
 ;; code style config
 ;;------------------------------------------------------------------------------
 (use-package google-c-style
-  :defer t
+  :diminish
   :ensure t
   :commands
   (google-set-c-style))
@@ -139,15 +129,11 @@
   :bind
   (:map c-mode-base-map
 	("C-c d" . disaster)))
-(use-package 'ccls
-  :config
-  (setq clls-excutable "/usr/local/Cellar/ccls/0.20190314/bin/ccls"))
-(use-package autoinsert
-  :ensure t
-  :config(setq auto-insert-query nil)
-  (setq auto-insert-directory (locate-user-emacs-file "template"))
-  (add-hook 'find-file-hook 'auto-insert)
-  (auto-insert-mode t))
+
+;; (use-package 'ccls
+;;   :config
+;;   (setq clls-excutable "/usr/local/Cellar/ccls/0.20190314/bin/ccls"))
+
 
 (provide 'init-c)
 ;;; init-c.el ends here

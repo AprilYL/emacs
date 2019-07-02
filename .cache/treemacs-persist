@@ -1,0 +1,19 @@
+* Default Workspace
+** Index
+ - path :: /Users/april/Documents/Code/python/Index
+** .emacs.d
+ - path :: /Users/april/.emacs.d
+** docker
+ - path :: /Users/april/Documents/docker
+** leet_code
+ - path :: /Users/april/Documents/Code/C/leet_code
+** TrafficIndex
+ - path :: /Users/april/Documents/Code/python/TrafficIndex
+** LearnOpenGL
+ - path :: /Users/april/Documents/Code/C/LearnOpenGL
+** emacs
+ - path :: /Users/april/Documents/Code/emacs
+** test
+ - path :: /Users/april/Documents/Code/C/test
+** tensorflow_learn
+ - path :: /Users/april/Library/CloudStorage/iCloud Drive/Documents/Code/python/tensorflow_learn

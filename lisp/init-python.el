@@ -49,24 +49,31 @@
 ;; conda and python company
 ;;-----------------------------------------------------------------------------------;;
 (use-package anaconda-mode
+  :functions hydra-anaconda/body
   :after (python)
   :hook ((python-mode . anaconda-mode)
          (python-mode . anaconda-eldoc-mode))
-  ;; :bind(:map python-mode-map
-  ;; 	     ("C-f f" . 'anaconda-mode-find-file)
-  ;; 	     ("C-f d" . 'anaconda-mode-find-definitions)
-  ;; 	     ("C-f h" . 'anaconda-mode-show-doc)
-  ;; 	     ("C-f a" . 'anaconda-mode-find-assignments)
-  ;; 	     ("C-f r" . 'anaconda-mode-find-references)
-  ;; 	     )
   :config
   (use-package company-anaconda
     :after (anaconda-mode company)
     :init
-    (add-to-list 'company-backends '(company-anaconda company-capf company-files))
-    ;; (add-hook 'python-mode-hook 
-    ;; 	      (lambda ()
-    ;; 		(set (make-local-variable 'company-backends) '(company-anaconda company-files company-dabbrev company-dabbrev-code company-yasnippet))))
+    (cl-pushnew 'company-anaconda company-backends)
+    :config
+    (defhydra hydra-anaconda(:color blue :hint none)
+      "
+^find^                            ^Other^
+^^────────────────────────────────^^───────────────
+_f_: find-file                    _r_: find assignments
+_d_: find-definition              _h_: show doc
+_a_: find-assignments             _q_: quit
+"
+      ("f" 'anaconda-mode-find-file "find-file")
+      ("d" 'anaconda-mode-find-definitions-other-window "find define")
+      ("h" 'anaconda-mode-show-doc "show doc")
+      ("a" 'anaconda-mode-find-assignments-other-window "find assignments")
+      ("r" 'anaconda-mode-find-references-other-window "find references")
+      ("q" nil "quit")
+      )
     ))
 
 ;; Live Coding in Python
@@ -107,17 +114,17 @@
 ;;-----------------------------------------------------------------------------------;;
 ;; elpy
 ;;-----------------------------------------------------------------------------------;;
-(use-package elpy
-  :ensure t
-  :init
-  (setq elpy-rpc-backend "jedi")
-  (elpy-enable)
-  :config
-  (add-hook 'python-mode-hook 'elpy-mode)
-  ;; (with-eval-after-load 'elpy
-  ;;   (add-hook 'elpy-mode-hook 'elpy-use-ipython))
-  :bind (("M-*" . pop-tag-mark))
-  )
+;; (use-package elpy
+;;   :ensure t
+;;   :init
+;;   (setq elpy-rpc-backend "jedi")
+;;   (elpy-enable)
+;;   :config
+;;   (add-hook 'python-mode-hook 'elpy-mode)
+;;   ;; (with-eval-after-load 'elpy
+;;   ;;   (add-hook 'elpy-mode-hook 'elpy-use-ipython))
+;;   :bind (("M-*" . pop-tag-mark))
+;;   )
 
 ;;company-jedi
 ;; (use-package company-jedi

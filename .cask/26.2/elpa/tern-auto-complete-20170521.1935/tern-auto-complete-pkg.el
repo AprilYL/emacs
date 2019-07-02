@@ -1,0 +1,2 @@
+;;; -*- no-byte-compile: t -*-
+(define-package "tern-auto-complete" "20170521.1935" "Tern Completion by auto-complete.el" '((tern "0.0.1") (auto-complete "1.4") (cl-lib "0.5") (emacs "24")) :commit "4ba411719279c62d9c0acd1243a03477ada1ac32" :authors '(("<m.sakurai at kiwanami.net>")) :maintainer '("<m.sakurai at kiwanami.net>"))

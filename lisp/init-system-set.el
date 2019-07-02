@@ -30,6 +30,9 @@
 ;; close warning window
 (setq warning-minimum-level :emergency)
 
+;; big file warning
+(setq large-file-warning-threshold 1000000000)
+
 (provide 'init-system-set)
 ;;;init-system-set ends here
 

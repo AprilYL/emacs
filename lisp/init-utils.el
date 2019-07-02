@@ -8,6 +8,7 @@
 ;;; Code:
 
 (use-package which-key
+  :diminish
   :bind (:map help-map ("C-h" . which-key-C-h-dispatch))
   :hook (after-init . which-key-mode)
   :config
@@ -55,6 +56,7 @@
   )
 
 (use-package disable-mouse
+  :diminish
   :hook
   (after-init . disable-mouse-mode)
   :config
@@ -63,6 +65,9 @@
 	      evil-normal-state-map
 	      evil-visual-state-map
 	      evil-insert-state-map)))
+(use-package hydra
+  :ensure t
+  :diminish)
 ;; (require 'init-better-default)
 (provide 'init-utils)
 ;;; init-utils ends here

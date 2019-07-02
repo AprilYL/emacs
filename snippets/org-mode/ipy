@@ -1,6 +1,6 @@
 # -*- mode: snippet -*-
 # name: ipython code
-# key: py
+# key: pyc
 # --
 #+BEGIN_SRC ipython :session :exports both :results raw drawer
   $0

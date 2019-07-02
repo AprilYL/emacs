@@ -1,0 +1,1 @@
+("~/.emacs.d/" "~/Library/CloudStorage/iCloud Drive/Documents/Code/python/tensorflow_learn/" "~/Library/CloudStorage/iCloud Drive/Documents/Code/C/LearnOpenGL/" "~/Library/CloudStorage/iCloud Drive/Documents/Org/" "~/Library/CloudStorage/iCloud Drive/Documents/Code/python/TrafficIndex/" "~/Library/CloudStorage/iCloud Drive/Documents/Code/python/Index/" "~/.oh-my-zsh/")

@@ -1,0 +1,16 @@
+# -*- mode: snippet -*-
+# name: python update sql
+# key: ud
+# --
+##############################################################################
+# UPDATE ${1:$$(upcase yas-text)} TABLE
+##############################################################################
+UPDATE_${1:$(upcase yas-text)}_TABLE = \"\"\"
+UPDATE
+    ${2:$$(upcase yas-text)}
+SET
+    ${3:$$(upcase yas-text)}
+WHERE
+    ${4:$$(upcase yas-text)}
+\"\"\"
+$0

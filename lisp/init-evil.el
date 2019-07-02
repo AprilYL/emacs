@@ -92,8 +92,8 @@
     ";" 'comment-dwim
     ;;windown
     "ws" 'ace-swap-window
-    "wv" 'split-window-vertically
-    "wh" 'split-window-horizontally
+    "wh" 'split-window-vertically
+    "wv" 'split-window-horizontally
     "wc" 'kill-buffer-and-window
     "wd" 'delete-window
     "wb" 'balance-windows
@@ -106,44 +106,28 @@
 
     
     ;; origami
-    "ono" 'origami-open-node
-    "ons" 'origami-show-node
-    "onc" 'origami-close-node
-    "ont" 'origami-toggle-node
-    
-    "oro" 'origami-open-node-recursively
-    "orc" 'origami-close-node-recursively
-    "orf" 'origami-forward-toggle-node
+    "nn" 'origami-hydra/body
 
-    "oao" 'origami-open-all-nodes
-    "oac" 'origami-close-all-nodes
-    "oat" 'origami-toggle-all-nodes
-
-    "ofn" 'origami-next-fold
-    "ofp" 'origami-previous-fold
-    "off" 'origami-forward-fold
+    ;; multiple-cursors
+    "m" 'hydra-multiple-cursors/body
 
     ;; treemacs
-    "tt" 'treemacs
+    "t" 'treemacs
 
-    ;; delete bracket
-    "db" 'sp-unwrap-sexp
+    ;; smartparens
+    "sp" 'smartparens-hydra/body
 
     ;; projectile key
-    "pf" 'helm-projectile-find-file
-    "pp" 'helm-projectile-switch-project
-    "pb" 'helm-projectile-switch-to-buffer
-    "pr" 'helm-projectile-run-project
-    "ps" 'helm-projectile-ag
+    "p" 'hydra-helm-projectile/body
 
-    ;; anaconda
-    "ad" 'anaconda-mode-find-definitions-other-window
-    "aa" 'anaconda-mode-find-assignments-other-window
-    "ar" 'anaconda-mode-find-references-other-window
+    ;; navigation python code
+    "np" 'hydra-anaconda/body
+
+    ;; dumb-jump
+    "ng" 'hydra-dumb-jump/body
 
     ;;eshell
-    "so" 'eshell
-    )
+    "so" 'eshell)
   )
 
 ;;----------------------------------------------------------------------------;;
@@ -161,6 +145,12 @@
 	      ("g l " . evil-lion-left)
 	      ("g L " . evil-lion-right))
   )
+
+;;----------------------------------------------------------------------------;;
+;; evil-matchit
+;;----------------------------------------------------------------------------;;
+(use-package evil-matchit
+  :hook(after-init . global-evil-matchit-mode))
 (provide 'init-evil)
 ;;; init-evil ends here
 

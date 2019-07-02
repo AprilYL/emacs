@@ -3,8 +3,14 @@
 ;;; Commentary:
 
 ;;; Code:
-(put 'dired-find-alternate-file 'disabled nil)
+
+;; Added by Package.el.  This must come before configurations of
+;; installed packages.  Don't delete this line.  If you don't want it,
+;; just comment it out by adding a semicolon to the start of the line.
+;; You may delete these explanatory comments.
 (package-initialize)
+
+(put 'dired-find-alternate-file 'disabled nil)
 (add-to-list 'load-path "~/.emacs.d/lisp")
 
 ;; using cask manage the emacs package  which you install
@@ -15,6 +21,7 @@
 ;;-----------------------------------------------------------------------------------;;
 (require 'init-system-set)
 (require 'init-ui)
+;; (require 'init-dashboard)
 (require 'init-highlight)
 (require 'init-file)
 (require 'init-evil)
@@ -32,6 +39,7 @@
 ;; ;;-----------------------------------------------------------------------------------;;
 (require 'init-yasnippet)
 (require 'init-edit)
+(require 'init-navigation.el)
 
 
 ;; ;;-----------------------------------------------------------------------------------;;
@@ -43,6 +51,7 @@
 ;;-----------------------------------------------------------------------------------;;
 ;; developer tool
 ;;-----------------------------------------------------------------------------------;;
+(require 'init-eshell)
 (require 'init-projectile)
 (require 'init-dash)
 (require 'init-flycheck)
@@ -53,6 +62,7 @@
 ;;-----------------------------------------------------------------------------------;;
 ;; develope language
 ;;-----------------------------------------------------------------------------------;;
+(require 'init-prog)
 (require 'init-python)
 (require 'init-org)
 (require 'init-csv)

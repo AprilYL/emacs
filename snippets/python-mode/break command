@@ -1,0 +1,8 @@
+# -*- mode: snippet -*-
+# name: python break comment 
+# key: bc
+# --
+${1:$(make-string (+ 4 (string-width yas-text)) ?#)}
+# $1 #
+${1:$(make-string (+ 4 (string-width yas-text)) ?#)}
+$0
