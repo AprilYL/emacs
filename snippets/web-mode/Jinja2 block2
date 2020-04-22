@@ -1,0 +1,8 @@
+# -*- mode: snippet -*-
+# name: JinJa2 block
+# key: block
+# --
+{% block $1 %}
+$2
+{% endblock %}
+

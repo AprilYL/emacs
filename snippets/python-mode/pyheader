@@ -2,8 +2,8 @@
 # name: insert python header;
 # key: pyh
 # --
-# !/usr/bin/env python3.6
 # -*- coding: utf-8 -*-
+# !/usr/bin/env python3.6
 # File: `(file-name-nondirectory buffer-file-name)`
 # Create by Lin Yang at `(insert (shell-command-to-string "echo -n $(date +%Y-%m-%d)"))`
 # Email: YangLin1@supcon.com

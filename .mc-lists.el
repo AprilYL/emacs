@@ -8,7 +8,10 @@
 	evil-next-line
 	evil-previous-line
 	helm-M-x
+	hydra-multiple-cursors/ladicle/mc/insert-numbers-and-exit
 	hydra-multiple-cursors/mc/edit-lines-and-exit
+	hydra-multiple-cursors/mc/insert-letters-and-exit
+	hydra-multiple-cursors/mc/mark-all-like-this-and-exit
 	hydra-multiple-cursors/mc/mark-previous-like-this
 	hydra-multiple-cursors/mc/skip-to-previous-like-this
 	select-window-3
@@ -16,5 +19,9 @@
 
 (setq mc/cmds-to-run-once
       '(
+	evil-search-next
+	hydra-multiple-cursors/mc/insert-numbers-and-exit
+	hydra-multiple-cursors/mc/mark-next-like-this
+	hydra-multiple-cursors/nil
 	iedit-switch-to-mc-mode
 	))

@@ -1,0 +1,6 @@
+# -*- mode: snippet -*-
+# name: python mysql to_date
+# key: tdm
+# --
+str_to_date('{$1}','%Y-%m-%d %H:%i:%s')
+$0

@@ -13,13 +13,13 @@
 		(concat lsregister " -dump|grep com.kapeli.dash")))))))
 
 (when (and (eq system-type 'darwin) (not (package-installed-p 'dash-at-point)))
-  (message "Checking whether Dash is installed")
-  (when (april/dash-installed-p)
-    (use-package dash-at-point
-      :bind
-      (("C-c D" . dash-at-point)
-       ("C-c d" . dash-at-point-docset))
-      :config
-      (dash-enable-font-lock))))
+  (message "Checking whether Dash is installed"))
+(when (april/dash-installed-p)
+  (use-package dash-at-point
+    :bind
+    (("C-c D" . dash-at-point)
+     ("C-c d" . dash-at-point-docset))
+    :config
+    (dash-enable-font-lock)))
 (provide 'init-dash)
 ;;; init-dash ends here

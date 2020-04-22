@@ -41,8 +41,12 @@
 ;;-----------------------------------------------------------------------------------;;
 (use-package py-autopep8
   :ensure t
-  ;; :hook (python-mode . py-autopep8-enable-on-save)
-  :bind ("C-c b" . py-autopep8-buffer))
+  ;;:hook (python-mode . py-autopep8-enable-on-save)
+  :bind (:map python-mode-map
+	      ("C-c b" . py-autopep8-buffer))
+  :config
+  (setq py-autopep8-options '("--max-line-length=80"))
+  )
 
 
 ;;-----------------------------------------------------------------------------------;;
@@ -58,23 +62,23 @@
     :after (anaconda-mode company)
     :init
     (cl-pushnew 'company-anaconda company-backends)
-    :config
-    (defhydra hydra-anaconda(:color blue :hint none)
-      "
+    )
+  (defhydra hydra-anaconda(:color blue :hint none)
+    "
 ^find^                            ^Other^
 ^^────────────────────────────────^^───────────────
 _f_: find-file                    _r_: find assignments
 _d_: find-definition              _h_: show doc
 _a_: find-assignments             _q_: quit
 "
-      ("f" 'anaconda-mode-find-file "find-file")
-      ("d" 'anaconda-mode-find-definitions-other-window "find define")
-      ("h" 'anaconda-mode-show-doc "show doc")
-      ("a" 'anaconda-mode-find-assignments-other-window "find assignments")
-      ("r" 'anaconda-mode-find-references-other-window "find references")
-      ("q" nil "quit")
-      )
-    ))
+    ("f" 'anaconda-mode-find-file "find-file")
+    ("d" 'anaconda-mode-find-definitions-other-window "find define")
+    ("h" 'anaconda-mode-show-doc "show doc")
+    ("a" 'anaconda-mode-find-assignments-other-window "find assignments")
+    ("r" 'anaconda-mode-find-references-other-window "find references")
+    ("q" nil "quit")
+    )
+  )
 
 ;; Live Coding in Python
 
@@ -94,21 +98,31 @@ _a_: find-assignments             _q_: quit
 ;;   :hook (python-mode . pipenv-mode)
 ;;   :init
 ;;   (setq pipenv-projectile-after-switch-function #'pipenv-projectile-after-switch-extended))
+(use-package virtualenvwrapper
+  :init
+  (venv-initialize-eshell)
+  (venv-initialize-interactive-shells)
+  :config
+  (setq projectile-switch-project-action 'venv-projectile-auto-workon)
+  (setq venv-dirlookup-names '("venv" ".venv" "pyenv" ".virtual"))
+  (setq-default mode-line-format (cons '(:exec venv-current-name) mode-line-format))
+  )
 
-(use-package ein)
+(use-package ein
+  :config
+  (setq ein:ploymode t)
+  (setq ein:output-area-inlined-images t)
+  )
 
 (use-package ob-ipython
-  :after (anaconda-mode company)
-  :init (cl-pushnew 'company-ob-ipython company-backends)
-  ;; :config
+  ;; :after (anaconda-mode company)
+  ;; :init (cl-pushnew 'company-ob-ipython company-backends)
+  :config
   ;; for now I am disabling elpy only ob-ipython minor mode
   ;; what we should actually do, is just to ensure that
   ;; ob-ipython's company backend comes before elpy's (TODO)
-  ;; (add-hook 'ob-ipython-mode-hookp
-  ;;           (lambda ()
-  ;;             (elpy-mode 0)
-  ;;             (company-mode 1)))
-  ;; (add-to-list 'company-backends '(company-ob-ipython company-anaconda))
+  (add-to-list 'company-backends 'company-ob-ipython)
+  (add-to-list 'org-latex-minted-langs '(ipython "python"))
   )
 
 ;;-----------------------------------------------------------------------------------;;

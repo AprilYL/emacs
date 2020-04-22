@@ -6,7 +6,6 @@
 
 ;;; Code:
 ;;;config
-;;;config 
 ;;----------------------------------------------------------------------------;;
 ;; evil
 ;;----------------------------------------------------------------------------;;
@@ -34,7 +33,6 @@
 	("C-w" . evil-delete)		
 	("C-k" . evil-delete-line))
   )
-
 
 ;;----------------------------------------------------------------------------;;
 ;; evil-surround
@@ -103,28 +101,38 @@
     "3"  'select-window-3
     "4"  'select-window-4
     "5"  'select-window-5
+    "6"  'select-window-6
+    "7"  'select-window-7
+    "8"  'select-window-8
+    "9"  'select-window-9
 
     
+    ;; n means navigation
     ;; origami
     "nn" 'origami-hydra/body
 
-    ;; multiple-cursors
-    "m" 'hydra-multiple-cursors/body
-
-    ;; treemacs
-    "t" 'treemacs
-
-    ;; smartparens
-    "sp" 'smartparens-hydra/body
-
-    ;; projectile key
-    "p" 'hydra-helm-projectile/body
+    ;; dumb-jump
+    "ng" 'hydra-dumb-jump/body
 
     ;; navigation python code
     "np" 'hydra-anaconda/body
 
-    ;; dumb-jump
-    "ng" 'hydra-dumb-jump/body
+    ;; multiple-cursors
+    ;; "em" hydra-evil-mc/body
+
+    ;; treemacs
+    "t" 'treemacs
+
+    ;; e means edit
+    ;; smartparens
+    "ep" 'hydra-smartparens/body
+
+    ;; auto-yasnippet
+    "ey" 'hydra-auto-yasnippet/body
+
+    ;; "em" 'hydra-multiple-cursors/body
+    ;; projectile key
+    "p" 'hydra-helm-projectile/body
 
     ;;eshell
     "so" 'eshell)
@@ -151,8 +159,10 @@
 ;;----------------------------------------------------------------------------;;
 (use-package evil-matchit
   :hook(after-init . global-evil-matchit-mode))
+
+(use-package evil-mc
+  :hook
+  (after-init . global-evil-mc-mode)
+  )
 (provide 'init-evil)
 ;;; init-evil ends here
-
-
-

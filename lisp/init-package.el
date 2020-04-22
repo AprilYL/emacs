@@ -30,10 +30,10 @@
 ;;-----------------------------------------------------------------------------------;;
 (use-package auto-package-update
   :custom
-  (auto-package-update-delete-old-version t)
-  (auto-package-update-hide-result t)
   :config
-  (auto-package-update-maybe)
+  (setq auto-package-update-maybe)
+  (setq auto-package-update-delete-old-version t)
+  (setq auto-package-update-hide-result t)
   )
 (provide 'init-package)
 ;;; init-package.el ends here

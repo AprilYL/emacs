@@ -65,6 +65,7 @@
 	      evil-normal-state-map
 	      evil-visual-state-map
 	      evil-insert-state-map)))
+
 (use-package hydra
   :ensure t
   :diminish)

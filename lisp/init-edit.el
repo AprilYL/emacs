@@ -17,10 +17,10 @@
                         (if (> (buffer-size) (* 3000 80))
                             (aggressive-indent-mode -1)))))
   :config
-  ;; Disable in some modes
-  (dolist (mode '(asm-mode web-mode html-mode css-mode robot-mode))
-    (push mode aggressive-indent-excluded-modes))
-
+  ;; ;; Disable in some modes
+  ;; (dolist (mode '(asm-mode web-mode html-mode css-mode robot-mode))
+  ;;   (push mode aggressive-indent-excluded-modes))
+  (global-aggressive-indent-mode 1)
   ;; Be slightly less aggressive in C/C++/C#/Java/Go/Swift
   ;; (add-to-list
   ;;  'aggressive-indent-dont-indent-if
@@ -54,7 +54,7 @@
 
 ;; Smartly input parens
 (use-package smartparens
-  :functions smartparens-hydra/body create-newline-and-enter-sexp
+  :functions hydra-smartparens/body create-newline-and-enter-sexp
   :hook
   (after-init . smartparens-global-mode)
   :config
@@ -71,8 +71,8 @@
   (sp-local-pair 'emacs-lisp-mode "'" nil :actions nil)
   (sp-local-pair 'emacs-lisp-mode "`" nil :actions nil)
   (sp-local-pair 'c++-mode "{" nil :post-handlers '((create-newline-and-enter-sexp "RET")
-						    (create-newline-and-enter-sexp "<return>")))
-  (defhydra smartparens-hydra (:color blue :hint none )
+  						    (create-newline-and-enter-sexp "<return>")))
+  (defhydra hydra-smartparens(:color blue :hint none )
     "
 ^navigation^                      ^edit^
 ^^────────────────────────────────^^───────────────
@@ -137,69 +137,67 @@ _e_: end-of-sexp
 
 ;; enable delete select
 (delete-selection-mode t)
-(provide 'init-edit)
 
-(use-package multiple-cursors
-  :functions hydra-multiple-cursors/body
-  :bind
-  ("M-u" . hydra-multiple-cursors/body)
-  :preface
-  ;; insert specific serial number
-  (defvar ladicle/mc/insert-numbers-hist nil)
-  (defvar ladicle/mc/insert-numbers-inc 1)
-  (defvar ladicle/mc/insert-numbers-pad "%01d")
+;; (use-package multiple-cursors
+;;   :functions hydra-multiple-cursors/body
+;;   ;; :bind ;;   ("M-u" . hydra-multiple-cursors/body) ;;   :preface
+;;   ;; insert specific serial number
+;;   :preface
+;;   (defvar ladicle/mc/insert-numbers-hist nil)
+;;   (defvar ladicle/mc/insert-numbers-inc 1)
+;;   (defvar ladicle/mc/insert-numbers-pad "%01d")
 
-  (defun ladicle/mc/insert-numbers (start inc pad)
-    "Insert increasing numbers for each cursor specifically."
-    (interactive
-     (list (read-number "Start from: " 0)
-           (read-number "Increment by: " 1)
-           (read-string "Padding (%01d): " nil ladicle/mc/insert-numbers-hist "%01d")))
-    (setq mc--insert-numbers-number start)
-    (setq ladicle/mc/insert-numbers-inc inc)
-    (setq ladicle/mc/insert-numbers-pad pad)
-    (mc/for-each-cursor-ordered
-     (mc/execute-command-for-fake-cursor
-      'ladicle/mc--insert-number-and-increase
-      cursor)))
+;;   (defun ladicle/mc/insert-numbers (start inc pad)
+;;     "Insert increasing numbers for each cursor specifically."
+;;     (interactive
+;;      (list (read-number "Start from: " 0)
+;;            (read-number "Increment by: " 1)
+;;            (read-string "Padding (%01d): " nil ladicle/mc/insert-numbers-hist "%01d")))
+;;     (setq mc--insert-numbers-number start)
+;;     (setq ladicle/mc/insert-numbers-inc inc)
+;;     (setq ladicle/mc/insert-numbers-pad pad)
+;;     (mc/for-each-cursor-ordered
+;;      (mc/execute-command-for-fake-cursor
+;;       'ladicle/mc--insert-number-and-increase
+;;       cursor)))
 
-  (defun ladicle/mc--insert-number-and-increase ()
-    (interactive)
-    (insert (format ladicle/mc/insert-numbers-pad mc--insert-numbers-number))
-    (setq mc--insert-numbers-number (+ mc--insert-numbers-number ladicle/mc/insert-numbers-inc)))
+;;   (defun ladicle/mc--insert-number-and-increase ()
+;;     (interactive)
+;;     (insert (format ladicle/mc/insert-numbers-pad mc--insert-numbers-number))
+;;     (setq mc--insert-numbers-number (+ mc--insert-numbers-number ladicle/mc/insert-numbers-inc)))
 
-  :config
-  (with-eval-after-load 'hydra
-    (defhydra hydra-multiple-cursors (:color pink :hint nil)
-      "
-                                                                        ╔════════╗
-    Point^^^^^^             Misc^^            Insert                            ║ Cursor ║
-  ──────────────────────────────────────────────────────────────────────╨────────╜
-     _k_    _K_    _M-k_    [_l_] edit lines  [_i_] 0...
-     ^↑^    ^↑^     ^↑^     [_m_] mark all    [_a_] letters
-    mark^^ skip^^^ un-mk^   [_s_] sort        [_n_] numbers
-     ^↓^    ^↓^     ^↓^
-     _j_    _J_    _M-j_
-  ╭──────────────────────────────────────────────────────────────────────────────╯
-                           [_q_]: quit, [Click]: point
-"
-      ("l" mc/edit-lines :exit t)
-      ("m" mc/mark-all-like-this :exit t)
-      ("j" mc/mark-next-like-this)
-      ("J" mc/skip-to-next-like-this)
-      ("M-j" mc/unmark-next-like-this)
-      ("k" mc/mark-previous-like-this)
-      ("K" mc/skip-to-previous-like-this)
-      ("M-k" mc/unmark-previous-like-this)
-      ("s" mc/mark-all-in-region-regexp :exit t)
-      ("i" mc/insert-numbers :exit t)
-      ("a" mc/insert-letters :exit t)
-      ("n" ladicle/mc/insert-numbers :exit t)
-      ("<mouse-1>" mc/add-cursor-on-click)
-      ;; Help with click recognition in this hydra
-      ("<down-mouse-1>" ignore)
-      ("<drag-mouse-1>" ignore)
-      ("q" nil))))
+;;   :config
+;;   ;; (with-eval-after-load 'hydra
+;;   (defhydra hydra-multiple-cursors (:color pink :hint nil)
+;;     "
+;;                                                                         ╔════════╗
+;;     Point^^^^^^             Misc^^            Insert                            ║ Cursor ║
+;;   ──────────────────────────────────────────────────────────────────────╨────────╜
+;;      _k_    _K_    _M-k_    [_l_] edit lines  [_i_] 0...
+;;      ^↑^    ^↑^     ^↑^     [_m_] mark all    [_a_] letters
+;;     mark^^ skip^^^ un-mk^   [_s_] sort        [_n_] numbers
+;;      ^↓^    ^↓^     ^↓^
+;;      _j_    _J_    _M-j_
+;;   ╭──────────────────────────────────────────────────────────────────────────────╯
+;;                            [_q_]: quit, [Click]: point
+;; "
+;;     ("l" mc/edit-lines :exit t)
+;;     ("m" mc/mark-all-like-this :exit t)
+;;     ("j" mc/mark-next-like-this)
+;;     ("J" mc/skip-to-next-like-this)
+;;     ("M-j" mc/unmark-next-like-this)
+;;     ("k" mc/mark-previous-like-this)
+;;     ("K" mc/skip-to-previous-like-this)
+;;     ("M-k" mc/unmark-previous-like-this)
+;;     ("s" mc/mark-all-in-region-regexp :exit t)
+;;     ("i" mc/insert-numbers :exit t)
+;;     ("a" mc/insert-letters :exit t)
+;;     ("n" ladicle/mc/insert-numbers :exit t)
+;;     ("<mouse-1>" mc/add-cursor-on-click)
+;;     ;; Help with click recognition in this hydra
+;;     ("<down-mouse-1>" ignore)
+;;     ("<drag-mouse-1>" ignore)
+;;     ("q" nil)))
 
 ;; (use-package autoinsert
 ;;   :ensure t
@@ -207,5 +205,5 @@ _e_: end-of-sexp
 ;;   (setq auto-insert-directory (locate-user-emacs-file "template"))
 ;;   (add-hook 'find-file-hook 'auto-insert)
 ;;   (auto-insert-mode t))
-
+(provide 'init-edit)
 ;;; init-edit ends here

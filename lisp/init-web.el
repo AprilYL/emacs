@@ -33,7 +33,7 @@
 
 (use-package css-mode
   :ensure nil
-  :init (setq css-indent-offset 2))
+  :init (setq css-indent-offset 4))
 
 ;; SCSS mode
 (use-package scss-mode
@@ -117,15 +117,22 @@
   :defines company-backends
   :mode "\\.\\(phtml\\|php|[gj]sp\\|as[cp]x\\|erb\\|djhtml\\|html?\\|hbs\\|ejs\\|jade\\|swig\\|tm?pl\\|vue\\)$"
   :config
-  (setq web-mode-markup-indent-offset 2)
-  (setq web-mode-css-indent-offset 2)
-  (setq web-mode-code-indent-offset 2)
+  (setq web-mode-markup-indent-offset 4)
+  (setq web-mode-css-indent-offset 4)
+  (setq web-mode-code-indent-offset 4)
 
   ;; Complete for web,html,emmet,jade,slim modes
   (use-package company-web
     :after company
     :init (dolist (mode '(company-web-html company-web-jade company-web-slim))
             (cl-pushnew mode company-backends))))
+(use-package emmet-mode
+  :ensure t
+  :hook (web-mode css-mode scss-mode sgml-mode)
+  :config
+  (add-hook 'emmet-mode-hook (lambda() (setq emmet-indent-after-insert t)))
+  (set-default emmet-move-cursor-between-quotes t)
+  )
 
 ;; Live browser JavaScript, CSS, and HTML interaction
 (use-package skewer-mode
@@ -146,7 +153,7 @@
 (use-package web-beautify
   :config
   ;; Set indent size to 2
-  (setq web-beautify-args '("-s" "2" "-f" "-")))
+  (setq web-beautify-args '("-s" "4" "-f" "-")))
 
 (use-package haml-mode)
 (use-package php-mode)

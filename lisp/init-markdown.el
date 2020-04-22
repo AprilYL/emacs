@@ -25,6 +25,17 @@
     (let ((typora "/Applications/Typora.app/Contents/MacOS/Typora"))
       (if (file-exists-p typora)
 	  (setq markdown-open-command typora))))
+  (setq markdown-enable-html 1)
+  (setq markdown-enable-math 1)
+  )
+(use-package markdown-toc
+  :ensure t)
+(use-package markdown-preview-mode
+  :ensure t
+  :config
+  (add-to-list 'markdown-preview-stylesheets "https://raw.githubusercontent.com/richleland/pygments-css/master/emacs.css")
+  (add-to-list 'markdown-preview-javascript '("http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML" . async))
+  (add-to-list 'markdown-preview-stylesheets "https://raw.githubusercontent.com/richleland/pygments-css/master/emacs.css")
   )
 (provide 'init-markdown)
 ;;; init-markdown.el ends here

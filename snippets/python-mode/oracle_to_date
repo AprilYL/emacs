@@ -1,0 +1,6 @@
+# -*- mode: snippet -*-
+# name: python sql to_date
+# key: tdo
+# --
+TO_DATE('{$1}','YYYY-MM-DD HH24:MI:SS')
+$0

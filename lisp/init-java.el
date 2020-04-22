@@ -19,6 +19,7 @@
               (google-make-newline-indent)
               (meghanada-mode t)
               (smartparens-mode t)
+	      (setq c-basic-offset 4)
               (rainbow-delimiters-mode t)
               (highlight-symbol-mode t)
               (add-hook 'before-save-hook 'meghanada-code-beautify-before-save)))

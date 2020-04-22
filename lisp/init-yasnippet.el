@@ -7,9 +7,17 @@
 ;;; Code:
 
 (use-package auto-yasnippet
-  :bind
-  ("C-c c" . #'aya-create)
-  ("C-c e" . #'aya-expand))
+  :functions hydra-auto-yasnippet/body
+  :config
+  (defhydra hydra-auto-yasnippet()
+    "
+_c_: create
+_e_: expand
+"
+    ("c" aya-create "create")
+    ("e" aya-expand "expand")
+    )
+  )
 
 (use-package yasnippet
   :diminish yas-minor-mode

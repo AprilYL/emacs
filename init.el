@@ -74,7 +74,8 @@
 (require 'init-c)
 (require 'init-cuda)
 (require 'init-ido)
-
+(require 'init-R)
+(require 'init-lua)
 
 ;; ;;-----------------------------------------------------------------------------------;;
 ;; ;; other config

@@ -9,14 +9,14 @@
 
 ;; Jump to definition via `ag'/`rg'/`grep'
 (use-package dumb-jump
-  :functions dumb-jump-hydra/body
+  :functions hydra-dumb-jump/body
   :hook (after-init . dumb-jump-mode)
   :config
   (setq dumb-jump-prefer-searcher 'rg)
   (with-eval-after-load 'ivy
     (setq dumb-jump-selector 'ivy))
 
-  (defhydra hydra-dumb-jump (:color blue :hint none)
+  (defhydra hydra-dumb-jump(:color blue :hint none)
     "
 ^Jump^                            ^Other^
 ^^────────────────────────────────^^───────────────

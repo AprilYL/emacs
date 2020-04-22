@@ -1,0 +1,6 @@
+# -*- mode: snippet -*-
+# name: bean xml
+# key: bean
+# --
+<bean id="$1" class="${2:com.}">
+</bean>
