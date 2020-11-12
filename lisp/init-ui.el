@@ -6,8 +6,6 @@
 
 ;;; Code:
 
-(eval-when-compile
-  (require 'init-const))
 ;;show paren
 
 (add-hook 'emacs-lisp-mode-hook 'show-paren-mode)
@@ -28,8 +26,8 @@
 	      (left . 0);;
 	      (top . 0)
 	      (internal-border-width . 0)
-	      (font . "monaco 15")
-	      (line-spacing . 0.25)
+	      (font . "Monaco 15")
+	      ;; (line-spacing . 0.20)
 	      ))
       (setq default-frame-alist
 	    '(
@@ -38,11 +36,20 @@
 	      (left . 0);;
 	      (top . 0)
 	      (internal-border-width . 0)
-	      (font . "monaco 15")
-	      (line-spacing . 0.25)
-	      ))
+	      (font . "Monaco 15")
+	      ;; (line-spacing . 0.20)
+	      )
+	    )
       ;; (set-frame-parameter nil 'alpha 98)
       ))
+;;-------------------------------------------------------;;
+;; fringe
+;;-------------------------------------------------------;;
+(use-package fringe-mode
+  :config
+  (set-face-background 'fringe (face-attribute 'default :background) nil)
+  )
+
 ;;-------------------------------------------------------;;
 ;; font
 ;;-------------------------------------------------------;;
@@ -56,12 +63,12 @@
 
 (setq frame-title-format '("April Emacs - %b")
       icon-title-format frame-title-format)
-(when sys/mac-x-p
-  (add-hook 'after-load-theme-hook
-            (lambda ()
-              (let ((bg (frame-parameter nil 'background-mode)))
-                (set-frame-parameter nil 'ns-appearance bg)
-                (setcdr (assq 'ns-appearance default-frame-alist) bg)))))
+;; (when sys/mac-x-p
+;;   (add-hook 'after-load-theme-hook
+;;             (lambda ()
+;;               (let ((bg (frame-parameter nil 'background-mode)))
+;;                 (set-frame-parameter nil 'ns-appearance bg)
+;;                 (setcdr (assq 'ns-appearance default-frame-alist) bg)))))
 
 ;;------------------------------------------------------;;
 ;; Icons
@@ -79,7 +86,8 @@
   (add-to-list 'all-the-icons-icon-alist
                '("\\.go$" all-the-icons-fileicon "go" :face all-the-icons-blue))
   (add-to-list 'all-the-icons-mode-icon-alist
-               '(go-mode all-the-icons-fileicon "go" :face all-the-icons-blue))
+               
+	       '(go-mode all-the-icons-fileicon "go" :face all-the-icons-blue))
   (add-to-list 'all-the-icons-mode-icon-alist
                '(help-mode all-the-icons-faicon "info-circle" :height 1.1 :v-adjust -0.1 :face all-the-icons-purple))
   (add-to-list 'all-the-icons-mode-icon-alist
@@ -105,6 +113,7 @@
   (add-to-list 'all-the-icons-mode-icon-alist
                '(gfm-mode all-the-icons-octicon "markdown" :face all-the-icons-blue))
   )
+
 (use-package all-the-icons-ivy
   :init (all-the-icons-ivy-setup))
 
@@ -118,7 +127,7 @@
 ;;-----------------------------------------------------;;
 (setq-default fill-column 80)
 (setq column-number-mode t)
-(setq line-number-mode t)
+;;(setq line-number-mode t)
 
 ;;show line number
 (use-package nlinum
@@ -126,10 +135,23 @@
   (after-init . global-nlinum-mode)
   :config
   ;; (setq-default left-fringe-width  10)
-  ;; (setq-default right-fringe-width  10)
-  (setq nlinum-highlight-current-line t)
+  (setq-default right-fringe-width  10)
+  (setq nlinum-highlight-current-line nil)
+  (set-face-background 'linum (face-attribute 'default :background) nil)
   (setq nlinum-format " %d ")
   )
+
+;; (use-package nlinum-relative
+;;   :hook
+;;   (after-init . global-nlinum-relative-mode)
+;;   :config
+;;   ;; something else you want
+;;   (nlinum-relative-setup-evil)
+;;   (setq nlinum-relative-redisplay-delay 0)
+;;   (setq nlinum-relative-current-symbol "->") 
+;;   (set-face-background 'linum (face-attribute 'default :background) nil)
+;;   (setq nlinum-format " %d ")
+;;   )
 
 
 ;;-----------------------------------------------------;;
@@ -148,53 +170,20 @@
 ;;-----------------------------------------------------;;
 ;; theme
 ;;-----------------------------------------------------;;
-(use-package atom-one-dark-theme)
+;; (use-package atom-one-dark-theme)
 (use-package doom-themes
   :config
+  ;; (setq doom-theme 'atom-one-dark)
+  (setq doom-themes-enable-bold t    ; if nil, bold is universally disabled
+        doom-themes-enable-italic t)
   ;; Enable flashing mode-line on errors
   (doom-themes-visual-bell-config)
   ;; Corrects (and improves) org-mode's native fontification.
   (doom-themes-org-config)
   ;; Enable custom treemacs theme (all-the-icons must be installed!)
+  (setq doom-themes-treemacs-theme "doom-colors")
   (doom-themes-treemacs-config)
 
-  ;; Improve treemacs icons
-  (with-eval-after-load 'treemacs
-    (with-eval-after-load 'all-the-icons
-      (let ((all-the-icons-default-adjust 0)
-	    (tab-width 1))
-	(setq treemacs-icon-open-png
-	      (concat
-	       (all-the-icons-octicon "chevron-down" :height 0.8 :v-adjust 0.1)
-	       "\t"
-	       (all-the-icons-octicon "file-directory" :v-adjust 0)
-	       "\t")
-	      treemacs-icon-closed-png
-	      (concat
-	       (all-the-icons-octicon "chevron-right" :height 0.8 :v-adjust 0.1 :face 'font-lock-doc-face)
-	       "\t"
-	       (all-the-icons-octicon "file-directory" :v-adjust 0 :face 'font-lock-doc-face)
-	       "\t"))
-
-	;; File type icons
-	(setq treemacs-icons-hash (make-hash-table :size 200 :test #'equal)
-	      treemacs-icon-fallback (concat
-				      "\t\t"
-				      (all-the-icons-faicon "file-o" :face 'all-the-icons-dsilver :height 0.8 :v-adjust 0.0)
-				      "\t")
-	      treemacs-icon-text treemacs-icon-fallback)
-
-	(dolist (item all-the-icons-icon-alist)
-	  (let* ((extension (car item))
-		 (func (cadr item))
-		 (args (append (list (caddr item)) '(:v-adjust -0.05) (cdddr item)))
-		 (icon (apply func args))
-		 (key (s-replace-all '(("^" . "") ("\\" . "") ("$" . "") ("." . "")) extension))
-		 (value (concat "\t\t" icon "\t")))
-	    (unless (ht-get treemacs-icons-hash (s-replace-regexp "\\?" "" key))
-	      (ht-set! treemacs-icons-hash (s-replace-regexp "\\?" "" key) value))
-	    (unless (ht-get treemacs-icons-hash (s-replace-regexp ".\\?" "" key))
-	      (ht-set! treemacs-icons-hash (s-replace-regexp ".\\?" "" key) value)))))))
   )
 
 ;;-----------------------------------------------------;;
@@ -222,6 +211,7 @@
   ;;   truncate-upto-root => ~/P/F/e/lisp/comint.el
   ;;   truncate-all => ~/P/F/e/l/comint.el
   ;;   relative-from-project => emacs/lisp/comint.el
+
   ;;   relative-to-project => lisp/comint.el
   ;;   file-name => comint.el
   ;;   buffer-name => comint.el<2> (uniquify buffer name)
@@ -262,28 +252,28 @@
   (setq doom-modeline-github-interval (* 30 60))
 
   ;; Whether display environment version or not
-  (setq doom-modeline-env-version nil)
+  (setq doom-modeline-env-version t)
   ;; Or for individual languages
-  ;; (setq doom-modeline-env-enable-python t)
-  ;; (setq doom-modeline-env-enable-ruby t)
-  ;; (setq doom-modeline-env-enable-perl t)
-  ;; (setq doom-modeline-env-enable-go t)
-  ;; (setq doom-modeline-env-enable-elixir t)
-  ;; (setq doom-modeline-env-enable-rust t)
+  (setq doom-modeline-env-enable-python t)
+  (setq doom-modeline-env-enable-ruby t)
+  (setq doom-modeline-env-enable-perl t)
+  (setq doom-modeline-env-enable-go t)
+  (setq doom-modeline-env-enable-elixir t)
+  (setq doom-modeline-env-enable-rust t)
 
   ;; Change the executables to use for the language version string
-  ;; (setq doom-modeline-env-python-executable "python")
-  ;; (setq doom-modeline-env-ruby-executable "ruby")
-  ;; (setq doom-modeline-env-perl-executable "perl")
-  ;; (setq doom-modeline-env-go-executable "go")
-  ;; (setq doom-modeline-env-elixir-executable "iex")
-  ;; (setq doom-modeline-env-rust-executable "rustc")
+  (setq doom-modeline-env-python-executable "python")
+  (setq doom-modeline-env-ruby-executable "ruby")
+  (setq doom-modeline-env-perl-executable "perl")
+  (setq doom-modeline-env-go-executable "go")
+  (setq doom-modeline-env-elixir-executable "iex")
+  (setq doom-modeline-env-rust-executable "rustc")
 
   ;; Whether display mu4e notifications or not. Requires `mu4e-alert' package.
-  ;; (setq doom-modeline-mu4e t)
+  (setq doom-modeline-mu4e t)
 
   ;; Whether display irc notifications or not. Requires `circe' package.
-  ;; (setq doom-modeline-irc t)
+  (setq doom-modeline-irc t)
 
   ;; Function to stylize the irc buffer names.
   (setq doom-modeline-irc-stylize 'identity)

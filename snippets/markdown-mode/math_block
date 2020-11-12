@@ -2,4 +2,8 @@
 # name: math block
 # key: math
 # --
-\$\$$1\$\$
+\$\$
+\begin{equation}
+$1
+\end{equation}
+\$\$

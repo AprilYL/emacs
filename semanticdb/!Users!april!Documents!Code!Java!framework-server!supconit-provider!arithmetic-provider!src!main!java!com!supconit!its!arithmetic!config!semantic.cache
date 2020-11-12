@@ -1,0 +1,185 @@
+;; Object semanticdb-project-database-file
+;; SEMANTICDB Tags save file
+(semanticdb-project-database-file "semanticdb-project-database-file"
+  :tables
+  (list
+    (semanticdb-table "semanticdb-table"
+      :major-mode jdee-mode
+      :tags 
+        '( ("com.supconit.its.arithmetic.config" package nil nil [1 44])
+            ("lombok.Data" include nil nil [46 65])
+            ("org.springframework.boot.context.properties.ConfigurationProperties" include nil nil [66 141])
+            ("org.springframework.context.annotation.Configuration" include nil nil [142 202])
+            ("TrafficCirculationConfigs" type
+               (:typemodifiers ("public")
+                :members 
+                  ( ("packagePath" variable
+                       (:typemodifiers ("private")
+                        :type "String")
+                        (reparse-symbol class_member_declaration) [447 474])
+                    ("period" variable
+                       (:typemodifiers ("private")
+                        :type "String")
+                        (reparse-symbol class_member_declaration) [510 532])
+                    ("index" variable
+                       (:typemodifiers ("private")
+                        :type "Index")
+                        (reparse-symbol class_member_declaration) [572 592])
+                    ("flow" variable
+                       (:typemodifiers ("private")
+                        :type "Flow")
+                        (reparse-symbol class_member_declaration) [628 646])
+                    ("alarm" variable
+                       (:typemodifiers ("private")
+                        :type "Alarm")
+                        (reparse-symbol class_member_declaration) [680 700])
+                    ("output" variable
+                       (:typemodifiers ("private")
+                        :type "Output")
+                        (reparse-symbol class_member_declaration) [734 756])
+                    ("Output" type
+                       (:typemodifiers ("public" "static")
+                        :members 
+                          ( ("inroad" variable
+                               (:typemodifiers ("private")
+                                :type "Inroad")
+                                (reparse-symbol class_member_declaration) [883 905])
+                            ("alarms" variable
+                               (:typemodifiers ("private")
+                                :type "Alarms")
+                                (reparse-symbol class_member_declaration) [957 979])
+                            ("edge" variable
+                               (:typemodifiers ("private")
+                                :type "Edge")
+                                (reparse-symbol class_member_declaration) [1031 1049])
+                            ("road" variable
+                               (:typemodifiers ("private")
+                                :type "Road")
+                                (reparse-symbol class_member_declaration) [1101 1119]))                          
+                        :type "class")
+                        (reparse-symbol class_member_declaration) [802 1126])
+                    ("Road" type
+                       (:typemodifiers ("public" "static")
+                        :members 
+                          ( ("perfix" variable
+                               (:typemodifiers ("private")
+                                :type "String")
+                                (reparse-symbol class_member_declaration) [1252 1274])
+                            ("alias" variable
+                               (:typemodifiers ("private")
+                                :type "String")
+                                (reparse-symbol class_member_declaration) [1328 1349])
+                            ("indexrule" variable
+                               (:typemodifiers ("private")
+                                :type "String")
+                                (reparse-symbol class_member_declaration) [1401 1426])
+                            ("recycle" variable
+                               (:typemodifiers ("private")
+                                :type "String")
+                                (reparse-symbol class_member_declaration) [1478 1501]))                          
+                        :type "class")
+                        (reparse-symbol class_member_declaration) [1173 1507])
+                    ("Alarms" type
+                       (:typemodifiers ("public" "static")
+                        :members 
+                          ( ("perfix" variable
+                               (:typemodifiers ("private")
+                                :type "String")
+                                (reparse-symbol class_member_declaration) [1634 1656])
+                            ("alias" variable
+                               (:typemodifiers ("private")
+                                :type "String")
+                                (reparse-symbol class_member_declaration) [1710 1731])
+                            ("indexrule" variable
+                               (:typemodifiers ("private")
+                                :type "String")
+                                (reparse-symbol class_member_declaration) [1783 1808])
+                            ("recycle" variable
+                               (:typemodifiers ("private")
+                                :type "String")
+                                (reparse-symbol class_member_declaration) [1860 1883]))                          
+                        :type "class")
+                        (reparse-symbol class_member_declaration) [1553 1889])
+                    ("Edge" type
+                       (:typemodifiers ("public" "static")
+                        :members 
+                          ( ("perfix" variable
+                               (:typemodifiers ("private")
+                                :type "String")
+                                (reparse-symbol class_member_declaration) [2014 2036])
+                            ("alias" variable
+                               (:typemodifiers ("private")
+                                :type "String")
+                                (reparse-symbol class_member_declaration) [2090 2111])
+                            ("indexrule" variable
+                               (:typemodifiers ("private")
+                                :type "String")
+                                (reparse-symbol class_member_declaration) [2163 2188])
+                            ("recycle" variable
+                               (:typemodifiers ("private")
+                                :type "String")
+                                (reparse-symbol class_member_declaration) [2240 2263]))                          
+                        :type "class")
+                        (reparse-symbol class_member_declaration) [1935 2269])
+                    ("Inroad" type
+                       (:typemodifiers ("public" "static")
+                        :members 
+                          ( ("perfix" variable
+                               (:typemodifiers ("private")
+                                :type "String")
+                                (reparse-symbol class_member_declaration) [2397 2419])
+                            ("alias" variable
+                               (:typemodifiers ("private")
+                                :type "String")
+                                (reparse-symbol class_member_declaration) [2473 2494])
+                            ("indexrule" variable
+                               (:typemodifiers ("private")
+                                :type "String")
+                                (reparse-symbol class_member_declaration) [2546 2571])
+                            ("recycle" variable
+                               (:typemodifiers ("private")
+                                :type "String")
+                                (reparse-symbol class_member_declaration) [2623 2646]))                          
+                        :type "class")
+                        (reparse-symbol class_member_declaration) [2315 2653])
+                    ("Alarm" type
+                       (:typemodifiers ("public" "static")
+                        :members 
+                          ( ("allowMiss" variable
+                               (:typemodifiers ("private")
+                                :type "Integer")
+                                (reparse-symbol class_member_declaration) [2781 2807]))                          
+                        :type "class")
+                        (reparse-symbol class_member_declaration) [2697 2814])
+                    ("Index" type
+                       (:typemodifiers ("public" "static")
+                        :members 
+                          ( ("perfix" variable
+                               (:typemodifiers ("private")
+                                :type "String")
+                                (reparse-symbol class_member_declaration) [2941 2963])
+                            ("cycle" variable
+                               (:typemodifiers ("private")
+                                :type "String")
+                                (reparse-symbol class_member_declaration) [3011 3032]))                          
+                        :type "class")
+                        (reparse-symbol class_member_declaration) [2860 3039])
+                    ("Flow" type
+                       (:typemodifiers ("public" "static")
+                        :members 
+                          ( ("time" variable
+                               (:typemodifiers ("private")
+                                :type "Double")
+                                (reparse-symbol class_member_declaration) [3175 3195]))                          
+                        :type "class")
+                        (reparse-symbol class_member_declaration) [3088 3202]))                  
+                :type "class")
+                nil [360 3204]))          
+      :file "TrafficCirculationConfigs.java"
+      :pointmax 3205
+      :fsize 3758
+      :lastmodtime '(24276 22647 257187 28000)
+      :unmatched-syntax '((PAREN_BLOCK 327 . 359) (IDENTIFIER 303 . 327) (IDENTIFIER 288 . 302) (IDENTIFIER 282 . 287))))
+  :file "!Users!april!Documents!Code!Java!framework-server!supconit-provider!arithmetic-provider!src!main!java!com!supconit!its!arithmetic!config!semantic.cache"
+  :semantic-tag-version "2.0"
+  :semanticdb-version "2.2")

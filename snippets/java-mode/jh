@@ -1,0 +1,11 @@
+# -*- mode: snippet -*-
+# name: java head
+# key: jh
+# --
+/**
+ * <p>$1</p>
+ *
+ * @author:杨霖
+ * @create:`(format-time-string "%Y-%m-%d %H:%M")`
+ */
+$0

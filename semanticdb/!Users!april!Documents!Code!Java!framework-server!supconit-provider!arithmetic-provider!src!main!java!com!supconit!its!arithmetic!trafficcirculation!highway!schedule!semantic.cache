@@ -1,0 +1,51 @@
+;; Object semanticdb-project-database-file
+;; SEMANTICDB Tags save file
+(semanticdb-project-database-file "semanticdb-project-database-file"
+  :tables
+  (list
+    (semanticdb-table "semanticdb-table"
+      :major-mode jdee-mode
+      :tags 
+        '( ("com.supconit.its.arithmetic.trafficcirculation.highway.schedule" package nil nil [1 73])
+            ("com.supconit.its.arithmetic.common.enums.AriEnum" include nil nil [75 131])
+            ("com.supconit.its.arithmetic.common.schedule.BaseSchedule" include nil nil [132 196])
+            ("com.supconit.its.arithmetic.config.TrafficCirculationConfigs" include nil nil [197 265])
+            ("com.supconit.its.arithmetic.trafficcirculation.util.HighwayEsUtil" include nil nil [266 339])
+            ("com.supconit.its.commones.util.EsIndexUtils" include nil nil [340 391])
+            ("lombok.extern.slf4j.Slf4j" include nil nil [392 425])
+            ("org.elasticsearch.client.RestHighLevelClient" include nil nil [426 478])
+            ("org.springframework.beans.factory.annotation.Autowired" include nil nil [479 541])
+            ("org.springframework.beans.factory.annotation.Qualifier" include nil nil [542 604])
+            ("org.springframework.scheduling.concurrent.ThreadPoolTaskScheduler" include nil nil [605 678])
+            ("org.springframework.stereotype.Component" include nil nil [679 727])
+            ("org.springframework.util.StringUtils" include nil nil [728 772])
+            ("javax.annotation.PostConstruct" include nil nil [774 812])
+            ("TrafficHighwaySchedule" type
+               (:typemodifiers ("public")
+                :superclasses "BaseSchedule"
+                :members 
+                  ( ("circulationConfigs" variable
+                       (:typemodifiers ("private")
+                        :type "TrafficCirculationConfigs")
+                        (reparse-symbol class_member_declaration) [993 1046])
+                    ("TrafficHighwaySchedule" function
+                       (:constructor-flag t
+                        :typemodifiers ("public")
+                        :arguments 
+                          ( ("threadPoolTaskScheduler" variable (:type "ThreadPoolTaskScheduler") (reparse-symbol formal_parameters) [1097 1144])
+                            ("client" variable (:type "RestHighLevelClient") (reparse-symbol formal_parameters) [1208 1234]))                          )
+                        (reparse-symbol class_member_declaration) [1067 1339])
+                    ("init" function
+                       (:typemodifiers ("public")
+                        :type "void")
+                        (reparse-symbol class_member_declaration) [1364 2257]))                  
+                :type "class")
+                nil [914 2260]))          
+      :file "TrafficHighwaySchedule.java"
+      :pointmax 2261
+      :fsize 2390
+      :lastmodtime '(24280 28344 656487 111000)
+      :unmatched-syntax '((IDENTIFIER 1180 . 1190) (PAREN_BLOCK 1190 . 1207) (IDENTIFIER 903 . 913) (IDENTIFIER 896 . 902) (IDENTIFIER 1180 . 1190) (PAREN_BLOCK 1190 . 1207) (IDENTIFIER 903 . 913) (IDENTIFIER 896 . 902) (IDENTIFIER 1180 . 1190) (PAREN_BLOCK 1190 . 1207) (IDENTIFIER 903 . 913) (IDENTIFIER 896 . 902) (BRACE_BLOCK 2301 . 2309) (PAREN_BLOCK 2285 . 2300) (IDENTIFIER 2281 . 2285) (PUBLIC 2262 . 2268) (VOID 2276 . 2280) (IDENTIFIER 1180 . 1190) (PAREN_BLOCK 1190 . 1207) (IDENTIFIER 903 . 913) (IDENTIFIER 896 . 902) (IDENTIFIER 1180 . 1190) (PAREN_BLOCK 1190 . 1207) (IDENTIFIER 903 . 913) (IDENTIFIER 896 . 902) (IDENTIFIER 2262 . 2263) (IDENTIFIER 1180 . 1190) (PAREN_BLOCK 1190 . 1207) (IDENTIFIER 903 . 913) (IDENTIFIER 896 . 902) (PUBLIC 2262 . 2268) ($EOI 2268 . 2268) (IDENTIFIER 1180 . 1190) (PAREN_BLOCK 1190 . 1207) (IDENTIFIER 903 . 913) (IDENTIFIER 896 . 902) (IDENTIFIER 2262 . 2265) (IDENTIFIER 1180 . 1190) (PAREN_BLOCK 1190 . 1207) (IDENTIFIER 903 . 913) (IDENTIFIER 896 . 902) (IDENTIFIER 1180 . 1190) (PAREN_BLOCK 1190 . 1207) (IDENTIFIER 903 . 913) (IDENTIFIER 896 . 902) (IDENTIFIER 1180 . 1190) (PAREN_BLOCK 1190 . 1207) (IDENTIFIER 903 . 913) (IDENTIFIER 896 . 902))))
+  :file "!Users!april!Documents!Code!Java!framework-server!supconit-provider!arithmetic-provider!src!main!java!com!supconit!its!arithmetic!trafficcirculation!highway!schedule!semantic.cache"
+  :semantic-tag-version "2.0"
+  :semanticdb-version "2.2")

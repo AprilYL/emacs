@@ -69,7 +69,26 @@
 (use-package hydra
   :ensure t
   :diminish)
+(use-package major-mode-hydra
+  :ensure t
+  )
+
 ;; (require 'init-better-default)
+(use-package imenu-list
+  :bind
+  ("C-'" . imenu-list-smart-toggle)
+  :config
+  (setq imenu-list-auto-resize t)
+  (setq imenu-list-position 'left)
+  )
+
+(use-package restart-emacs)
+
+(use-package plantuml-mode
+  )
+
+(use-package format-all
+  )
+
 (provide 'init-utils)
 ;;; init-utils ends here
-

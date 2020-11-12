@@ -1,0 +1,56 @@
+;; Object semanticdb-project-database-file
+;; SEMANTICDB Tags save file
+(semanticdb-project-database-file "semanticdb-project-database-file"
+  :tables
+  (list
+    (semanticdb-table "semanticdb-table"
+      :file "hn_sql.py"
+      :fsize 912
+      :lastmodtime '(24272 45318 410435 510000))
+    (semanticdb-table "semanticdb-table"
+      :major-mode python-mode
+      :tags 
+        '( ("Config" type
+               (:members 
+                  ( ("database_conf" variable nil (reparse-symbol indented_block_body) [151 285])
+                    ("database_conf2" variable nil (reparse-symbol indented_block_body) [290 425])
+                    ("ES" variable nil (reparse-symbol indented_block_body) [431 458])
+                    ("query" variable nil (reparse-symbol indented_block_body) [475 1035])
+                    ("OUT_PUT_LOG_TO_FILEENABLED" variable nil (reparse-symbol indented_block_body) [1051 1085])
+                    ("OUT_PUT_LOG_TO_FILE_PATH" variable nil (reparse-symbol indented_block_body) [1090 1122])
+                    ("Redis_conf" variable nil (reparse-symbol indented_block_body) [1128 1164]))                  
+                :type "class")
+                nil [131 1165]))          
+      :file "conf.py"
+      :pointmax 1165
+      :fsize 1174
+      :lastmodtime '(24234 28881 586271 690000)
+      :unmatched-syntax nil)
+    (semanticdb-table "semanticdb-table"
+      :major-mode python-mode
+      :tags 
+        '( ("Sql" type
+               (:members 
+                  ( ("BAYONET_DATA" variable nil (reparse-symbol indented_block_body) [147 447])
+                    ("create_res_table" variable nil (reparse-symbol indented_block_body) [453 1231])
+                    ("create_res2" variable nil (reparse-symbol indented_block_body) [1236 1540])
+                    ("insert_res2" variable nil (reparse-symbol indented_block_body) [1545 1733])
+                    ("create_base" variable nil (reparse-symbol indented_block_body) [1875 2256])
+                    ("insert_base" variable nil (reparse-symbol indented_block_body) [2261 2483])
+                    ("base_data" variable nil (reparse-symbol indented_block_body) [2489 2625])
+                    ("res_data1" variable nil (reparse-symbol indented_block_body) [2630 2685])
+                    ("res_data2" variable nil (reparse-symbol indented_block_body) [2690 2746])
+                    ("od_data" variable nil (reparse-symbol indented_block_body) [2752 2996])
+                    ("od_res_create_table" variable nil (reparse-symbol indented_block_body) [3002 3149])
+                    ("od_res" variable nil (reparse-symbol indented_block_body) [3154 3244])
+                    ("od_base" variable nil (reparse-symbol indented_block_body) [3250 3308]))                  
+                :type "class")
+                nil [130 3309]))          
+      :file "sql.py"
+      :pointmax 3309
+      :fsize 3316
+      :lastmodtime '(24242 7514 591344 838000)
+      :unmatched-syntax nil))
+  :file "!Users!april!Documents!Code!python!highway!docs!semantic.cache"
+  :semantic-tag-version "2.0"
+  :semanticdb-version "2.2")

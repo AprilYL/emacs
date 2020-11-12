@@ -4,27 +4,30 @@
 ;; markdown configurations
 ;; reference seagle0128's emacs configure
 ;;; Code:
-(eval-when-compile
-  (require 'init-const))
 (use-package markdown-mode
   :ensure t
   :mode (("README\\.md\\'" . gfm-mode)
-	 ("\\.md\\'" . markdown-mode)
-	 ("\\.markdown\\'" . markdown-mode))
+		 ("\\.md\\'" . markdown-mode)
+		 ("\\.markdown\\'" . markdown-mode))
   :init (setq markdown-command "pandoc")
+  :hook
+  (markdown-mode . (lambda() (set (make-local-variable 'company-backends)
+								  '((company-ispell company-capf ) (company-files company-yasnippet)))))
+  :bind (:map markdown-mode-map ("TAB" . markdown-cycle))
   :config
+  (setq tab-width 4)
   (use-package gh-md
     :bind (:map markdown-mode-map ("C-c r" . gh-md-render-buffer)))
-  (use-package pandoc
-    :hook
-    (markdown-mode . pandoc-mode)
-    :config
-    ((add-hook 'pandoc-mode-hook 'pandoc-load-default-settings)
-     ))
+  ;; (use-package pandoc
+  ;;   :hook
+  ;;   (markdown-mode . pandoc-mode)
+  ;;   :config
+  ;;   ((add-hook 'pandoc-mode-hook 'pandoc-load-default-settings)
+  ;;    ))
   (when sys/macp
     (let ((typora "/Applications/Typora.app/Contents/MacOS/Typora"))
       (if (file-exists-p typora)
-	  (setq markdown-open-command typora))))
+		  (setq markdown-open-command typora))))
   (setq markdown-enable-html 1)
   (setq markdown-enable-math 1)
   )

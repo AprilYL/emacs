@@ -19,15 +19,16 @@
  	)
   
   :config
-  (setq helm-split-window-in-side-p           t ; open helm buffer inside current window, not occupy whole other window
+  (setq helm-split-window-inside-p           t ; open helm buffer inside current window, not occupy whole other window
 	helm-move-to-line-cycle-in-source     t ; move to end or beginning of source when reaching top or bottom of source.
 	helm-ff-search-library-in-sexp        t ; search for library in `require' and `declare-function' sexp.
 	helm-scroll-amount                    8 ; scroll 8 lines other window using M-<next>/M-<prior>
 	helm-ff-file-name-history-use-recentf t
 	helm-quick-update t ; do not display invisible candidates
-	helm-idle-delay 0.01 ; be idle for this many seconds, before updating in delayed sources.
-	helm-input-idle-delay 0.01 ; be idle for this many seconds, before updating candidate buffer
-	helm-echo-input-in-header-line t)
+	helm-idle-delay 0.01 ; be idle for this many seconds, before updating in delayed sources. helm-input-idle-delay 0.01 ; be idle for this many seconds, before updating candidate buffer
+	helm-echo-input-in-header-line t
+	helm-move-to-line-cycle-in-source nil
+	)
   (setq helm-autoresize-max-height 0)
   (setq helm-autoresize-min-height 40)
   (helm-autoresize-mode 1)
@@ -39,32 +40,8 @@
   )
 (use-package helm-ag)
 
-(use-package helm-projectile
-  :functions hydra-helm-projectile/body
-  :config
-  (helm-projectile-on)
-  (defhydra hydra-helm-projectile(:color blue :hint none)
-    "
-                       projectile
-───────────────────────────────────────────────
-_f_: projectile-find-file
-_p_: projectile-switch-project
-_b_: projectile-switch-buffer
-_r_: projectile-replace
-_s_: projectile-ag
-───────────────────────────────────────────────
-                       _q_: quit
-"
-    ("f" helm-projectile-find-file "projectile-find-file")
-    ("p" helm-projectile-switch-project "projectile-switch-project")
-    ("b" helm-projectile-switch-to-buffer "projectile-switch-buffer")
-    ("r" projectile-replace "projectile-replace")
-    ("s" helm-projectile-ag "projectile-ag")
-    ("q" nil "quit")
-    )
-
-  )
 (use-package helm-make)
+(use-package helm-swoop)
 
-(provide 'init-helm) 
+(provide 'init-helm)
 ;;; init-helm ends here

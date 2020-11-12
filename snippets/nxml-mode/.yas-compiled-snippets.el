@@ -6,4 +6,4 @@
 		       ("bean" "<bean id=\"$1\" class=\"${2:com.}\">\n</bean>\n" "bean xml" nil nil nil "/Users/april/.emacs.d/snippets/nxml-mode/bean" nil nil)))
 
 
-;;; Do not edit! File generated at Tue Dec 10 13:19:50 2019
+;;; Do not edit! File generated at Tue Oct 13 10:01:49 2020

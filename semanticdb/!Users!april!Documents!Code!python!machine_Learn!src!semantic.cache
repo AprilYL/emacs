@@ -1,0 +1,156 @@
+;; Object semanticdb-project-database-file
+;; SEMANTICDB Tags save file
+(semanticdb-project-database-file "semanticdb-project-database-file"
+  :tables
+  (list
+    (semanticdb-table "semanticdb-table"
+      :major-mode python-mode
+      :tags 
+        '( ("os" include nil nil [150 159])
+            ("tarfile" include nil nil [160 174])
+            ("six.moves" include nil nil [175 203])
+            ("pandas" include nil nil [204 223])
+            ("DOWNLOAD_ROOT" variable nil nil [224 302])
+            ("HOUSING_PATH" variable nil nil [303 336])
+            ("HOUSING_URL" code nil nil [337 396])
+            ("fetch_housing_data" function (:arguments 
+              ( ("housing_url" variable nil (reparse-symbol function_parameters) [422 433])
+                ("housing_path" variable nil (reparse-symbol function_parameters) [447 459]))              ) nil [399 771])
+            ("load_housing_data" function (:arguments 
+              ( ("housing_path" variable nil (reparse-symbol function_parameters) [795 807]))              ) nil [773 913])
+            ("housing" variable nil nil [915 944])
+            ("numpy" include nil nil [946 964])
+            ("split_train_test" function (:arguments 
+              ( ("data" variable nil (reparse-symbol function_parameters) [988 992])
+                ("test_ratio" variable nil (reparse-symbol function_parameters) [994 1004]))              ) nil [967 1277])
+            ("train_set, test_set" code nil nil [1279 1331])
+            ("hashlib" include nil nil [1333 1347])
+            ("test_set_check" function (:arguments 
+              ( ("identifier" variable nil (reparse-symbol function_parameters) [1369 1379])
+                ("test_ratio" variable nil (reparse-symbol function_parameters) [1381 1391])
+                ("hash" variable nil (reparse-symbol function_parameters) [1393 1397]))              ) nil [1350 1470])
+            ("split_train_test_by_id" function (:arguments 
+              ( ("data" variable nil (reparse-symbol function_parameters) [1499 1503])
+                ("test_ratio" variable nil (reparse-symbol function_parameters) [1505 1515])
+                ("id_column" variable nil (reparse-symbol function_parameters) [1517 1526])
+                ("hash" variable nil (reparse-symbol function_parameters) [1528 1532]))              ) nil [1472 1709])
+            ("housing_with_id" variable nil nil [1711 1750])
+            ("train_set, test_set" code nil nil [1751 1826])
+            ("housing_with_id" code nil nil [1828 1900])
+            ("train_set, test_set" code nil nil [1901 1973])
+            ("sklearn.model_selection" include nil nil [1975 2027])
+            ("train_set, test_set" code nil nil [2028 2107])
+            ("housing" variable nil nil [2109 2172])
+            ("housing" code nil nil [2173 2246])
+            ("sklearn.model_selection" include nil nil [2248 2306])
+            ("split" variable nil nil [2307 2381])
+            ("for" code nil nil [2382 2550])
+            ("for" code nil nil [2551 2648])
+            ("pandas.plotting" include nil nil [2669 2711])
+            ("attributes" variable nil nil [2712 2807])
+            ("scatter_matrix" code nil nil [2808 2860])
+            ("housing" code nil nil [2861 2940])
+            ("housing" code nil nil [2941 3027])
+            ("housing" code nil nil [3028 3116])
+            ("housing" variable nil nil [3152 3211])
+            ("housing_labels" variable nil nil [3212 3273])
+            ("sklearn.impute" include nil nil [3275 3315])
+            ("imputer" variable nil nil [3316 3358])
+            ("housing_num" variable nil nil [3359 3412])
+            ("imputer" code nil nil [3413 3437])
+            ("X" variable nil nil [3438 3472])
+            ("housing_tr" variable nil nil [3473 3530])
+            ("sklearn.preprocessing" include nil nil [3547 3595])
+            ("ordinal_encoder" variable nil nil [3596 3630])
+            ("housing_cat" variable nil nil [3631 3671])
+            ("housing_cat_encoded" variable nil nil [3672 3736])
+            ("sklearn.preprocessing" include nil nil [3746 3793])
+            ("encoder" variable nil nil [3794 3819])
+            ("housing_cat_1hot" variable nil nil [3820 3873])
+            ("sklearn.preprocessing" include nil nil [3950 3998])
+            ("encoder" variable nil nil [3999 4025])
+            ("housing_cat_1hot" variable nil nil [4026 4079])
+            ("housing_cat_1hot" code nil nil [4080 4096])
+            ("sklearn.base" include nil nil [4098 4154])
+            ("rooms_ix, bedrooms_ix, population_ix, household_ix" code nil nil [4155 4218])
+            ("CombinedAttributesAdder" type
+               (:superclasses ("BaseEstimator" "TransformerMixin")
+                :members 
+                  ( ("__init__" function
+                       (:suite 
+                          ( ("self" variable nil (reparse-symbol indented_block_body) [4345 4395]))                          
+                        :parent "dummy"
+                        :arguments 
+                          ( ("self" variable nil (reparse-symbol function_parameters) [4302 4306])
+                            ("add_bedrooms_per_room" variable nil (reparse-symbol function_parameters) [4308 4329]))                          
+                        :constructor-flag t)
+                        (reparse-symbol indented_block_body) [4289 4396])
+                    ("fit" function
+                       (:parent "dummy"
+                        :arguments 
+                          ( ("self" variable nil (reparse-symbol function_parameters) [4409 4413])
+                            ("X" variable nil (reparse-symbol function_parameters) [4415 4416])
+                            ("y" variable nil (reparse-symbol function_parameters) [4418 4419]))                          )
+                        (reparse-symbol indented_block_body) [4401 4447])
+                    ("transform" function
+                       (:parent "dummy"
+                        :arguments 
+                          ( ("self" variable nil (reparse-symbol function_parameters) [4466 4470])
+                            ("X" variable nil (reparse-symbol function_parameters) [4472 4473])
+                            ("y" variable nil (reparse-symbol function_parameters) [4475 4476]))                          )
+                        (reparse-symbol indented_block_body) [4452 4940]))                  
+                :type "class")
+                nil [4221 4940])
+            ("attr_adder" variable nil nil [4942 5007])
+            ("housing_extra_attribs" variable nil nil [5008 5068])
+            ("sklearn.pipeline" include nil nil [5092 5129])
+            ("sklearn.preprocessing" include nil nil [5130 5178])
+            ("num_pipeline" variable nil nil [5179 5382])
+            ("housing_num_tr" variable nil nil [5383 5439])
+            ("sklearn.compose" include nil nil [5441 5486])
+            ("num_attribs" variable nil nil [5487 5518])
+            ("cat_attribs" variable nil nil [5519 5552])
+            ("full_pipeline" variable nil nil [5553 5698])
+            ("housing_prepared" variable nil nil [5699 5754])
+            ("sklearn.linear_model" include nil nil [5801 5850])
+            ("lin_reg" variable nil nil [5851 5879])
+            ("lin_reg" code nil nil [5880 5925])
+            ("some_data" variable nil nil [5926 5954])
+            ("some_labels" variable nil nil [5955 5992])
+            ("some_data_prepared" variable nil nil [5993 6048])
+            ("print" code nil nil [6049 6107])
+            ("sklearn.metrics" include nil nil [6130 6176])
+            ("housing_predictions" variable nil nil [6177 6232])
+            ("lin_mse" variable nil nil [6233 6298])
+            ("lin_rmse" variable nil nil [6299 6326])
+            ("sklearn.datasets" include nil nil [6409 6450])
+            ("mnist" variable nil nil [6451 6495])
+            ("mnist" code nil nil [6496 6508])
+            ("X, y" code nil nil [6509 6546])
+            ("matplotlib" include nil nil [6563 6587])
+            ("matplotlib.pyplot" include nil nil [6588 6619])
+            ("some_digit" variable nil nil [6620 6637])
+            ("some_digit_image" variable nil nil [6638 6683])
+            ("plt" code nil nil [6684 6757])
+            ("plt" code nil nil [6758 6773])
+            ("plt" code nil nil [6774 6784])
+            ("X_train, X_test, y_train, y_test" code nil nil [6786 6863])
+            ("y_train_5" variable nil nil [6864 6890])
+            ("y_test_5" variable nil nil [6891 6915])
+            ("sklearn.linear_model" include nil nil [6923 6969])
+            ("sgd_clf" variable nil nil [6970 7010])
+            ("sgd_clf" code nil nil [7011 7042])
+            ("sklearn.metrics" include nil nil [7063 7109])
+            ("sklearn.model_selection" include nil nil [7110 7162])
+            ("plot_learning_curves" function (:arguments 
+              ( ("model" variable nil (reparse-symbol function_parameters) [7190 7195])
+                ("X" variable nil (reparse-symbol function_parameters) [7197 7198])
+                ("y" variable nil (reparse-symbol function_parameters) [7200 7201]))              ) nil [7165 7786]))          
+      :file "hand_on_ml.py"
+      :pointmax 7786
+      :fsize 7785
+      :lastmodtime '(24280 53406 486703 215000)
+      :unmatched-syntax nil))
+  :file "!Users!april!Documents!Code!python!machine_Learn!src!semantic.cache"
+  :semantic-tag-version "2.0"
+  :semanticdb-version "2.2")

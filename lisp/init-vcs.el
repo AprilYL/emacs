@@ -18,15 +18,12 @@
 ;;   :config
 ;;   (setq-default magit-diff-refine-hunk t)
 ;;   )
-
-(eval-when-compile
-  (require 'init-const))
-
+(require 'init-const)
 ;; Git
 (use-package magit
   :commands (magit-define-popup-switch magit-refresh-buffer)
   :bind (("C-x g" . magit-status)
-         ("C-x M-g" . magit-dispatch-popup)
+         ("C-x M-g" . magit-dispatch)
          ("C-c M-g" . magit-file-popup))
   :config
   (when sys/win32p

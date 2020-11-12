@@ -9,32 +9,43 @@
 
 ;; Jump to definition via `ag'/`rg'/`grep'
 (use-package dumb-jump
-  :functions hydra-dumb-jump/body
+  :init
+  (add-hook 'xref-backend-functions #'dumb-jump-xref-activate)
   :hook (after-init . dumb-jump-mode)
+  :pretty-hydra
+  ((:title "dumb-jump" :color teal)
+   ("Jump go"
+    (("j" dumb-jump-go "Go")
+     ("l" dumb-jump-quick-look "Quick look"))
+    "Jump to other"
+    (("o" dumb-jump-go-other-window "Go other window")
+     ("x" dumb-jump-go-prefer-external-other-window "Go external other window"))
+    "prefer"
+    (
+     ("e" dumb-jump-go-prefer-external "Go external")
+     ("i" dumb-jump-go-prompt "Prompt")
+     )
+    "Other"
+    (
+     ("b" dumb-jump-back "Back")
+     ("q" nil "quit"))
+    )
+   )
   :config
   (setq dumb-jump-prefer-searcher 'rg)
   (with-eval-after-load 'ivy
     (setq dumb-jump-selector 'ivy))
-
-  (defhydra hydra-dumb-jump(:color blue :hint none)
-    "
-^Jump^                            ^Other^
-^^────────────────────────────────^^───────────────
-_j_: Go                           _i_: Prompt
-_o_: Go other window              _l_: Quick look
-_e_: Go external                  _b_: Back
-_x_: Go external other window
-"
-    ("j" dumb-jump-go "Go")
-    ("o" dumb-jump-go-other-window "Go other window")
-    ("e" dumb-jump-go-prefer-external "Go external")
-    ("x" dumb-jump-go-prefer-external-other-window "Go external other window")
-    ("i" dumb-jump-go-prompt "Prompt")
-    ("l" dumb-jump-quick-look "Quick look")
-    ("b" dumb-jump-back "Back")
-    ("q" nil "quit"))
   )
-(use-package goto-chg
-  :bind ("C-," . goto-last-change))
+
+  (use-package goto-chg
+    :bind ("C-," . goto-last-change))
+(use-package ace-jump-mode
+  :ensure t
+  :pretty-hydra
+  ((:color teal :quit-key "q")
+   ("action"
+    (("w" ace-jump-word-mode "word-mode")
+     ("c" ace-jump-char-mode "char-mode"))))
+  )
 (provide 'init-navigation.el)
 ;;; init-navigation.el ends here

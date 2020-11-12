@@ -1,0 +1,101 @@
+;; Object semanticdb-project-database-file
+;; SEMANTICDB Tags save file
+(semanticdb-project-database-file "semanticdb-project-database-file"
+  :tables
+  (list
+    (semanticdb-table "semanticdb-table"
+      :major-mode jdee-mode
+      :tags 
+        '( ("com.supconit.its.arithmetic.trafficcirculation.highway.analy" package nil nil [1 70])
+            ("com.alibaba.fastjson.JSON" include nil nil [72 105])
+            ("com.google.common.util.concurrent.AtomicDouble" include nil nil [106 160])
+            ("com.supconit.its.arithmetic.common.BaseAnaly" include nil nil [161 213])
+            ("com.supconit.its.arithmetic.config.TrafficCirculationConfigs" include nil nil [214 282])
+            ("com.supconit.its.arithmetic.domain.abs.BaseVehiclePass" include nil nil [283 345])
+            ("com.supconit.its.arithmetic.domain.dto.InRoadRecord" include nil nil [346 405])
+            ("com.supconit.its.arithmetic.trafficcirculation.domain.dto.HighwayRoadDTO" include nil nil [406 486])
+            ("com.supconit.its.arithmetic.trafficcirculation.domain.vo.*" include nil nil [487 553])
+            ("com.supconit.its.arithmetic.trafficcirculation.domain.bo.HighwayLinkVehAnalyResult" include nil nil [554 644])
+            ("com.supconit.its.arithmetic.trafficcirculation.domain.dto.HighwayLinkBaseDTO" include nil nil [645 729])
+            ("com.supconit.its.arithmetic.trafficcirculation.enums.HighwayLinkIndex" include nil nil [730 807])
+            ("com.supconit.its.arithmetic.trafficcirculation.enums.VehiclePassEnum" include nil nil [808 884])
+            ("com.supconit.its.arithmetic.trafficcirculation.util.HighwayEsUtil" include nil nil [885 958])
+            ("com.supconit.its.arithmetic.trafficcirculation.util.HighwayLinkUtil" include nil nil [959 1034])
+            ("com.supconit.its.excpetion.BaseException" include nil nil [1035 1083])
+            ("lombok.extern.slf4j.Slf4j" include nil nil [1084 1117])
+            ("org.apache.commons.collections.map.HashedMap" include nil nil [1118 1170])
+            ("org.elasticsearch.client.RestHighLevelClient" include nil nil [1171 1223])
+            ("org.springframework.beans.BeanUtils" include nil nil [1224 1267])
+            ("org.springframework.beans.factory.annotation.Autowired" include nil nil [1268 1330])
+            ("org.springframework.stereotype.Component" include nil nil [1331 1379])
+            ("org.springframework.util.CollectionUtils" include nil nil [1380 1428])
+            ("java.time.LocalDate" include nil nil [1430 1457])
+            ("java.time.LocalDateTime" include nil nil [1458 1489])
+            ("java.util.*" include nil nil [1490 1509])
+            ("java.util.concurrent.ConcurrentHashMap" include nil nil [1510 1556])
+            ("java.util.concurrent.CopyOnWriteArrayList" include nil nil [1557 1606])
+            ("java.util.concurrent.atomic.AtomicBoolean" include nil nil [1607 1656])
+            ("java.util.stream.Collectors" include nil nil [1657 1692])
+            ("AnalyEdgeVelocity" type
+               (:typemodifiers ("public")
+                :superclasses "BaseAnaly"
+                :members 
+                  ( ("circulationConfigs" variable
+                       (:typemodifiers ("private")
+                        :type "TrafficCirculationConfigs")
+                        (reparse-symbol class_member_declaration) [2020 2073])
+                    ("analyRollbackVheicle" function
+                       (:typemodifiers ("private")
+                        :arguments 
+                          ( ("" variable (:type "highwayLink") (reparse-symbol formal_parameters) [2288 2299])
+                            ("" variable (:type "String") (reparse-symbol formal_parameters) [2305 2311])
+                            ("" variable (:type "tolerateMap") (reparse-symbol formal_parameters) [2321 2332])
+                            ("" variable (:type "rollback") (reparse-symbol formal_parameters) [2394 2402]))                          
+                        :type "void")
+                        (reparse-symbol class_member_declaration) [2229 2711])
+                    ("analyze" function
+                       (:typemodifiers ("public")
+                        :arguments 
+                          ( ("cron" variable (:type "String") (reparse-symbol formal_parameters) [2751 2762])
+                            ("client" variable (:type "RestHighLevelClient") (reparse-symbol formal_parameters) [2764 2790]))                          
+                        :type "void")
+                        (reparse-symbol class_member_declaration) [2731 6040])
+                    ("analyHighwayRoadIndex" function
+                       (:typemodifiers ("private")
+                        :arguments 
+                          ( ("" variable (:type "linkResultInfos") (reparse-symbol formal_parameters) [6222 6237]))                          
+                        :type "HighwayRoadIndexInfo")
+                        (reparse-symbol class_member_declaration) [6144 8466])
+                    ("analyHighwayLinkIndex" function
+                       (:typemodifiers ("private")
+                        :arguments 
+                          ( ("edge" variable (:type "HighwayLinkBaseDTO") (reparse-symbol formal_parameters) [8729 8752])
+                            ("fullFlow" variable (:type "Double") (reparse-symbol formal_parameters) [8754 8769])
+                            ("analyResult" variable (:type "HighwayLinkVehAnalyResult") (reparse-symbol formal_parameters) [8771 8808])
+                            ("" variable (:type "endPasses") (reparse-symbol formal_parameters) [8886 8895]))                          
+                        :type "AnalyLinkResultInfo")
+                        (reparse-symbol class_member_declaration) [8679 16261])
+                    ("analyLinkVeh" function
+                       (:typemodifiers ("private")
+                        :arguments 
+                          ( ("highwayLinkBaseDTO" variable (:type "HighwayLinkBaseDTO") (reparse-symbol formal_parameters) [16516 16553])
+                            ("" variable (:type "bayStartPasses") (reparse-symbol formal_parameters) [16577 16591])
+                            ("" variable (:type "bayEndPasses") (reparse-symbol formal_parameters) [16666 16678]))                          
+                        :type "HighwayLinkVehAnalyResult")
+                        (reparse-symbol class_member_declaration) [16469 19241])
+                    ("getLinkKey" function
+                       (:typemodifiers ("private")
+                        :arguments 
+                          ( ("highwayLinkBaseDTO" variable (:type "HighwayLinkBaseDTO") (reparse-symbol formal_parameters) [19385 19422]))                          
+                        :type "String")
+                        (reparse-symbol class_member_declaration) [19359 19606]))                  
+                :type "class")
+                nil [1824 19609]))          
+      :file "AnalyEdgeVelocity.java"
+      :pointmax 19610
+      :fsize 21323
+      :lastmodtime '(24276 22647 265261 956000)
+      :unmatched-syntax '((GT 16664 . 16665) (IDENTIFIER 16644 . 16648) (LT 16648 . 16649) (GT 16575 . 16576) (IDENTIFIER 16555 . 16559) (LT 16559 . 16560) (GT 8884 . 8885) (IDENTIFIER 8864 . 8868) (LT 8868 . 8869) (GT 6220 . 6221) (IDENTIFIER 6195 . 6199) (LT 6199 . 6200) (GT 2392 . 2393) (IDENTIFIER 2372 . 2376) (LT 2376 . 2377) (IDENTIFIER 2313 . 2319) (GT 2319 . 2320) (IDENTIFIER 2301 . 2304) (LT 2304 . 2305) (GT 2286 . 2287) (IDENTIFIER 2263 . 2267) (LT 2267 . 2268) (SEMICOLON 1998 . 1999) (PAREN_BLOCK 1996 . 1998) (GT 1995 . 1996) (LT 1994 . 1995) (NEW 1970 . 1973) (EQ 1968 . 1969) (GT 1954 . 1955) (PRIVATE 1910 . 1917) (LT 1938 . 1939) (IDENTIFIER 1813 . 1823) (IDENTIFIER 1806 . 1812) (IDENTIFIER 1729 . 1733) (DOT 1728 . 1729) (IDENTIFIER 1718 . 1728) (DOT 1717 . 1718) (IDENTIFIER 1713 . 1717) (DOT 1712 . 1713) (IMPORT 1694 . 1700) (STATIC 1701 . 1707) (IDENTIFIER 1708 . 1712))))
+  :file "!Users!april!Documents!Code!Java!framework-server!supconit-provider!arithmetic-provider!src!main!java!com!supconit!its!arithmetic!trafficcirculation!highway!analy!semantic.cache"
+  :semantic-tag-version "2.0"
+  :semanticdb-version "2.2")

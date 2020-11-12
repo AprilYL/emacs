@@ -10,8 +10,8 @@
 (use-package dockerfile-mode
   :mode
   ("Dockerfile\\'" . dockerfile-mode)
-  :config
-  (setq-default indent-tabs-mode)
+  ;; :config
+  ;; (setq-default indent-tabs-mode)
   ;; :config
   ;; (put 'dockerfile-image-name 'safe-local-variable #'stringp)
   )

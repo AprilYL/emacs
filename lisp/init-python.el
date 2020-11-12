@@ -11,76 +11,63 @@
 ;; python
 ;;-----------------------------------------------------------------------------------;;
 (use-package python
-  :ensure nil
-  :defines gud-pdb-command-name pdb-path
   :mode (("\\.py\\'" . python-mode)
 	 ("Sconscript\\'" . python-mode)
 	 ("Sconstruct\\'" . python-mode))
   :interpreter ("python" . python-mode)
+  :custom
+  (python-indent-guess-indent-offset 4)
+  :hook
+  (python-mode . (lambda() (set (make-local-variable 'company-backends)
+				'((company-anaconda :with company-capf ) (company-files company-keywords company-capf company-yasnippet company-dabbrev )))))
   :config
   (setenv "PYTHONIOENCODING" "utf-8")
-  (setq python-shell-interpreter "ipython"
-        python-shell-interpreter-args "-i --simple-prompt --no-color-info"
-        python-shell-prompt-regexp "In \\[[0-9]+\\]: "
-        python-shell-prompt-block-regexp "\\.\\.\\.\\.: "
-        python-shell-prompt-output-regexp "Out\\[[0-9]+\\]: "
-        python-shell-completion-setup-code
-        "from IPython.core.completerlib import module_completion"
-        python-shell-completion-string-code
-        "';'.join(get_ipython().Completer.all_completions('''%s'''))\n"
-	)
+  (setenv "LC_CTYPE" "UTF-8")
   ;;Disable readline based native completion
+  (defun projectile-pyenv-mode-set ()
+    "Set pyenv version matching project name."
+    (let ((project (projectile-project-name)))
+      (if (member project (pyenv-mode-versions))
+	  (pyenv-mode-set project)
+	(pyenv-mode-unset))))
+  (add-hook 'projectile-after-switch-project-hook 'projectile-pyenv-mode-set)
   (setq python-shell-completion-native-enable nil)
-  (add-hook 'inferior-python-mode-hook
-	    (lambda ()
-	      ;; (bind-key "C-c C-z" #'kill-buffer-and-window inferior-python-mode-map)
-              (process-query-on-exit-flag (get-process "Python"))))
-  )
-;;-----------------------------------------------------------------------------------;;
-;; pep8
-;;-----------------------------------------------------------------------------------;;
-(use-package py-autopep8
-  :ensure t
-  ;;:hook (python-mode . py-autopep8-enable-on-save)
-  :bind (:map python-mode-map
-	      ("C-c b" . py-autopep8-buffer))
-  :config
-  (setq py-autopep8-options '("--max-line-length=80"))
-  )
 
-
-;;-----------------------------------------------------------------------------------;;
-;; conda and python company
-;;-----------------------------------------------------------------------------------;;
-(use-package anaconda-mode
-  :functions hydra-anaconda/body
-  :after (python)
-  :hook ((python-mode . anaconda-mode)
-         (python-mode . anaconda-eldoc-mode))
-  :config
+  ;;-----------------------------------------------------------------------------------;;
+  ;; pep8
+  ;;-----------------------------------------------------------------------------------;;
+  (use-package py-autopep8
+    :hook (python-mode . py-autopep8-enable-on-save)
+    :bind (:map python-mode-map
+		("C-c b" . py-autopep8-buffer))
+    :config
+    (setq py-autopep8-options '("--max-line-length=80"))
+    )
+  ;;-----------------------------------------------------------------------------------;;
+  ;; conda and python company
+  ;;-----------------------------------------------------------------------------------;;
+  (use-package anaconda-mode
+    :after (python)
+    :hook ((python-mode . anaconda-mode)
+	   (python-mode . anaconda-eldoc-mode))
+    :pretty-hydra
+    (
+     (:title "Ananconda")
+     ("find"
+      (("f" anaconda-mode-find-file "find-file")
+       ("d" anaconda-mode-find-definitions-other-window "find define")
+       ("a" anaconda-mode-find-assignments-other-window "find assignments"))
+      "Other"
+      (
+       ("h" anaconda-mode-show-doc "show doc")
+       ("r" anaconda-mode-find-references-other-window "find references")
+       ("q" nil "quit")
+       ))
+     )
+    )
   (use-package company-anaconda
-    :after (anaconda-mode company)
-    :init
-    (cl-pushnew 'company-anaconda company-backends)
-    )
-  (defhydra hydra-anaconda(:color blue :hint none)
-    "
-^find^                            ^Other^
-^^────────────────────────────────^^───────────────
-_f_: find-file                    _r_: find assignments
-_d_: find-definition              _h_: show doc
-_a_: find-assignments             _q_: quit
-"
-    ("f" 'anaconda-mode-find-file "find-file")
-    ("d" 'anaconda-mode-find-definitions-other-window "find define")
-    ("h" 'anaconda-mode-show-doc "show doc")
-    ("a" 'anaconda-mode-find-assignments-other-window "find assignments")
-    ("r" 'anaconda-mode-find-references-other-window "find references")
-    ("q" nil "quit")
     )
   )
-
-;; Live Coding in Python
 
 ;; Format using YAPF
 ;; Install: pip install yapf
@@ -93,20 +80,20 @@ _a_: find-assignments             _q_: quit
   :hook
   (pip-requirements-mode #'pip-requirements-auto-complete-setup))
 
-
-;; (use-package pipenv
-;;   :hook (python-mode . pipenv-mode)
-;;   :init
-;;   (setq pipenv-projectile-after-switch-function #'pipenv-projectile-after-switch-extended))
-(use-package virtualenvwrapper
-  :init
-  (venv-initialize-eshell)
-  (venv-initialize-interactive-shells)
+(use-package pyenv-mode
   :config
-  (setq projectile-switch-project-action 'venv-projectile-auto-workon)
-  (setq venv-dirlookup-names '("venv" ".venv" "pyenv" ".virtual"))
-  (setq-default mode-line-format (cons '(:exec venv-current-name) mode-line-format))
+  (defun projectile-pyenv-mode-set ()
+    "Set pyenv version matching project name."
+    (let ((project (projectile-project-name)))
+      (if (member project (pyenv-mode-versions))
+	  (pyenv-mode-set project)
+	(pyenv-mode-unset))))
+  (add-hook 'projectile-after-switch-project-hook 'projectile-pyenv-mode-set)
   )
+(use-package pipenv
+  :hook (python-mode . pipenv-mode)
+  :init
+  (setq pipenv-projectile-after-switch-function #'pipenv-projectile-after-switch-extended))
 
 (use-package ein
   :config
@@ -114,39 +101,5 @@ _a_: find-assignments             _q_: quit
   (setq ein:output-area-inlined-images t)
   )
 
-(use-package ob-ipython
-  ;; :after (anaconda-mode company)
-  ;; :init (cl-pushnew 'company-ob-ipython company-backends)
-  :config
-  ;; for now I am disabling elpy only ob-ipython minor mode
-  ;; what we should actually do, is just to ensure that
-  ;; ob-ipython's company backend comes before elpy's (TODO)
-  (add-to-list 'company-backends 'company-ob-ipython)
-  (add-to-list 'org-latex-minted-langs '(ipython "python"))
-  )
-
-;;-----------------------------------------------------------------------------------;;
-;; elpy
-;;-----------------------------------------------------------------------------------;;
-;; (use-package elpy
-;;   :ensure t
-;;   :init
-;;   (setq elpy-rpc-backend "jedi")
-;;   (elpy-enable)
-;;   :config
-;;   (add-hook 'python-mode-hook 'elpy-mode)
-;;   ;; (with-eval-after-load 'elpy
-;;   ;;   (add-hook 'elpy-mode-hook 'elpy-use-ipython))
-;;   :bind (("M-*" . pop-tag-mark))
-;;   )
-
-;;company-jedi
-;; (use-package company-jedi
-;;   :hook(python-mode . jedi:setup)
-;;   :config
-;;   (setq jedi:complete-on-dot t)
-;;   (setq jedi:use-shortcuts t)
-;;   (add-to-list 'company-backends 'company-jedi)
-;;   ) 
 (provide 'init-python)
 ;;; init-python.el ends here

@@ -20,12 +20,6 @@
 		  (list "" "Args:" formatted-args)
 		  indent)
        "\n"))))
-
-(defun python-split-args (arg-string)
-  "Split a python argument string into ((name, default)..) tuples"
-  (mapcar (lambda (x)
-	    (split-string x "[[:blank:]]*=[[:blank:]]*" t))
-          (split-string arg-string "[[:blank:]]*,[[:blank:]]*" t)))
 ;;; Snippet definitions:
 ;;;
 (yas-define-snippets 'python-mode
@@ -40,8 +34,9 @@
 		       ("mysql" "###############################################################################\n# mysql database configuration\n###############################################################################\ndatabase_conf$1 = {\n    'user': '$2',\n    'passwd': '$3',\n    'host': '$4',\n    'port': ${5:3306},\n    'db': $6\n}\n$0" "python mysql" nil nil nil "/Users/april/.emacs.d/snippets/python-mode/mysql" nil nil)
 		       ("main" "if __name__==\"__main__\":\n    $0" "python define main" nil nil nil "/Users/april/.emacs.d/snippets/python-mode/main" nil nil)
 		       ("gd" "##############################################################################\n# GET ${1:$$(upcase yas-text)} DATA\n##############################################################################\nGET_$1_SQL= \\\"\\\"\\\"\nSELECT\n    ${2:$$(upcase yas-text)}\nFROM\n    ${3:$$(upcase yas-text)}\n\\\"\\\"\\\"\n" "python get data sql" nil nil nil "/Users/april/.emacs.d/snippets/python-mode/get" nil nil)
+		       ("defg" "def ${1:name}($2):\n    \\\"\\\"\\\"$3\n    ${2:$(python-args-to-google-docstring yas-text t)}\n    ${5:Returns:\n        $6\n}\n    \\\"\\\"\\\"\n    ${0:$$(let ((beg yas-snippet-beg)\n                (end yas-snippet-end))\n        (yas-expand-snippet\n          (buffer-substring-no-properties beg end) beg end\n              (quote ((yas-indent-line nil) (yas-wrap-around-region nil))))\n            (delete-trailing-whitespace beg (- end 1)))}\n" "Python Google style Docstring" nil nil nil "/Users/april/.emacs.d/snippets/python-mode/defg" nil nil)
 		       ("ct" "##############################################################################\n# CREATE ${1:$$(upcase yas-text)} TABLE\n##############################################################################\nCREATE_${1:$(upcase yas-text)}_TABLE = \\\"\\\"\\\"\nCREATE TABLE\n    ${2:$$(upcase yas-text)}\n(\n    ${3:$$(upcase yas-text)}\n)\n\\\"\\\"\\\"\n$0\n" "python create sql" nil nil nil "/Users/april/.emacs.d/snippets/python-mode/create" nil nil)
 		       ("bc" "${1:$(make-string (+ 4 (string-width yas-text)) ?#)}\n# $1 #\n${1:$(make-string (+ 4 (string-width yas-text)) ?#)}\n$0" "python break comment" nil nil nil "/Users/april/.emacs.d/snippets/python-mode/break command" nil nil)))
 
 
-;;; Do not edit! File generated at Tue Dec 10 13:19:50 2019
+;;; Do not edit! File generated at Tue Oct 13 10:01:49 2020

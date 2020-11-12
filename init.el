@@ -8,20 +8,22 @@
 ;; installed packages.  Don't delete this line.  If you don't want it,
 ;; just comment it out by adding a semicolon to the start of the line.
 ;; You may delete these explanatory comments.
+(setq load-prefer-newer t)
 (package-initialize)
-
 (put 'dired-find-alternate-file 'disabled nil)
 (add-to-list 'load-path "~/.emacs.d/lisp")
 
 ;; using cask manage the emacs package  which you install
 (require 'init-package)
+(require 'init-benchmark)
+(require 'init-const)
 
 ;;-----------------------------------------------------------------------------------;;
 ;; basic configurations
 ;;-----------------------------------------------------------------------------------;;
 (require 'init-system-set)
 (require 'init-ui)
-;; (require 'init-dashboard)
+(require 'init-dashboard)
 (require 'init-highlight)
 (require 'init-file)
 (require 'init-evil)
@@ -51,6 +53,7 @@
 ;;-----------------------------------------------------------------------------------;;
 ;; developer tool
 ;;-----------------------------------------------------------------------------------;;
+(require 'init-lsp)
 (require 'init-eshell)
 (require 'init-projectile)
 (require 'init-dash)
@@ -74,8 +77,10 @@
 (require 'init-c)
 (require 'init-cuda)
 (require 'init-ido)
-(require 'init-R)
 (require 'init-lua)
+(require 'init-opengl)
+(require 'prototxt-mode)
+(require 'init-es)
 
 ;; ;;-----------------------------------------------------------------------------------;;
 ;; ;; other config

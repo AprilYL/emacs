@@ -8,7 +8,8 @@
 ;; Cask
 ;;-----------------------------------------------------------------------------------;;
 (package-initialize)
-(require 'cask "~/.cask/cask.el")
+(require 'cl)
+(require 'cask "/usr/local/share/emacs/site-lisp/cask/cask.el")
 (cask-initialize)
 (require 'pallet)
 (pallet-mode t)
@@ -18,7 +19,6 @@
 ;;-----------------------------------------------------------------------------------;;
 
 ;; Following line is not needed if use-package.el is in ~/.emacs.d
-(require 'cl)
 (require 'use-package)
 (use-package diminish
   :ensure t)
@@ -29,11 +29,9 @@
 ;; auto update package
 ;;-----------------------------------------------------------------------------------;;
 (use-package auto-package-update
-  :custom
   :config
-  (setq auto-package-update-maybe)
-  (setq auto-package-update-delete-old-version t)
-  (setq auto-package-update-hide-result t)
-  )
+  (setq auto-package-update-delete-old-versions t)
+  (setq auto-package-update-hide-results t)
+  (auto-package-update-maybe))
 (provide 'init-package)
 ;;; init-package.el ends here

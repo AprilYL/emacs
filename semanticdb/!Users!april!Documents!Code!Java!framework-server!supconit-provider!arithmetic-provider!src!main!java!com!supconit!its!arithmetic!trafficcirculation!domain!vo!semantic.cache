@@ -1,0 +1,99 @@
+;; Object semanticdb-project-database-file
+;; SEMANTICDB Tags save file
+(semanticdb-project-database-file "semanticdb-project-database-file"
+  :tables
+  (list
+    (semanticdb-table "semanticdb-table"
+      :major-mode jdee-mode
+      :tags 
+        '( ("com.supconit.its.arithmetic.trafficcirculation.domain.vo" package nil nil [1 66])
+            ("com.supconit.its.arithmetic.trafficcirculation.domain.dto.HighwayLinkBaseDTO" include nil nil [68 152])
+            ("lombok.Data" include nil nil [153 172])
+            ("lombok.ToString" include nil nil [173 196])
+            ("java.time.LocalDate" include nil nil [198 225])
+            ("java.time.LocalDateTime" include nil nil [226 257])
+            ("HighwayLinkIndexInfo" type
+               (:typemodifiers ("public")
+                :members 
+                  ( ("name" variable
+                       (:typemodifiers ("private")
+                        :type "String")
+                        (reparse-symbol class_member_declaration) [421 441])
+                    ("dire" variable
+                       (:typemodifiers ("private")
+                        :type "String")
+                        (reparse-symbol class_member_declaration) [475 495])
+                    ("localDate" variable
+                       (:typemodifiers ("private")
+                        :type "LocalDate")
+                        (reparse-symbol class_member_declaration) [538 566])
+                    ("time" variable
+                       (:typemodifiers ("private")
+                        :type "String")
+                        (reparse-symbol class_member_declaration) [604 624])
+                    ("linkFlow" variable
+                       (:typemodifiers ("private")
+                        :type "Integer")
+                        (reparse-symbol class_member_declaration) [658 683])
+                    ("linkVKT" variable
+                       (:typemodifiers ("private")
+                        :type "Double")
+                        (reparse-symbol class_member_declaration) [720 743])
+                    ("aveVelocity" variable
+                       (:typemodifiers ("private")
+                        :type "Double")
+                        (reparse-symbol class_member_declaration) [779 806])
+                    ("maxVelocity" variable
+                       (:typemodifiers ("private")
+                        :type "Double")
+                        (reparse-symbol class_member_declaration) [842 869])
+                    ("minVelocity" variable
+                       (:typemodifiers ("private")
+                        :type "Double")
+                        (reparse-symbol class_member_declaration) [905 932])
+                    ("freeFlowVelocity" variable
+                       (:typemodifiers ("private")
+                        :type "Double")
+                        (reparse-symbol class_member_declaration) [967 999])
+                    ("aveTime" variable
+                       (:typemodifiers ("private")
+                        :type "Double")
+                        (reparse-symbol class_member_declaration) [1035 1058])
+                    ("freeFlowTime" variable
+                       (:typemodifiers ("private")
+                        :type "Double")
+                        (reparse-symbol class_member_declaration) [1095 1123])
+                    ("travelTimeRatio" variable
+                       (:typemodifiers ("private")
+                        :type "Double")
+                        (reparse-symbol class_member_declaration) [1158 1189])
+                    ("delayTimeRatio" variable
+                       (:typemodifiers ("private")
+                        :type "Double")
+                        (reparse-symbol class_member_declaration) [1224 1254])
+                    ("trafficLevel" variable
+                       (:typemodifiers ("private")
+                        :type "Integer")
+                        (reparse-symbol class_member_declaration) [1325 1354])
+                    ("linkFlowLevel" variable
+                       (:typemodifiers ("private")
+                        :type "Integer")
+                        (reparse-symbol class_member_declaration) [1416 1446])
+                    ("sampleData" variable
+                       (:typemodifiers ("private")
+                        :type "Integer")
+                        (reparse-symbol class_member_declaration) [1481 1508])
+                    ("edge" variable
+                       (:typemodifiers ("private")
+                        :type "HighwayLinkBaseDTO")
+                        (reparse-symbol class_member_declaration) [1542 1574]))                  
+                :type "class")
+                nil [352 1577]))          
+      :file "HighwayLinkIndexInfo.java"
+      :pointmax 1578
+      :fsize 1869
+      :lastmodtime '(24276 22647 264207 244000)
+      :unmatched-syntax '((IDENTIFIER 342 . 351) (IDENTIFIER 336 . 341))))
+  :file "!Users!april!Documents!Code!Java!framework-server!supconit-provider!arithmetic-provider!src!main!java!com!supconit!its!arithmetic!trafficcirculation!domain!vo!semantic.cache"
+  :semantic-tag-version "2.0"
+  :semanticdb-version "2.2")

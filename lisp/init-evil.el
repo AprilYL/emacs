@@ -1,15 +1,14 @@
 ;;;; package --- init-evil.el
 
 ;;; Commentary:
-
 ;; vim configure
-
 ;;; Code:
 ;;;config
 ;;----------------------------------------------------------------------------;;
 ;; evil
 ;;----------------------------------------------------------------------------;;
 (use-package evil
+  :ensure t
   :demand evil
   :hook
   (after-init . evil-mode)
@@ -32,6 +31,10 @@
 	("C-a" . move-beginning-of-line)
 	("C-w" . evil-delete)		
 	("C-k" . evil-delete-line))
+  :config
+  (setq evil-ex-search-vim-style-regexp t)
+  (setq evil-search-module 'evil-search)
+  (setq evil-magic 'very-magic)
   )
 
 ;;----------------------------------------------------------------------------;;
@@ -63,31 +66,34 @@
   (evil-leader/set-key
     ;;helm-x
     "x" 'helm-M-x
-    ;;file and frame
-    "ff" 'counsel-find-file
+    ;; jump
+    "g" 'ace-jump-mode-hydra/body
+
+    ;; flycheck
+    "c" 'flyspell-correct-hydra/body
+
+    ;; Files
+    "ff" 'counsel-find-file 
     "fd" 'delete-file
-    "fr" 'recentf-open-files
+    "fr" 'helm-recentf
+    ;;buffer shortcut
     "fm" 'make-frame
     "fo" 'other-frame
     "fc" 'delete-frame
 
-    ;;buffer shortcut
     "bs" 'save-buffer
     "bc" 'ivy-switch-buffer
     "bk" 'kill-buffer
     "be" 'eval-buffer
-    "bd" 'evil-scroll-page-down
-    "bl" 'recenter-top-bottom
-    "bu" 'evil-scroll-page-up
-    "bm" 'recenter-top-bottom
+
 
     ;;scroll window
     "k" 'scroll-down
     "j" 'scroll-up
     "l" 'recenter-top-bottom
-    "g" 'evil-goto-line
     "v" 'evil-visual-line
     ";" 'comment-dwim
+
     ;;windown
     "ws" 'ace-swap-window
     "wh" 'split-window-vertically
@@ -106,16 +112,16 @@
     "8"  'select-window-8
     "9"  'select-window-9
 
-    
+
     ;; n means navigation
     ;; origami
     "nn" 'origami-hydra/body
 
     ;; dumb-jump
-    "ng" 'hydra-dumb-jump/body
+    "ng" 'dumb-jump-hydra/body
 
     ;; navigation python code
-    "np" 'hydra-anaconda/body
+    "np" 'anaconda-mode-hydra/body
 
     ;; multiple-cursors
     ;; "em" hydra-evil-mc/body
@@ -125,17 +131,27 @@
 
     ;; e means edit
     ;; smartparens
-    "ep" 'hydra-smartparens/body
+    "ep" 'smartparens-hydra/body
 
     ;; auto-yasnippet
     "ey" 'hydra-auto-yasnippet/body
 
+    ;; ivy-uasnippey
+    "ei" 'ivy-yasnippet
+
     ;; "em" 'hydra-multiple-cursors/body
     ;; projectile key
-    "p" 'hydra-helm-projectile/body
+    "p" 'helm-projectile-hydra/body
 
     ;;eshell
-    "so" 'eshell)
+    "so" 'eshell
+    "sp" 'helm-swoop
+    "smp" 'helm-multi-swoop
+    ;; java
+
+    ;; Hydra-marjor -mode
+    "h" 'major-mode-hydra
+    )
   )
 
 ;;----------------------------------------------------------------------------;;
@@ -160,9 +176,35 @@
 (use-package evil-matchit
   :hook(after-init . global-evil-matchit-mode))
 
+;;----------------------------------------------------------------------------;;
+;; evil-multiple cursor
+;;----------------------------------------------------------------------------;;
 (use-package evil-mc
+  ;; :function hydra-evil-mc/body
   :hook
   (after-init . global-evil-mc-mode)
+  ;; :config
+  ;; (defhydra hydra-evil-mc(:color blue :hint none)
+  
+  ;;   )
+  )
+
+;;----------------------------------------------------------------------------;;
+;; evil-collection
+;;----------------------------------------------------------------------------;;
+(use-package evil-collection
+  :ensure t
+  :after evil
+  :config
+  (evil-collection-init)
+  )
+;;----------------------------------------------------------------------------;;
+;; evil-numbers
+;;----------------------------------------------------------------------------;;
+(use-package evil-numbers
+  :config
+  (global-set-key (kbd "C-c =") 'evil-numbers/inc-at-pt)
+  (global-set-key (kbd "C-c -") 'evil-numbers/dec-at-pt)
   )
 (provide 'init-evil)
 ;;; init-evil ends here

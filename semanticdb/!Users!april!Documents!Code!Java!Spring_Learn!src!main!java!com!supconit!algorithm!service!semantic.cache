@@ -1,0 +1,21 @@
+;; Object semanticdb-project-database-file
+;; SEMANTICDB Tags save file
+(semanticdb-project-database-file "semanticdb-project-database-file"
+  :tables
+  (list
+    (semanticdb-table "semanticdb-table"
+      :major-mode jdee-mode
+      :tags 
+        '( ("com.supconit.algorithm.service" package nil nil [1 40])
+            ("IAcountService" type
+               (:typemodifiers ("public")
+                :type "class")
+                nil [42 73]))          
+      :file "IAcountService.java"
+      :pointmax 74
+      :fsize 73
+      :lastmodtime '(24281 61683 768878 650000)
+      :unmatched-syntax nil))
+  :file "!Users!april!Documents!Code!Java!Spring_Learn!src!main!java!com!supconit!algorithm!service!semantic.cache"
+  :semantic-tag-version "2.0"
+  :semanticdb-version "2.2")

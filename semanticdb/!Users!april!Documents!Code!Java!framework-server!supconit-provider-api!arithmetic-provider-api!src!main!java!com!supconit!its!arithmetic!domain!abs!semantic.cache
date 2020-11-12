@@ -1,0 +1,61 @@
+;; Object semanticdb-project-database-file
+;; SEMANTICDB Tags save file
+(semanticdb-project-database-file "semanticdb-project-database-file"
+  :tables
+  (list
+    (semanticdb-table "semanticdb-table"
+      :major-mode jdee-mode
+      :tags 
+        '( ("com.supconit.its.arithmetic.domain.abs" package nil nil [1 48])
+            ("com.fasterxml.jackson.annotation.JsonSubTypes" include nil nil [50 103])
+            ("com.fasterxml.jackson.annotation.JsonTypeInfo" include nil nil [104 157])
+            ("com.fasterxml.jackson.databind.annotation.JsonDeserialize" include nil nil [158 223])
+            ("io.swagger.annotations.ApiModelProperty" include nil nil [224 271])
+            ("lombok.Data" include nil nil [272 291])
+            ("lombok.ToString" include nil nil [292 315])
+            ("java.time.LocalDateTime" include nil nil [317 348])
+            ("BaseVehiclePass" type
+               (:typemodifiers ("public" "abstract")
+                :members 
+                  ( ("id" variable
+                       (:typemodifiers ("private")
+                        :type "Long")
+                        (reparse-symbol class_member_declaration) [840 856])
+                    ("hphm" variable
+                       (:typemodifiers ("private")
+                        :type "String")
+                        (reparse-symbol class_member_declaration) [900 920])
+                    ("hpzl" variable
+                       (:typemodifiers ("private")
+                        :type "String")
+                        (reparse-symbol class_member_declaration) [964 984])
+                    ("fxbh" variable
+                       (:typemodifiers ("private")
+                        :type "String")
+                        (reparse-symbol class_member_declaration) [1028 1048])
+                    ("jgsj" variable
+                       (:typemodifiers ("private")
+                        :type "long")
+                        (reparse-symbol class_member_declaration) [1092 1110])
+                    ("jgdd" variable
+                       (:typemodifiers ("private")
+                        :type "String")
+                        (reparse-symbol class_member_declaration) [1154 1174])
+                    ("kkbh" variable
+                       (:typemodifiers ("private")
+                        :type "String")
+                        (reparse-symbol class_member_declaration) [1218 1238])
+                    ("cdh" variable
+                       (:typemodifiers ("private")
+                        :type "String")
+                        (reparse-symbol class_member_declaration) [1281 1300]))                  
+                :type "class")
+                nil [759 1302]))          
+      :file "BaseVehiclePass.java"
+      :pointmax 1303
+      :fsize 1536
+      :lastmodtime '(24276 22647 230510 448000)
+      :unmatched-syntax '((STRING_LITERAL 1270 . 1275) (IDENTIFIER 1262 . 1267) (EQ 1268 . 1269) (STRING_LITERAL 1206 . 1212) (IDENTIFIER 1198 . 1203) (EQ 1204 . 1205) (STRING_LITERAL 1142 . 1148) (IDENTIFIER 1134 . 1139) (EQ 1140 . 1141) (STRING_LITERAL 1080 . 1086) (IDENTIFIER 1072 . 1077) (EQ 1078 . 1079) (STRING_LITERAL 1016 . 1022) (IDENTIFIER 1008 . 1013) (EQ 1014 . 1015) (STRING_LITERAL 952 . 958) (IDENTIFIER 944 . 949) (EQ 950 . 951) (STRING_LITERAL 888 . 894) (IDENTIFIER 880 . 885) (EQ 886 . 887) (STRING_LITERAL 830 . 834) (IDENTIFIER 822 . 827) (EQ 828 . 829) (PAREN_BLOCK 688 . 758) (IDENTIFIER 675 . 688) (PAREN_BLOCK 624 . 674) (IDENTIFIER 611 . 624) (IDENTIFIER 594 . 610) (IDENTIFIER 584 . 593) (IDENTIFIER 578 . 583))))
+  :file "!Users!april!Documents!Code!Java!framework-server!supconit-provider-api!arithmetic-provider-api!src!main!java!com!supconit!its!arithmetic!domain!abs!semantic.cache"
+  :semantic-tag-version "2.0"
+  :semanticdb-version "2.2")

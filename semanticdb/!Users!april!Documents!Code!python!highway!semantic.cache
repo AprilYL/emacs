@@ -1,0 +1,71 @@
+;; Object semanticdb-project-database-file
+;; SEMANTICDB Tags save file
+(semanticdb-project-database-file "semanticdb-project-database-file"
+  :tables
+  (list
+    (semanticdb-table "semanticdb-table"
+      :major-mode python-mode
+      :tags 
+        '( ("datetime" include nil nil [134 163])
+            ("os" include nil nil [164 173])
+            ("pandas" include nil nil [175 194])
+            ("src.core.bayonetdata" include nil nil [196 240])
+            ("src.core.road" include nil nil [241 271])
+            ("docs.hn_sql" include nil nil [272 299])
+            ("sqlite3" include nil nil [300 321])
+            ("os" variable nil nil [322 378])
+            ("data_path" variable nil nil [379 421])
+            ("conn" variable nil nil [422 451])
+            ("base_data" variable nil nil [452 491])
+            ("base_data" code nil nil [818 858])
+            ("base_data" code nil nil [859 946])
+            ("base_data" variable nil nil [947 979])
+            ("base_data" code nil nil [980 1019])
+            ("base_data" variable nil nil [1020 1061])
+            ("data" variable nil nil [1358 1398])
+            ("data" variable nil nil [1399 1460])
+            ("data" variable nil nil [1513 1549])
+            ("bayonetdata" variable nil nil [1550 1592]))          
+      :file "hn_test.py"
+      :pointmax 1593
+      :fsize 1592
+      :lastmodtime '(24272 42354 408875 407000)
+      :unmatched-syntax nil)
+    (semanticdb-table "semanticdb-table"
+      :major-mode python-mode
+      :tags 
+        '( ("os" include nil nil [131 140])
+            ("re" include nil nil [141 150])
+            ("docs.conf" include nil nil [152 180])
+            ("docs.sql" include nil nil [181 205])
+            ("src.core.bayonetdata" include nil nil [206 250])
+            ("src.utils.database" include nil nil [251 290])
+            ("os" variable nil nil [292 348])
+            ("database" variable nil nil [361 403])
+            ("start" variable nil nil [419 448])
+            ("end" variable nil nil [449 476])
+            ("data" variable nil nil [565 603])
+            ("base_data" variable nil nil [617 657])
+            ("base_data" variable nil nil [658 693])
+            ("base_data" variable nil nil [694 729])
+            ("base_data" variable nil nil [730 765])
+            ("base_data" code nil nil [766 852])
+            ("base_data" variable nil nil [853 919])
+            ("base_data" variable nil nil [920 983])
+            ("data" variable nil nil [1001 1045])
+            ("data" variable nil nil [1053 1138])
+            ("data" variable nil nil [1139 1196])
+            ("data" variable nil nil [1197 1348])
+            ("data" variable nil nil [1349 1436])
+            ("data" code nil nil [1437 1479])
+            ("bayonetdata" variable nil nil [1480 1522])
+            ("print" code nil nil [1523 1534])
+            ("res" variable nil nil [1535 1587]))          
+      :file "test.py"
+      :pointmax 5076
+      :fsize 5159
+      :lastmodtime '(24206 32859 137364 906000)
+      :unmatched-syntax nil))
+  :file "!Users!april!Documents!Code!python!highway!semantic.cache"
+  :semantic-tag-version "2.0"
+  :semanticdb-version "2.2")

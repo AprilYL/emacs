@@ -1,0 +1,30 @@
+;; Object semanticdb-project-database-file
+;; SEMANTICDB Tags save file
+(semanticdb-project-database-file "semanticdb-project-database-file"
+  :tables
+  (list
+    (semanticdb-table "semanticdb-table"
+      :major-mode jdee-mode
+      :tags 
+        '( ("com.supconit.its.arithmetic.common" package nil nil [1 44])
+            ("org.elasticsearch.client.RestHighLevelClient" include nil nil [46 98])
+            ("BaseAnaly" type
+               (:typemodifiers ("public" "abstract")
+                :members 
+                  ( ("analyze" function
+                       (:typemodifiers ("public" "abstract")
+                        :arguments 
+                          ( ("cron" variable (:type "String") (reparse-symbol formal_parameters) [328 339])
+                            ("client" variable (:type "RestHighLevelClient") (reparse-symbol formal_parameters) [341 367]))                          
+                        :type "void")
+                        (reparse-symbol class_member_declaration) [299 369]))                  
+                :type "class")
+                nil [174 372]))          
+      :file "BaseAnaly.java"
+      :pointmax 373
+      :fsize 420
+      :lastmodtime '(24276 22647 254180 642000)
+      :unmatched-syntax nil))
+  :file "!Users!april!Documents!Code!Java!framework-server!supconit-provider!arithmetic-provider!src!main!java!com!supconit!its!arithmetic!common!semantic.cache"
+  :semantic-tag-version "2.0"
+  :semanticdb-version "2.2")

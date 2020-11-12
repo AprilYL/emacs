@@ -1,0 +1,47 @@
+;; Object semanticdb-project-database-file
+;; SEMANTICDB Tags save file
+(semanticdb-project-database-file "semanticdb-project-database-file"
+  :tables
+  (list
+    (semanticdb-table "semanticdb-table"
+      :major-mode jdee-mode
+      :tags 
+        '( ("com.supconit.its.arithmetic.trafficcirculation.util" package nil nil [1 61])
+            ("com.alibaba.fastjson.JSON" include nil nil [63 96])
+            ("com.supconit.its.arithmetic.common.util.BaseUtil" include nil nil [97 153])
+            ("com.supconit.its.arithmetic.common.util.CronUtil" include nil nil [154 210])
+            ("com.supconit.its.arithmetic.config.TrafficCirculationConfigs" include nil nil [211 279])
+            ("com.supconit.its.arithmetic.dataapi.trafficcirculation.TrafficCirculationDataApi" include nil nil [280 368])
+            ("com.supconit.its.arithmetic.trafficcirculation.domain.dto.HighwayRoadDTO" include nil nil [369 449])
+            ("com.supconit.its.excpetion.BaseException" include nil nil [450 498])
+            ("org.springframework.util.StringUtils" include nil nil [499 543])
+            ("java.util.Map" include nil nil [544 565])
+            ("java.util.stream.Collectors" include nil nil [566 601])
+            ("HighwayLinkUtil" type
+               (:typemodifiers ("public")
+                :members 
+                  ( ("METHOD" variable
+                       (:typemodifiers ("private" "static" "final")
+                        :type "String")
+                        (reparse-symbol class_member_declaration) [796 850])
+                    ("getHighwayLink" function
+                       (:typemodifiers ("public" "static")
+                        :arguments 
+                          ( ("configs" variable (:type "TrafficCirculationConfigs") (reparse-symbol formal_parameters) [981 1014]))                          
+                        :type "HighwayRoadDTO")
+                        (reparse-symbol class_member_declaration) [937 1717])
+                    ("getSaturatedFlowOfEdge" function
+                       (:constructor-flag t
+                        :arguments 
+                          ( ("configs" variable (:type "TrafficCirculationConfigs") (reparse-symbol formal_parameters) [1852 1885]))                          )
+                        (reparse-symbol class_member_declaration) [1829 2369]))                  
+                :type "class")
+                nil [725 2372]))          
+      :file "HighwayLinkUtil.java"
+      :pointmax 2373
+      :fsize 2676
+      :lastmodtime '(24276 22647 265839 322000)
+      :unmatched-syntax '((GT 1827 . 1828) (COMMA 1819 . 1820) (PUBLIC 1795 . 1801) (LT 1812 . 1813) (IDENTIFIER 638 . 642) (DOT 637 . 638) (IDENTIFIER 627 . 637) (DOT 626 . 627) (IDENTIFIER 622 . 626) (DOT 621 . 622) (IMPORT 603 . 609) (STATIC 610 . 616) (IDENTIFIER 617 . 621))))
+  :file "!Users!april!Documents!Code!Java!framework-server!supconit-provider!arithmetic-provider!src!main!java!com!supconit!its!arithmetic!trafficcirculation!util!semantic.cache"
+  :semantic-tag-version "2.0"
+  :semanticdb-version "2.2")

@@ -1,0 +1,36 @@
+;; Object semanticdb-project-database-file
+;; SEMANTICDB Tags save file
+(semanticdb-project-database-file "semanticdb-project-database-file"
+  :tables
+  (list
+    (semanticdb-table "semanticdb-table"
+      :major-mode jdee-mode
+      :tags 
+        '( ("com.supconit.its" package nil nil [1 26])
+            ("org.springframework.boot.SpringApplication" include nil nil [28 78])
+            ("org.springframework.boot.autoconfigure.SpringBootApplication" include nil nil [79 147])
+            ("org.springframework.cache.annotation.EnableCaching" include nil nil [148 206])
+            ("org.springframework.cloud.netflix.eureka.EnableEurekaClient" include nil nil [207 274])
+            ("org.springframework.cloud.openfeign.EnableFeignClients" include nil nil [275 337])
+            ("ArithmeticApplication" type
+               (:typemodifiers ("public")
+                :members 
+                  ( ("main" function
+                       (:typemodifiers ("public" "static")
+                        :arguments 
+                          ( ("args" variable
+                               (:dereference 1
+                                :type "String")
+                                (reparse-symbol formal_parameters) [514 527]))                          
+                        :type "void")
+                        (reparse-symbol class_member_declaration) [490 602]))                  
+                :type "class")
+                nil [448 605]))          
+      :file "ArithmeticApplication.java"
+      :pointmax 606
+      :fsize 617
+      :lastmodtime '(24276 22647 253788 592000)
+      :unmatched-syntax '((IDENTIFIER 433 . 447) (IDENTIFIER 413 . 432) (IDENTIFIER 393 . 412) (IDENTIFIER 370 . 392))))
+  :file "!Users!april!Documents!Code!Java!framework-server!supconit-provider!arithmetic-provider!src!main!java!com!supconit!its!semantic.cache"
+  :semantic-tag-version "2.0"
+  :semanticdb-version "2.2")

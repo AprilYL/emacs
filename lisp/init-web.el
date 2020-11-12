@@ -32,7 +32,6 @@
 
 
 (use-package css-mode
-  :ensure nil
   :init (setq css-indent-offset 4))
 
 ;; SCSS mode
@@ -91,7 +90,7 @@
 ;; Typescript Interactive Development Environment
 (use-package tide
   :diminish tide-mode
-  :defines (company-backends tide-format-options)
+  :defines (tide-format-options)
   :functions (tide-setup tide-hl-identifier-mode)
   :preface
   (defun setup-tide-mode ()
@@ -109,13 +108,13 @@
           :placeOpenBraceOnNewLineForFunctions
           nil))
 
-  (with-eval-after-load 'company
-    (cl-pushnew 'company-tide company-backends)))
+  )
 
 ;; Major mode for editing web templates
 (use-package web-mode
-  :defines company-backends
   :mode "\\.\\(phtml\\|php|[gj]sp\\|as[cp]x\\|erb\\|djhtml\\|html?\\|hbs\\|ejs\\|jade\\|swig\\|tm?pl\\|vue\\)$"
+  :hook
+  (web-mode . (lambda() (set (make-local-variable 'company-backends) '((company-web-html company-web-jade company-web-slim company-keywords company-capf company-yasnippet company-dabbrev company-files )))))
   :config
   (setq web-mode-markup-indent-offset 4)
   (setq web-mode-css-indent-offset 4)
@@ -124,14 +123,10 @@
   ;; Complete for web,html,emmet,jade,slim modes
   (use-package company-web
     :after company
-    :init (dolist (mode '(company-web-html company-web-jade company-web-slim))
-            (cl-pushnew mode company-backends))))
+    ))
 (use-package emmet-mode
   :ensure t
-  :hook (web-mode css-mode scss-mode sgml-mode)
-  :config
-  (add-hook 'emmet-mode-hook (lambda() (setq emmet-indent-after-insert t)))
-  (set-default emmet-move-cursor-between-quotes t)
+  :hook ((web-mode css-mode scss-mode sgml-mode) . emmet-mode)
   )
 
 ;; Live browser JavaScript, CSS, and HTML interaction

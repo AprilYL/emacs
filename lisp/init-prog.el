@@ -14,16 +14,7 @@
 
 (use-package quickrun
   :bind ("s-r" . quickrun))
-(use-package caks-mode)
+(use-package cask-mode)
 (use-package vimrc-mode)
-(use-package glsl-mode
-  :mode "\\.\\([fvg]s\\|vert\\|tesc\\|tese\\|geom\\|frag\\|comp\\)$"
-  :config
-  (use-package company-glsl
-    :init
-    :config
-    (add-hook 'glsl-mode (lambda()
-			   (set (make-local-variable 'company-backends)'(company-glsl))))
-    ))
 (provide 'init-prog)
 ;;; init-prog.el ends here

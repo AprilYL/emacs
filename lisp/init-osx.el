@@ -5,7 +5,8 @@
 
 ;;; Code:
 (use-package exec-path-from-shell
-  :if (eq system-type 'darwin)
+  ;; :if (eq system-type 'darwin)
+  :diminish
   :config
   (setq exec-path-from-shell-check-startup-files nil)
   (exec-path-from-shell-initialize)
@@ -13,7 +14,8 @@
   ) 
 
 (use-package reveal-in-osx-finder
-    :bind
+  :diminish
+  :bind
   ( "C-c z" . 'reveal-in-osx-finder))
 
 (provide 'init-osx)
