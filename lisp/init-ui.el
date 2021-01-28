@@ -63,12 +63,12 @@
 
 (setq frame-title-format '("April Emacs - %b")
       icon-title-format frame-title-format)
-;; (when sys/mac-x-p
-;;   (add-hook 'after-load-theme-hook
-;;             (lambda ()
-;;               (let ((bg (frame-parameter nil 'background-mode)))
-;;                 (set-frame-parameter nil 'ns-appearance bg)
-;;                 (setcdr (assq 'ns-appearance default-frame-alist) bg)))))
+(when sys/mac-x-p
+  (add-hook 'after-load-theme-hook
+            (lambda ()
+              (let ((bg (frame-parameter nil 'background-mode)))
+                (set-frame-parameter nil 'ns-appearance bg)
+                (setcdr (assq 'ns-appearance default-frame-alist) bg)))))
 
 ;;------------------------------------------------------;;
 ;; Icons

@@ -7,8 +7,7 @@
 ;;-----------------------------------------------------------------------------------;;
 ;; Cask
 ;;-----------------------------------------------------------------------------------;;
-(package-initialize)
-(require 'cl)
+(require 'cl-lib)
 (require 'cask "/usr/local/share/emacs/site-lisp/cask/cask.el")
 (cask-initialize)
 (require 'pallet)

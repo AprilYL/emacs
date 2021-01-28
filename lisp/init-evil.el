@@ -31,7 +31,7 @@
 	("C-a" . move-beginning-of-line)
 	("C-w" . evil-delete)		
 	("C-k" . evil-delete-line))
-  :config
+  :init
   (setq evil-ex-search-vim-style-regexp t)
   (setq evil-search-module 'evil-search)
   (setq evil-magic 'very-magic)

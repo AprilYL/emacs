@@ -9,10 +9,10 @@
 ;; just comment it out by adding a semicolon to the start of the line.
 ;; You may delete these explanatory comments.
 (setq load-prefer-newer t)
+(setq package-enable-at-startup nil)
 (package-initialize)
 (put 'dired-find-alternate-file 'disabled nil)
 (add-to-list 'load-path "~/.emacs.d/lisp")
-
 ;; using cask manage the emacs package  which you install
 (require 'init-package)
 (require 'init-benchmark)

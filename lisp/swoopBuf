@@ -1,0 +1,56 @@
+h
+init-company.el
+52	10	  :diminish company-mode
+52	28		      :map company-search-map
+52	34	  (company-echo-delay 0)
+52	35	  (company-minimum-prefix-length 1)
+52	39	  (company-require-match nil)
+52	41	  (company-show-numbers t)
+52	43	  :hook
+52	46	  ;; Use the tab-and-go frontend
+52	50				   company-echo-metadata-frontend))
+52	53	  :hook
+52	55	(use-package company-quickhelp
+52	56	  :defines company-quickhelp-delay
+52	58	  :hook (global-company-mode . company-quickhelp-mode)
+52	59	  :custom (company-quickhelp-delay 0.8)
+52	63	  :diminish
+52	64	  :hook
+52	67	  (setq company-box-icons-alist 'company-box-icons-all-the-icons)
+52	70	  (setq company-box-show-single-candidate t)
+52	73	  ;;   (when (derived-mode-p 'emacs-lisp-mode)
+52	82	  (with-eval-after-load 'all-the-icons
+52	83	    (declare-function all-the-icons-faicon 'all-the-icons)
+52	84	    (declare-function all-the-icons-fileicon 'all-the-icons)
+52	85	    (declare-function all-the-icons-material 'all-the-icons)
+52	86	    (declare-function all-the-icons-octicon 'all-the-icons)
+52	87	    (setq company-box-icons-all-the-icons
+52	88		  `((Unknown . ,(all-the-icons-material "find_in_page" :height 0.7 :v-adjust -0.15))
+52	89		    (Text . ,(all-the-icons-faicon "book" :height 0.68 :v-adjust -0.15))
+52	90		    (Method . ,(all-the-icons-faicon "cube" :height 0.7 :v-adjust -0.05 :face 'font-lock-constant-face))
+52	91		    (Function . ,(all-the-icons-faicon "cube" :height 0.7 :v-adjust -0.05 :face 'font-lock-constant-face))
+52	92		    (Constructor . ,(all-the-icons-faicon "cube" :height 0.7 :v-adjust -0.05 :face 'font-lock-constant-face))
+52	93		    (Field . ,(all-the-icons-faicon "tags" :height 0.65 :v-adjust -0.15 :face 'font-lock-warning-face))
+52	94		    (Variable . ,(all-the-icons-faicon "tag" :height 0.7 :v-adjust -0.05 :face 'font-lock-warning-face))
+52	95		    (Class . ,(all-the-icons-faicon "clone" :height 0.65 :v-adjust 0.01 :face 'font-lock-constant-face))
+52	96		    (Interface . ,(all-the-icons-faicon "clone" :height 0.65 :v-adjust 0.01))
+52	97		    (Module . ,(all-the-icons-octicon "package" :height 0.7 :v-adjust -0.15))
+52	98		    (Property . ,(all-the-icons-octicon "package" :height 0.7 :v-adjust -0.05 :face 'font-lock-warning-face)) ;; Golang module
+52	99		    (Unit . ,(all-the-icons-material "settings_system_daydream" :height 0.7 :v-adjust -0.15))
+52	100		    (Value . ,(all-the-icons-material "format_align_right" :height 0.7 :v-adjust -0.15 :face 'font-lock-constant-face))
+52	101		    (Enum . ,(all-the-icons-material "storage" :height 0.7 :v-adjust -0.15 :face 'all-the-icons-orange))
+52	102		    (Keyword . ,(all-the-icons-material "filter_center_focus" :height 0.7 :v-adjust -0.15))
+52	103		    (Snippet . ,(all-the-icons-faicon "code" :height 0.7 :v-adjust 0.02 :face 'font-lock-variable-name-face))
+52	104		    (Color . ,(all-the-icons-material "palette" :height 0.7 :v-adjust -0.15))
+52	105		    (File . ,(all-the-icons-faicon "file-o" :height 0.7 :v-adjust -0.05))
+52	106		    (Reference . ,(all-the-icons-material "collections_bookmark" :height 0.7 :v-adjust -0.15))
+52	107		    (Folder . ,(all-the-icons-octicon "file-directory" :height 0.7 :v-adjust -0.05))
+52	108		    (EnumMember . ,(all-the-icons-material "format_align_right" :height 0.7 :v-adjust -0.15 :face 'all-the-icons-blueb))
+52	109		    (Constant . ,(all-the-icons-faicon "tag" :height 0.7 :v-adjust -0.05))
+52	110		    (Struct . ,(all-the-icons-faicon "clone" :height 0.65 :v-adjust 0.01 :face 'font-lock-constant-face))
+52	111		    (Event . ,(all-the-icons-faicon "bolt" :height 0.7 :v-adjust -0.05 :face 'all-the-icons-orange))
+52	112		    (Operator . ,(all-the-icons-fileicon "typedoc" :height 0.65 :v-adjust 0.05))
+52	113		    (TypeParameter . ,(all-the-icons-faicon "hashtag" :height 0.65 :v-adjust 0.07 :face 'font-lock-const-face))
+52	114		    (Template . ,(all-the-icons-faicon "code" :height 0.7 :v-adjust 0.02 :face 'font-lock-variable-name-face))))))
+52	117	;;; init-company ends here
+

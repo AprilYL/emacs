@@ -127,25 +127,26 @@
 	 )
   :hook
   (cmake-mode . (lambda() (set (make-local-variable 'company-backends)
-			       '(company-cmake company-keywords company-capf compamy-yasnippet company-dabbrev  company-files ))))
-  (use-package cmake-ide
-    :ensure t
-    :config
-    (cmake-ide-setup)
-    )
+			       '((company-cmake) (company-keywords company-capf compamy-yasnippet company-dabbrev company-files )))))
+  
+  )
+(use-package cmake-ide
+  :ensure t
+  :config
+  (cmake-ide-setup)
   )
 
-  ;;------------------------------------------------------------------------------
-  ;; clang-format
-  ;;------------------------------------------------------------------------------
-  (use-package clang-format
-    :ensure t
-    :custom
-    (clang-format-style-option "llvm")
-    :config
-    (add-hook 'c-mode-hook (lambda() (add-hook 'before-save-hook 'clang-format)))
-    (add-hook 'c++-mode-hook (lambda() (add-hook 'before-save-hook 'clang-format)))
-    )
+;;------------------------------------------------------------------------------
+;; clang-format
+;;------------------------------------------------------------------------------
+(use-package clang-format
+  :ensure t
+  :custom
+  (clang-format-style-option "llvm")
+  :config
+  (add-hook 'c-mode-hook (lambda() (add-hook 'before-save-hook 'clang-format)))
+  (add-hook 'c++-mode-hook (lambda() (add-hook 'before-save-hook 'clang-format)))
+  )
 
 ;;------------------------------------------------------------------------------
 ;; code style config

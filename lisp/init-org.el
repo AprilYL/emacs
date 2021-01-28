@@ -7,6 +7,7 @@
   :init
   ;;; display/update images in the buffer after I evaluate
   (add-hook 'org-babel-after-execute-hook 'org-redisplay-inline-images 'append)
+  (add-hook 'org-babel-after-execute-hook 'org-redisplay-inline-images 'append)
   :mode
   ("\\.org\\'" . org-mode)
   :hook

@@ -1,0 +1,8 @@
+# -*- mode: snippet -*-
+# name: split comment
+# key: sc
+# --
+${1:$(make-string 80 ?\#)}
+#${1:$(make-string (- 38 (ceiling (/ (string-width yas-text) 2)) ) ?\s)} ${1:Title} ${1:$(make-string (- 37 (ceiling (/ (string-width yas-text) 2))) ?\s)}#
+${1:$(make-string 80 ?\#)}
+$0
