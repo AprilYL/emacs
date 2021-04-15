@@ -170,7 +170,11 @@
 ;;-----------------------------------------------------;;
 ;; theme
 ;;-----------------------------------------------------;;
-;; (use-package atom-one-dark-theme)
+(use-package atom-one-dark-theme
+  :config
+  (load-theme 'atom-one-dark t)
+  )
+
 (use-package doom-themes
   :config
   ;; (setq doom-theme 'atom-one-dark)

@@ -14,10 +14,10 @@
 		     (projects . 5)
 		     (agenda . 5)
 		     ))
-  :hook
-  (after-init . dashboard-setup-startup-hook)
+  ;; :hook
+  ;; (after-init . d)
   :config
-  ;; (dashboard-setup-startup-hook)
+  (dashboard-setup-startup-hook)
   (setq dashboard-banner-logo-title "Happy Hacking!")
   (setq dashboard-set-heading-icons nil)
   (setq dashboard-set-file-icons t)

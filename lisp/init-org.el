@@ -35,24 +35,27 @@
      (jupyter . t)
      (java . t)
      (C . t)
+     ;; This buffer is for text that is not saved, and for Lisp evaluation.
+     ;; To create a file, visit it with <open> and enter text in its buffer.
+
      (R .t)
      ))
   (setq org-confirm-babel-evaluate nil) ;don't prompt me to confirm everytime I want to evaluate a block
-  
-  (setq org-agenda-files (list "~/Documents/Org/work/2020.org"
-			       ))
+  (setq org-format-latex-options (plist-put org-format-latex-options :scale 1.5))
+  (setq org-agenda-files (list "~/Documents/NoteBooks/TianRang/Work.org"
+  ;; 			       ))
   )
 
-(use-package org-bullets
-  :hook
-  (org-mode . org-bullets-mode))
+	(use-package org-bullets
+	  :hook
+	  (org-mode . org-bullets-mode))
 
-;; (use-package ox-pandoc
+	;; (use-package ox-pandoc
 ;;   :config
-;;   (setq org-pandoc-options '((standalone . t)))
-;;   (setq org-pandoc-options-for-latex-pdf '((pdf-engine . "pdflatex")))
-;;   ;; special extensions for markdown_github output
-;;   (setq org-pandoc-format-extensions '(markdown_github+pipe_tables+raw_html))
-;;   )
-(provide 'init-org)
+	;;   (setq org-pandoc-options '((standalone . t)))
+	;;   (setq org-pandoc-options-for-latex-pdf '((pdf-engine . "pdflatex")))
+	;;   ;; special extensions for markdown_github output
+	;;   (setq org-pandoc-format-extensions '(markdown_github+pipe_tables+raw_html))
+	;;   )
+	(provide 'init-org)
 ;;; init-org ends here

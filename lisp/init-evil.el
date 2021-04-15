@@ -35,6 +35,8 @@
   (setq evil-ex-search-vim-style-regexp t)
   (setq evil-search-module 'evil-search)
   (setq evil-magic 'very-magic)
+  :config
+  (evil-set-undo-system 'undo-tree)
   )
 
 ;;----------------------------------------------------------------------------;;

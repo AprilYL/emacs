@@ -67,6 +67,7 @@
 ;;-----------------------------------------------------------------------------------;;
 (require 'init-prog)
 (require 'init-python)
+(require 'init-cython)
 (require 'init-org)
 (require 'init-csv)
 (require 'init-web)

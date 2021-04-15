@@ -8,7 +8,7 @@
 ;; Cask
 ;;-----------------------------------------------------------------------------------;;
 (require 'cl-lib)
-(require 'cask "/usr/local/share/emacs/site-lisp/cask/cask.el")
+(require 'cask "/Users/april/.cask/cask.el")
 (cask-initialize)
 (require 'pallet)
 (pallet-mode t)
@@ -27,10 +27,11 @@
 ;;-----------------------------------------------------------------------------------;;
 ;; auto update package
 ;;-----------------------------------------------------------------------------------;;
-(use-package auto-package-update
-  :config
-  (setq auto-package-update-delete-old-versions t)
-  (setq auto-package-update-hide-results t)
-  (auto-package-update-maybe))
+;; (use-package auto-package-update
+;;   :config
+;;   (setq auto-package-update-delete-old-versions t)
+;;   (setq auto-package-update-hide-results t)
+;;   (auto-package-update-maybe))
+
 (provide 'init-package)
 ;;; init-package.el ends here

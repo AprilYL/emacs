@@ -55,16 +55,16 @@
   (setq which-key-show-remaining-keys nil)
   )
 
-(use-package disable-mouse
-  :diminish
-  :hook
-  (after-init . disable-mouse-mode)
-  :config
-  (mapc #'disable-mouse-in-keymap
-	(list evil-motion-state-map
-	      evil-normal-state-map
-	      evil-visual-state-map
-	      evil-insert-state-map)))
+;; (use-package disable-mouse
+;;   :diminish
+;;   :hook
+;;   (after-init . disable-mouse-mode)
+;;   :config
+;;   (mapc #'disable-mouse-in-keymap
+;; 	(list evil-motion-state-map
+;; 	      evil-normal-state-map
+;; 	      evil-visual-state-map
+;; 	      evil-insert-state-map)))
 
 (use-package hydra
   :ensure t

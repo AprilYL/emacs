@@ -38,7 +38,9 @@
   :config
   (helm-descbinds-mode)
   )
-(use-package helm-ag)
+(use-package helm-ag
+  :init
+  (add-to-list 'exec-path "/usr/local/bin/"))
 
 (use-package helm-make)
 (use-package helm-swoop)

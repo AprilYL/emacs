@@ -13,7 +13,7 @@
   :hook
   (markdown-mode . (lambda() (set (make-local-variable 'company-backends)
 				  '((company-ispell company-capf ) (company-files company-yasnippet)))))
-  :bind (:map markdown-mode-map ("TAB" . markdown-cycle))
+  :bind (:map markdown-mode-map ("<tab>" . markdown-cycle))
   :config
   (setq tab-width 4)
   ;; (use-package gh-md

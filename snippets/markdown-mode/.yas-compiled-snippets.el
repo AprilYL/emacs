@@ -6,4 +6,4 @@
 		       ("inma" "\\$$1\\$" "inline math" nil nil nil "/Users/april/.emacs.d/snippets/markdown-mode/inline_math" nil nil)))
 
 
-;;; Do not edit! File generated at Fri Nov 13 15:57:41 2020
+;;; Do not edit! File generated at Wed Apr 14 10:20:07 2021

@@ -1,0 +1,7 @@
+# -*- mode: snippet -*-
+# name: jupyter autoreload
+# key: autoreload
+# --
+%load_ext autoreload
+%autoreload 2
+

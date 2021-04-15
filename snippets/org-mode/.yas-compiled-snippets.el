@@ -7,4 +7,4 @@
 		       ("code" "#+BEGIN_SRC $1\n$2\n#+END_SRC\n$0" "orgmode code block" nil nil nil "/Users/april/.emacs.d/snippets/org-mode/code" nil nil)))
 
 
-;;; Do not edit! File generated at Fri Nov 13 15:57:41 2020
+;;; Do not edit! File generated at Wed Apr 14 10:20:07 2021

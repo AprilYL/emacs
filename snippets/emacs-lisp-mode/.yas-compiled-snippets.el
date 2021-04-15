@@ -5,4 +5,4 @@
 		     '(("hydra" "(defhydra $1 (:color ${2:blue} :hint ${3:none})\n\"\n$4\n^^────────────────────────────────^^───────────────\n^^────────────────────────────────^^───────────────\n\"\n_q_: quit\n$5\n(\"q\" nil \"quit\")\n)\n" "lsp write hydra" nil nil nil "/Users/april/.emacs.d/snippets/emacs-lisp-mode/hydra" nil nil)))
 
 
-;;; Do not edit! File generated at Fri Nov 13 15:57:41 2020
+;;; Do not edit! File generated at Wed Apr 14 10:20:07 2021
