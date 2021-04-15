@@ -291,7 +291,11 @@
 (when (or sys/mac-x-p sys/win32p) (scroll-bar-mode -1))
 (setq scroll-step 1
       scroll-margin 0
-      scroll-conservatively 100000)
+      scroll-conservatively 100000
+      mouse-wheel-scroll-amount '(1 ((shift) . 1)) ;; one line at a time
+      mouse-wheel-progressive-speed nil ;; don't accelerate scrolling
+      mouse-wheel-follow-mouse 't) ;; scroll window under mouse
+
 ;;-----------------------------------------------------;;
 ;; window numbering
 ;;-----------------------------------------------------;;

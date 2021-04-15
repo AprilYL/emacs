@@ -35,9 +35,9 @@
 (use-package esh-opt
   :config
   (venv-initialize-eshell)
-  (setq eshell-highlight-prompt nil
-	eshell-prompt-function 'epe-theme-dakrone
-	)
+  ;; (setq eshell-highlight-prompt nil
+  ;; 	eshell-prompt-function 'epe-theme-dakrone
+  ;; 	)
   )
 
 (provide 'init-eshell)
